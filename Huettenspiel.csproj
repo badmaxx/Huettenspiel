@@ -125,7 +125,6 @@
     <None Include="Resources\Logo_Huette.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Logo_Huette - Kopie.ico" />
     <Content Include="Logo_Huette.ico" />
     <None Include="Resources\Logo_Huette.ico" />
   </ItemGroup>
