@@ -25,7 +25,6 @@ namespace Hüttenspiel
                 LblVorname.Text = "Teamname";                
             }
         }
-//asdfas
 
         public string Vorname { get; private set; }
 
