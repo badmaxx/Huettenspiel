@@ -232,6 +232,7 @@ namespace Hüttenspiel
         	// 
         	// BtnBeenden
         	// 
+        	this.BtnBeenden.Enabled = false;
         	this.BtnBeenden.Location = new System.Drawing.Point(105, 20);
         	this.BtnBeenden.Name = "BtnBeenden";
         	this.BtnBeenden.Size = new System.Drawing.Size(89, 29);

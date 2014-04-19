@@ -24,7 +24,7 @@ namespace Hüttenspiel
             _spieltyp = spieltyp;
             
             endzeit = DateTime.Now.AddMinutes(rundenzeit);
-            restzeit = endzeit.Subtract(DateTime.Now);
+            restzeit = new TimeSpan(0, rundenzeit, 0);
             LblTimer.Text = restzeit.Hours.ToString("00")+":"+restzeit.Minutes.ToString("00")+":"+restzeit.Seconds.ToString("00");
             
             //Timer für die Rundenzeit starten
@@ -144,9 +144,22 @@ namespace Hüttenspiel
         //    }
         //}
       
+        //Timer für die Restzeit
         void TimerRundenzeitTick(object sender, EventArgs e)
         {
-        	        
+        	restzeit = endzeit.Subtract(DateTime.Now);		//Restzeit berechnen
+        	
+        	if(restzeit.TotalSeconds < 0)
+        	{
+        		TimerRundenzeit.Stop();
+        	}
+        	else
+        	{
+        	LblTimer.Text = restzeit.Hours.ToString("00")+":"+restzeit.Minutes.ToString("00")+":"+restzeit.Seconds.ToString("00");
+        	LblTimer.Refresh();
+        	}
+        	
+        	
         }
     }
 }

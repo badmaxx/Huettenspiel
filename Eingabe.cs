@@ -141,7 +141,7 @@ namespace Hüttenspiel
                 if (MessageBox.Show("Anzahl ändern?", "Bestätigung", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     ((Spieler)LbAktuelleSpieler.SelectedItem).AktuellesGetränk = _getränk;
-                    ((Spieler)LbAktuelleSpieler.SelectedItem).Anzahl = (int)NudAnzahl.Value;
+                    ((Spieler)LbAktuelleSpieler.SelectedItem).Anzahl = Convert.ToInt32(NudAnzahl.Value);
 
                     Spieler[] tempList = LbAktuelleSpieler.Items.Cast<Spieler>().ToArray();
                     Array.Sort(tempList);
@@ -279,12 +279,11 @@ namespace Hüttenspiel
 
                 foreach (Control ctl in GbRunde.Controls)
                 {
-                    if (ctl.Name != BtnBeenden.Name)
-                    {
                         ctl.Enabled = false;
-                    }
-                
                 }
+                
+                BtnBeenden.Enabled = true;
+                
                 this.Text = "Eingabe - Aktuell ist ein Spiel am laufen";
             }
             else
@@ -300,8 +299,6 @@ namespace Hüttenspiel
         /// <param name="e"></param>
         private void BtnBeenden_Click(object sender, EventArgs e)
         {
-            if (_rundeLäuft)
-            {
                 if (DialogResult.Yes == MessageBox.Show("Soll diese Runde beendet werden?", "Beenden", MessageBoxButtons.YesNo))
                 {
                     _runde.Close();
@@ -314,18 +311,15 @@ namespace Hüttenspiel
                     {
                         ctl.Enabled = true;
                     }
-
+                    
+                    BtnBeenden.Enabled = false;
+                    
                     BestenlisteErsteller ersteller = new BestenlisteErsteller(_sicherungSpieler, _getränk, _spieltyp);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Es gibt kein Spiel das beendet werden kann!");
-            }
         }
 
         /// <summary>
-        /// Prüft ob Programm beendet werden aknn
+        /// Prüft ob Programm beendet werden kann
         /// </summary>
         /// <returns>true kann beendet werden, false nicht</returns>
         private bool BeendeProgramm()
