@@ -19,6 +19,7 @@ namespace Hüttenspiel
         private Ansicht _runde;
         private bool _rundeLäuft = false;
         private Typ _spieltyp = Typ.Spieler;
+        private int _rundenzeit = 60;		//Standardwert für Runde auf eine Stunde setzen
 
 
         public Eingabe()
@@ -272,7 +273,7 @@ namespace Hüttenspiel
                 _rundeLäuft = true;
                 _getränk = CbGetränk.Text;
 
-                _runde = new Ansicht(CbGetränk.Text, _spieltyp);
+                _runde = new Ansicht(CbGetränk.Text, _spieltyp, _rundenzeit);
                 _runde.UpdateList(LbAktuelleSpieler.Items.Cast<Spieler>().ToArray(), ErzeugeBesten());
                 _runde.Show();
 
@@ -388,6 +389,18 @@ namespace Hüttenspiel
             {
                 e.Cancel = true;
             }
+        }
+        
+        
+        void LbSpielerMouseDoubleClick(object sender, MouseEventArgs e)
+        {
+        	if(LbSpieler.SelectedItem != null)
+        	{
+                ((Spieler)LbSpieler.SelectedItem).Anzahl = 0;
+                LbAktuelleSpieler.Items.Add(LbSpieler.SelectedItem);
+                LbSpieler.Items.RemoveAt(LbSpieler.SelectedIndex);
+                _sicherungSpieler.Spielerliste.RemoveAll(sp => sp == (Spieler)LbSpieler.SelectedItem);
+        	}
         }
     }
 }
