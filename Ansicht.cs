@@ -14,12 +14,21 @@ namespace Hüttenspiel
         private Typ _spieltyp;
         private string[] _bestenliste;
         private int _bestenlisteAktuell = 0;
+        private DateTime endzeit;
+        private TimeSpan restzeit;
 
-        public Ansicht(string getränk, Typ spieltyp)
+        public Ansicht(string getränk, Typ spieltyp, int rundenzeit)
         {
             InitializeComponent();
             LblGetränk.Text = getränk;
             _spieltyp = spieltyp;
+            
+            endzeit = DateTime.Now.AddMinutes(rundenzeit);
+            restzeit = endzeit.Subtract(DateTime.Now);
+            LblTimer.Text = restzeit.Hours.ToString("00")+":"+restzeit.Minutes.ToString("00")+":"+restzeit.Seconds.ToString("00");
+            
+            //Timer für die Rundenzeit starten
+            TimerRundenzeit.Start();
 
             if(spieltyp == Typ.Team)
                 DgvRangliste.Columns[1].HeaderText = "Team";
@@ -134,9 +143,10 @@ namespace Hüttenspiel
         //        marqueeLabelBestenliste.Width = test;
         //    }
         //}
-
       
-       
-
+        void TimerRundenzeitTick(object sender, EventArgs e)
+        {
+        	        
+        }
     }
 }
