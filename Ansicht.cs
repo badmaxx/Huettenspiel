@@ -14,8 +14,6 @@ namespace Hüttenspiel
         private Typ _spieltyp;
         private string[] _bestenliste;
         private int _bestenlisteAktuell = 0;
-        private DateTime endzeit;
-        private TimeSpan restzeit;
 
         public Ansicht(string getränk, Typ spieltyp, int rundenzeit)
         {
@@ -23,13 +21,6 @@ namespace Hüttenspiel
             LblGetränk.Text = getränk;
             _spieltyp = spieltyp;
             
-            endzeit = DateTime.Now.AddMinutes(rundenzeit);
-            restzeit = new TimeSpan(0, rundenzeit, 0);
-            LblTimer.Text = restzeit.Hours.ToString("00")+":"+restzeit.Minutes.ToString("00")+":"+restzeit.Seconds.ToString("00");
-            
-            //Timer für die Rundenzeit starten
-            TimerRundenzeit.Start();
-
             if(spieltyp == Typ.Team)
                 DgvRangliste.Columns[1].HeaderText = "Team";
         }
@@ -84,6 +75,14 @@ namespace Hüttenspiel
             DgvRangliste.ClearSelection(); 
             //UpdateBestenliste();   
         }
+        
+        //Timer für die Restzeit ändern
+        public void updateTimer(string restzeit)
+        {
+        	LblTimer.Text = restzeit;
+        	LblTimer.Refresh();
+        }
+        
 
         /// <summary>
         /// Method to start the application on the secondary screen
@@ -144,22 +143,6 @@ namespace Hüttenspiel
         //    }
         //}
       
-        //Timer für die Restzeit
-        void TimerRundenzeitTick(object sender, EventArgs e)
-        {
-        	restzeit = endzeit.Subtract(DateTime.Now);		//Restzeit berechnen
-        	
-        	if(restzeit.TotalSeconds < 0)
-        	{
-        		TimerRundenzeit.Stop();
-        	}
-        	else
-        	{
-        	LblTimer.Text = restzeit.Hours.ToString("00")+":"+restzeit.Minutes.ToString("00")+":"+restzeit.Seconds.ToString("00");
-        	LblTimer.Refresh();
-        	}
-        	
-        	
-        }
+
     }
 }

@@ -20,6 +20,8 @@ namespace Hüttenspiel
         private bool _rundeLäuft = false;
         private Typ _spieltyp = Typ.Spieler;
         private int _rundenzeit = 60;		//Standardwert für Runde auf eine Stunde setzen
+        private DateTime endzeit;
+        private TimeSpan restzeit;
 
 
         public Eingabe()
@@ -276,6 +278,10 @@ namespace Hüttenspiel
                 _runde = new Ansicht(CbGetränk.Text, _spieltyp, _rundenzeit);
                 _runde.UpdateList(LbAktuelleSpieler.Items.Cast<Spieler>().ToArray(), ErzeugeBesten());
                 _runde.Show();
+                
+                //Endzeit setzen und Timer starten
+                endzeit = DateTime.Now.AddMinutes(_rundenzeit);
+                TimerRundenzeit.Start();
 
                 foreach (Control ctl in GbRunde.Controls)
                 {
@@ -396,5 +402,25 @@ namespace Hüttenspiel
                 _sicherungSpieler.Spielerliste.RemoveAll(sp => sp == (Spieler)LbSpieler.SelectedItem);
         	}
         }
+        
+		void TimerRundenzeitTick(object sender, EventArgs e)
+        {
+        	restzeit = endzeit.Subtract(DateTime.Now);		//Restzeit berechnen
+        	
+        	if(restzeit.TotalSeconds < 0)
+        	{
+        		TimerRundenzeit.Stop();			//Wenn die Zeit abgelaufen ist, Timer stoppen
+        	}
+        	else
+        	{
+        		
+        		_runde.updateTimer(restzeit.Hours.ToString("00")+":"+restzeit.Minutes.ToString("00")+":"+restzeit.Seconds.ToString("00"));       //Genaue Restzeit in Ansicht setzen
+				this.numericUpDownTime.Text = restzeit.Minutes.ToString("00");		//Ungefähre Restzeit in Eingabefeld setzen
+        	}
+        	
+        	
+        }
     }
+    
+
 }

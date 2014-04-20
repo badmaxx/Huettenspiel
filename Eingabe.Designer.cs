@@ -32,6 +32,7 @@ namespace Hüttenspiel
         /// </summary>
         private void InitializeComponent()
         {
+        	this.components = new System.ComponentModel.Container();
         	System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Eingabe));
         	this.groupBox1 = new System.Windows.Forms.GroupBox();
         	this.BtnDelete = new System.Windows.Forms.Button();
@@ -57,6 +58,7 @@ namespace Hüttenspiel
         	this.RbSpieler = new System.Windows.Forms.RadioButton();
         	this.CbGetränk = new System.Windows.Forms.ComboBox();
         	this.BtnSchließen = new System.Windows.Forms.Button();
+        	this.TimerRundenzeit = new System.Windows.Forms.Timer(this.components);
         	this.groupBox1.SuspendLayout();
         	this.groupBox2.SuspendLayout();
         	this.groupBox3.SuspendLayout();
@@ -338,6 +340,10 @@ namespace Hüttenspiel
         	this.BtnSchließen.UseVisualStyleBackColor = true;
         	this.BtnSchließen.Click += new System.EventHandler(this.BtnSchließen_Click);
         	// 
+        	// TimerRundenzeit
+        	// 
+        	this.TimerRundenzeit.Tick += new System.EventHandler(this.TimerRundenzeitTick);
+        	// 
         	// Eingabe
         	// 
         	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,6 +370,7 @@ namespace Hüttenspiel
         	((System.ComponentModel.ISupportInitialize)(this.numericUpDownTime)).EndInit();
         	this.ResumeLayout(false);
         }
+        private System.Windows.Forms.Timer TimerRundenzeit;
         private System.Windows.Forms.NumericUpDown numericUpDownTime;
         private System.Windows.Forms.Label LblRundenzeit;
 
