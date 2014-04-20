@@ -120,9 +120,13 @@ namespace Hüttenspiel
             LblBestenliste.Text = "Hall of Fame " + _bestenliste[_bestenlisteAktuell];
 
             if (_bestenlisteAktuell == 2)
+            {
                 _bestenlisteAktuell = 0;
+            }
             else
-                _bestenlisteAktuell++;
+            {
+            	_bestenlisteAktuell++;
+            }
         }
 
 
