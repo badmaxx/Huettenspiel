@@ -102,7 +102,6 @@
         	this.Controls.Add(this.LblVorname);
         	this.Name = "Dialog";
         	this.Text = "Hinzufügen";
-        	this.Load += new System.EventHandler(this.DialogLoad);
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
