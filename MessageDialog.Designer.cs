@@ -71,6 +71,7 @@
         	this.rtbText.Size = new System.Drawing.Size(313, 56);
         	this.rtbText.TabIndex = 7;
         	this.rtbText.Text = "";
+        	this.rtbText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rtbText_KeyDown);
         	// 
         	// BtnDelText
         	// 

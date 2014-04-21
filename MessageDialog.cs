@@ -48,11 +48,17 @@ namespace Hüttenspiel
             this.Close();
         }
 
-        private void TxtNachname_KeyDown(object sender, KeyEventArgs e)
+        private void rtbText_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Enter)
+        	//Prüfen ob Strg+Enter gedrückt wrude 
+        	if (e.KeyData == (Keys.Enter | Keys.Control))
             {
-                BtnOk.PerformClick();
+                BtnOk.PerformClick();			//Form mit ok schließen
+            }
+        	//Prüfen ob Esc gedrückt wurde
+            else if(e.KeyData == Keys.Escape)
+            {
+            	BtnAbbrechen.PerformClick();	//Form mit Abbrechen schließen
             }
         }
         
