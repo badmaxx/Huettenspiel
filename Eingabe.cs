@@ -393,7 +393,11 @@ namespace Hüttenspiel
             }
         }
         
-        
+        /// <summary>
+        /// Spieler per Doppelklick hinzufügen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void LbSpielerMouseDoubleClick(object sender, MouseEventArgs e)
         {
         	if(LbSpieler.SelectedItem != null)
@@ -405,6 +409,11 @@ namespace Hüttenspiel
         	}
         }
         
+        /// <summary>
+        /// Timer für die Rundenzeit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		void TimerRundenzeitTick(object sender, EventArgs e)
         {
         	restzeit = endzeit.Subtract(DateTime.Now);		//Restzeit berechnen
@@ -421,14 +430,23 @@ namespace Hüttenspiel
         	}
         	
         	
+<<<<<<< HEAD
         }        
+=======
+        }
+        
+>>>>>>> c0d4553cfea335938686911156cbbd425f822759
 		
         /// <summary>
         /// Text für die Mitteilung abfragen und in neuem Fenster anzeigen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+<<<<<<< HEAD
         void BtnMitteilungClick(object sender, EventArgs e)
+=======
+		void BtnMitteilungClick(object sender, EventArgs e)
+>>>>>>> c0d4553cfea335938686911156cbbd425f822759
         {
         	if(_mitteilungAngezeigt == false)
         	{
@@ -460,6 +478,11 @@ namespace Hüttenspiel
         	}
         }
         
+		/// <summary>
+		/// Mitteilung schließen
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
         void BtnCloseMessageClick(object sender, EventArgs e)
         {
         	_mitteilung.Close();										//Fenster schließen
