@@ -22,6 +22,8 @@ namespace Hüttenspiel
         private int _rundenzeit = 60;		//Standardwert für Runde auf eine Stunde setzen
         private DateTime endzeit;
         private TimeSpan restzeit;
+        private Mitteilung _mitteilung;
+        private bool _mitteilungAngezeigt = false;
 
 
         public Eingabe()
@@ -420,7 +422,46 @@ namespace Hüttenspiel
         	
         	
         }
+        
+		//Text für die Mitteilung abfragen und in neuem Fenster anzeigen
+        void BtnMitteilungClick(object sender, EventArgs e)
+        {
+        	if(_mitteilungAngezeigt == false)
+        	{
+	        	MessageDialog mitteilungDialog = new MessageDialog(""); //Eingabedialog aufrufen
+	        	
+	        	if(DialogResult.OK == mitteilungDialog.ShowDialog())	//Wenn Dialog mit OK bestätigt wurde Text anzeigen
+	        	{
+	        	_mitteilung = new Mitteilung();							//neues Fenster erstellen
+	        	_mitteilungAngezeigt = true;							//Merker setzen
+	        	_mitteilung.setText(mitteilungDialog.MessageText);		//Text für neues Fenster setezn
+	        	_mitteilung.Show();										//Fenster anzeigen
+	        	BtnShowMessage.Text = "Nachricht ändern";				//Buttontext ändern
+	        	BtnCloseMessage.Enabled = true;							//Button zum schließen aktivieren
+	        	
+        		}
+	        	
+	        	mitteilungDialog = null;
+        	}
+        	else
+        	{
+        		MessageDialog mitteilungDialog = new MessageDialog(_mitteilung.getText());
+        		        		
+	        	if(DialogResult.OK == mitteilungDialog.ShowDialog())
+	        	{
+	        		_mitteilung.setText(mitteilungDialog.MessageText);		//Text ändern
+        		}
+	        	
+	        	mitteilungDialog = null;
+        	}
+        }
+        
+        void BtnCloseMessageClick(object sender, EventArgs e)
+        {
+        	_mitteilung.Close();										//Fenster schließen
+        	_mitteilungAngezeigt = false;								//Merker zurücksetzen
+        	BtnShowMessage.Text = "Nachricht anzeigen";					//Buttontext ändern
+        	BtnCloseMessage.Enabled = false;							//Button zum schließen deaktivieren
+        }
     }
-    
-
 }

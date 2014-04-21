@@ -75,6 +75,5 @@ namespace Hüttenspiel
                 BtnOk.PerformClick();
             }
         }
-
     }
 }
