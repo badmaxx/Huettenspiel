@@ -421,9 +421,13 @@ namespace Hüttenspiel
         	}
         	
         	
-        }
-        
-		//Text für die Mitteilung abfragen und in neuem Fenster anzeigen
+        }        
+		
+        /// <summary>
+        /// Text für die Mitteilung abfragen und in neuem Fenster anzeigen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void BtnMitteilungClick(object sender, EventArgs e)
         {
         	if(_mitteilungAngezeigt == false)

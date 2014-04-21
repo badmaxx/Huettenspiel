@@ -15,6 +15,12 @@ namespace Hüttenspiel
         private string[] _bestenliste;
         private int _bestenlisteAktuell = 0;
 
+        /// <summary>
+        /// Neue Ansicht laden
+        /// </summary>
+        /// <param name="getränk">Getränk dieser Runde</param>
+        /// <param name="spieltyp">Spieltyp (Einzelspieler oder Teams)</param>
+        /// <param name="rundenzeit">Zeit einer Runde</param>
         public Ansicht(string getränk, Typ spieltyp, int rundenzeit)
         {
             InitializeComponent();
@@ -25,6 +31,11 @@ namespace Hüttenspiel
                 DgvRangliste.Columns[1].HeaderText = "Team";
         }
 
+        /// <summary>
+        /// Spieler in Dgv eintragen und nach Reihenfolge sortieren
+        /// </summary>
+        /// <param name="liste"></param>
+        /// <param name="bestenliste"></param>
         public void UpdateList(Spieler[] liste, string[] bestenliste)
         {
             _bestenliste = bestenliste;
@@ -74,9 +85,12 @@ namespace Hüttenspiel
             
             DgvRangliste.ClearSelection(); 
             //UpdateBestenliste();   
-        }
+        }        
         
-        //Timer für die Restzeit ändern
+        /// <summary>
+        /// Timer für die Restzeit ändern
+        /// </summary>
+        /// <param name="restzeit"></param>
         public void updateTimer(string restzeit)
         {
         	LblTimer.Text = restzeit;
@@ -109,7 +123,11 @@ namespace Hüttenspiel
             }
         }
 
-
+        /// <summary>
+        /// Hauptanzeige wenn möglich auf zweiten Bildschirm anzeigen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Ansicht_Load(object sender, EventArgs e)
         {
             ShowOnSecondaryScreen();

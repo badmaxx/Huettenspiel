@@ -21,6 +21,12 @@ namespace Hüttenspiel
 
         public string MessageText { get; private set; }
 
+
+        /// <summary>
+        /// Bestätigung des Textes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnOk_Click(object sender, EventArgs e)
         {
         	if(rtbText.Text == "")
@@ -38,16 +44,24 @@ namespace Hüttenspiel
 	        	DialogResult = DialogResult.OK;
 	            this.Close();
         	}
-        	
-            
         }
 
+        /// <summary>
+        /// Texteingabe abbrechen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAbbrechen_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Abort;
             this.Close();
         }
 
+        /// <summary>
+        /// Tastenkombi abfragen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rtbText_KeyDown(object sender, KeyEventArgs e)
         {
         	//Prüfen ob Strg+Enter gedrückt wrude 
@@ -62,6 +76,11 @@ namespace Hüttenspiel
             }
         }
         
+        /// <summary>
+        /// Text löschen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void BtnDelTextClick(object sender, EventArgs e)
         {
         	rtbText.Text = "";
