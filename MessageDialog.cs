@@ -15,7 +15,8 @@ namespace Hüttenspiel
         {
             InitializeComponent();
 			
-            rtbText.Text = text;            
+            rtbText.Text = text;      
+            this.ActiveControl = rtbText;
         }
 
         public string MessageText { get; private set; }
