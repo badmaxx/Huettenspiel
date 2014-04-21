@@ -47,7 +47,12 @@ namespace Hüttenspiel
             DialogResult = DialogResult.Abort;
             this.Close();
         }
-
+        
+		/// <summary>
+		/// Steuerung über Tastatur
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
         private void rtbText_KeyDown(object sender, KeyEventArgs e)
         {
         	//Prüfen ob Strg+Enter gedrückt wrude 
@@ -62,6 +67,11 @@ namespace Hüttenspiel
             }
         }
         
+        /// <summary>
+        /// Kompletten Text über Button löschen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void BtnDelTextClick(object sender, EventArgs e)
         {
         	rtbText.Text = "";

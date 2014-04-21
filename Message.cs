@@ -49,6 +49,11 @@ namespace Hüttenspiel
 	    	return LblText.Text;
 	    }
 		
+	    /// <summary>
+	    /// Form auf zweitem Bildschirm ausgeben
+	    /// </summary>
+	    /// <param name="sender"></param>
+	    /// <param name="e"></param>
 		void MitteilungLoad(object sender, EventArgs e)
 		{
 			ShowOnSecondaryScreen();
