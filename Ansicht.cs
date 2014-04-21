@@ -115,6 +115,11 @@ namespace Hüttenspiel
             ShowOnSecondaryScreen();
         }
 
+        /// <summary>
+        /// Ersten 3 der Bestenliste anzeigen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TimerBestenliste_Tick(object sender, EventArgs e)
         {
             LblBestenliste.Text = "Hall of Fame " + _bestenliste[_bestenlisteAktuell];

@@ -74,11 +74,15 @@
     <Compile Include="MarqueeLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MessageDialog.cs" />
+    <Compile Include="MessageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MessageDialog.Designer.cs">
       <DependentUpon>MessageDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Message.cs" />
+    <Compile Include="Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Message.Designer.cs">
       <DependentUpon>Message.cs</DependentUpon>
     </Compile>
