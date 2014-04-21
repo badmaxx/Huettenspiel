@@ -485,10 +485,13 @@ namespace Hüttenspiel
 		/// <param name="e"></param>
         void BtnCloseMessageClick(object sender, EventArgs e)
         {
+        	if(DialogResult.Yes == MessageBox.Show("Nachricht ausblenden?", "Bestätigung", MessageBoxButtons.YesNo))
+        	{
         	_mitteilung.Close();										//Fenster schließen
         	_mitteilungAngezeigt = false;								//Merker zurücksetzen
         	BtnShowMessage.Text = "Nachricht anzeigen";					//Buttontext ändern
         	BtnCloseMessage.Enabled = false;							//Button zum schließen deaktivieren
+        	}
         }
     }
 }
