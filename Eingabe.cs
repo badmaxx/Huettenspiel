@@ -149,10 +149,22 @@ namespace Hüttenspiel
 
                     Spieler[] tempList = LbAktuelleSpieler.Items.Cast<Spieler>().ToArray();
                     Array.Sort(tempList);
-
+                    
+                    //Spieler Sortieren
                     for (int i = 0; i < tempList.Length; i++)
                     {
-                        tempList[i].Platzierung = i + 1;
+                    	if(i > 0 && tempList[i-1].Anzahl == tempList[i].Anzahl)
+                    	{
+                    		tempList[i].Platzierung = tempList[i-1].Platzierung;
+                    	}
+                    	else if (i == 0)
+                    	{
+                    		tempList[i].Platzierung = 1;
+                    	}
+                    	else
+                    	{
+                    		tempList[i].Platzierung = tempList[i-1].Platzierung +1;
+                    	}
                     }
                     
                     if (_runde != null)
