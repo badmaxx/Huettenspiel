@@ -272,6 +272,12 @@ namespace Hüttenspiel
         /// <param name="e"></param>
         private void BtnStart_Click(object sender, EventArgs e)
         {
+            //Schließen des Nachrichtenfensters wenn neue Runde gestartet wurde
+            if (_mitteilungAngezeigt)
+            {
+                CloseMessage();
+            }
+
             if (LbAktuelleSpieler.Items.Count > 1)
             {
                 _rundeLäuft = true;
@@ -481,11 +487,19 @@ namespace Hüttenspiel
         {
         	if(DialogResult.Yes == MessageBox.Show("Nachricht ausblenden?", "Bestätigung", MessageBoxButtons.YesNo))
         	{
-        	_mitteilung.Close();										//Fenster schließen
-        	_mitteilungAngezeigt = false;								//Merker zurücksetzen
-        	BtnShowMessage.Text = "Nachricht anzeigen";					//Buttontext ändern
-        	BtnCloseMessage.Enabled = false;							//Button zum schließen deaktivieren
+                CloseMessage();
         	}
+        }
+
+        /// <summary>
+        /// Schließt das Nachrichtenfenster
+        /// </summary>
+        private void CloseMessage()
+        {
+            _mitteilung.Close();										//Fenster schließen
+            _mitteilungAngezeigt = false;								//Merker zurücksetzen
+            BtnShowMessage.Text = "Nachricht anzeigen";					//Buttontext ändern
+            BtnCloseMessage.Enabled = false;							//Button zum schließen deaktivieren        
         }
     }
 }
