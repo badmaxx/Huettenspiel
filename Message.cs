@@ -13,7 +13,22 @@ namespace Hüttenspiel
 		{
 			InitializeComponent();
 		}
-		
+
+        /// <summary>
+        /// Nachricht die angezeigt wird
+        /// </summary>
+        public string Nachricht
+        {
+            get
+            {
+                return LblText.Text;
+            }
+            set
+            {
+                LblText.Text = value;
+            }
+        }
+
 	/// <summary>
     /// Method to start the application on the secondary screen
     /// </summary>
@@ -37,16 +52,6 @@ namespace Hüttenspiel
 	            this.WindowState = FormWindowState.Maximized;
 	            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 	        }
-	    }
-	    
-	    public void setText(string text)
-	    {
-	    	LblText.Text = text;
-	    }
-	    
-	    public string getText()
-	    {
-	    	return LblText.Text;
 	    }
 		
 	    /// <summary>

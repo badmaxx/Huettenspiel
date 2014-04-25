@@ -450,7 +450,7 @@ namespace Hüttenspiel
 	        	{
 	        	_mitteilung = new Mitteilung();							//neues Fenster erstellen
 	        	_mitteilungAngezeigt = true;							//Merker setzen
-	        	_mitteilung.setText(mitteilungDialog.MessageText);		//Text für neues Fenster setezn
+                _mitteilung.Nachricht = mitteilungDialog.MessageText;		    //Text für neues Fenster setezn
 	        	_mitteilung.Show();										//Fenster anzeigen
 	        	BtnShowMessage.Text = "Nachricht ändern";				//Buttontext ändern
 	        	BtnCloseMessage.Enabled = true;							//Button zum schließen aktivieren
@@ -461,11 +461,11 @@ namespace Hüttenspiel
         	}
         	else
         	{
-        		MessageDialog mitteilungDialog = new MessageDialog(_mitteilung.getText());
+        		MessageDialog mitteilungDialog = new MessageDialog(_mitteilung.Nachricht);
         		        		
 	        	if(DialogResult.OK == mitteilungDialog.ShowDialog())
 	        	{
-	        		_mitteilung.setText(mitteilungDialog.MessageText);		//Text ändern
+                    _mitteilung.Nachricht = mitteilungDialog.MessageText;		//Text ändern
         		}
 	        	
 	        	mitteilungDialog = null;
