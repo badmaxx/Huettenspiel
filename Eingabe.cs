@@ -327,21 +327,29 @@ namespace Hüttenspiel
         {
                 if (DialogResult.Yes == MessageBox.Show("Soll diese Runde beendet werden?", "Beenden", MessageBoxButtons.YesNo))
                 {
-                    _runde.Close();
-                    _rundeLäuft = false;
-                    this.Text = "Eingabe";
-                    LbSpieler.Items.AddRange(LbAktuelleSpieler.Items);
-                    LbAktuelleSpieler.Items.Clear();
-
-                    foreach (Control ctl in GbRunde.Controls)
-                    {
-                        ctl.Enabled = true;
-                    }
-                    
-                    BtnBeenden.Enabled = false;
-                    
-                    BestenlisteErsteller ersteller = new BestenlisteErsteller(_sicherungSpieler, _getränk, _spieltyp);
+                    BeendeRunde();
                 }
+        }
+
+        /// <summary>
+        /// Beendet die aktuelle Runde und aktualisiert die Bestenliste
+        /// </summary>
+        private void BeendeRunde()
+        {
+            _runde.Close();
+            _rundeLäuft = false;
+            this.Text = "Eingabe";
+            LbSpieler.Items.AddRange(LbAktuelleSpieler.Items);
+            LbAktuelleSpieler.Items.Clear();
+
+            foreach (Control ctl in GbRunde.Controls)
+            {
+                ctl.Enabled = true;
+            }
+
+            BtnBeenden.Enabled = false;
+
+            BestenlisteErsteller ersteller = new BestenlisteErsteller(_sicherungSpieler, _getränk, _spieltyp);        
         }
 
         /// <summary>
@@ -439,19 +447,30 @@ namespace Hüttenspiel
         	if(restzeit.TotalSeconds < 0)
         	{
         		TimerRundenzeit.Stop();			//Wenn die Zeit abgelaufen ist, Timer stoppen
+                MitteilungErstellen(_runde.Gewinner);
+                BeendeRunde();                
         	}
         	else
-        	{
-        		
+        	{        		
         		_runde.updateTimer(restzeit.Hours.ToString("00")+":"+restzeit.Minutes.ToString("00")+":"+restzeit.Seconds.ToString("00"));       //Genaue Restzeit in Ansicht setzen
 				this.numericUpDownTime.Text = restzeit.Minutes.ToString("00");		//Ungefähre Restzeit in Eingabefeld setzen
         	}
-        	
-        	
-        }        
+        }
 
-        
-	
+        /// <summary>
+        /// Erstellt neues Mittelungsfenster
+        /// </summary>
+        /// <param name="mitteilungstext">Text der Angezeigt werden soll</param>
+        private void MitteilungErstellen(string mitteilungstext)
+        {
+            _mitteilung = new Mitteilung();							//neues Fenster erstellen
+            _mitteilungAngezeigt = true;							//Merker setzen
+            _mitteilung.Nachricht = mitteilungstext;	//Text für neues Fenster setzen
+            _mitteilung.Show();										//Fenster anzeigen
+            BtnShowMessage.Text = "Nachricht ändern";				//Buttontext ändern
+            BtnCloseMessage.Enabled = true;							//Button zum schließen aktivieren
+        }
+
         /// <summary>
         /// Text für die Mitteilung abfragen und in neuem Fenster anzeigen
         /// </summary>
@@ -466,13 +485,7 @@ namespace Hüttenspiel
 	        	
 	        	if(DialogResult.OK == mitteilungDialog.ShowDialog())	//Wenn Dialog mit OK bestätigt wurde Text anzeigen
 	        	{
-	        	_mitteilung = new Mitteilung();							//neues Fenster erstellen
-	        	_mitteilungAngezeigt = true;							//Merker setzen
-                _mitteilung.Nachricht = mitteilungDialog.MessageText;		    //Text für neues Fenster setezn
-	        	_mitteilung.Show();										//Fenster anzeigen
-	        	BtnShowMessage.Text = "Nachricht ändern";				//Buttontext ändern
-	        	BtnCloseMessage.Enabled = true;							//Button zum schließen aktivieren
-	        	
+                    MitteilungErstellen(mitteilungDialog.MessageText);	        	
         		}
 	        	
 	        	mitteilungDialog = null;

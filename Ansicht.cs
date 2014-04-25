@@ -16,6 +16,18 @@ namespace Hüttenspiel
         private int _bestenlisteAktuell = 0;
 
         /// <summary>
+        /// Erster Platz der Runde 
+        /// </summary>
+        public string Gewinner
+        {
+            get
+            {
+                return "Gewinner der letzten Runde " + LblGetränk.Text + " wurde: "+
+                    DgvRangliste.Rows[0].Cells[1].Value.ToString() + "\nHerzlichen Glückwunsch!!";
+            }            
+        }
+
+        /// <summary>
         /// Neue Ansicht laden
         /// </summary>
         /// <param name="getränk">Getränk dieser Runde</param>
