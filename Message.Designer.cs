@@ -36,33 +36,38 @@ namespace Hüttenspiel
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.LblText = new System.Windows.Forms.Label();
+            this.RtbMitteilung = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // LblText
+            // RtbMitteilung
             // 
-            this.LblText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblText.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblText.Location = new System.Drawing.Point(12, 9);
-            this.LblText.Name = "LblText";
-            this.LblText.Size = new System.Drawing.Size(595, 513);
-            this.LblText.TabIndex = 0;
+            this.RtbMitteilung.BackColor = System.Drawing.Color.White;
+            this.RtbMitteilung.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RtbMitteilung.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RtbMitteilung.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RtbMitteilung.Location = new System.Drawing.Point(0, 0);
+            this.RtbMitteilung.Name = "RtbMitteilung";
+            this.RtbMitteilung.ReadOnly = true;
+            this.RtbMitteilung.Size = new System.Drawing.Size(619, 531);
+            this.RtbMitteilung.TabIndex = 0;
+            this.RtbMitteilung.Text = "";
+            this.RtbMitteilung.WordWrap = false;
             // 
             // Mitteilung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(619, 531);
-            this.Controls.Add(this.LblText);
+            this.Controls.Add(this.RtbMitteilung);
             this.Name = "Mitteilung";
             this.Text = "Mitteilung";
             this.Load += new System.EventHandler(this.MitteilungLoad);
             this.ResumeLayout(false);
 
-		}
-		private System.Windows.Forms.Label LblText;
+        }
+
+        private System.Windows.Forms.RichTextBox RtbMitteilung;
 	}
 }

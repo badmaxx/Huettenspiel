@@ -445,9 +445,17 @@ namespace Hüttenspiel
         	restzeit = endzeit.Subtract(DateTime.Now);		//Restzeit berechnen
         	
         	if(restzeit.TotalSeconds < 0)
-        	{
+        	{                
         		TimerRundenzeit.Stop();			//Wenn die Zeit abgelaufen ist, Timer stoppen
-                MitteilungErstellen(_runde.Gewinner);
+                //String Tabelle mit Endergebnis erstellen und gleich eine Mitteilung hierfür erzeugen
+                _mitteilung = _runde.ErstelleEndergebnis();
+               
+                _mitteilungAngezeigt = true;
+                _mitteilung.Show();										//Fenster anzeigen
+                BtnShowMessage.Text = "Nachricht ändern";				//Buttontext ändern
+                BtnCloseMessage.Enabled = true;							//Button zum schließen aktivieren
+               
+                //Runde beenden wenn Mitteilung angezeigt wird
                 BeendeRunde();                
         	}
         	else

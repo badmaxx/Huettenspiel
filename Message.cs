@@ -21,13 +21,14 @@ namespace Hüttenspiel
         {
             get
             {
-                return LblText.Text;
+                return RtbMitteilung.Text;
             }
             set
             {
-                LblText.Text = value;
+                RtbMitteilung.Text = value;               
             }
         }
+             
 
 	/// <summary>
     /// Method to start the application on the secondary screen

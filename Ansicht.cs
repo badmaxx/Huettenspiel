@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Hüttenspiel
 {
@@ -16,15 +17,38 @@ namespace Hüttenspiel
         private int _bestenlisteAktuell = 0;
 
         /// <summary>
-        /// Erster Platz der Runde 
+        /// Erstellt das Endergebnis in einer temp file
         /// </summary>
-        public string Gewinner
+        public Mitteilung ErstelleEndergebnis()
         {
-            get
+            //Ergebnis in eine temp Datei ablegen zur Sicherung   
+            StreamWriter ausgabe = new StreamWriter("tempEndergebnis.txt");
+
+            //Tuple erzeugen aller Zeilen
+            Tuple<string, string, string>[] cases = new Tuple<string, string, string>[DgvRangliste.Rows.Count];
+
+            //Alle Tuple mit den Werten aus dem DGV füllen
+            for (int i = 0; i < DgvRangliste.Rows.Count; i++)
             {
-                return "Gewinner der letzten Runde " + LblGetränk.Text + " wurde: "+
-                    DgvRangliste.Rows[0].Cells[1].Value.ToString() + "\nHerzlichen Glückwunsch!!";
-            }            
+                cases[i] = Tuple.Create((i + 1).ToString(),DgvRangliste.Rows[i].Cells[2].Value.ToString(), 
+                        DgvRangliste.Rows[i].Cells[1].Value.ToString());
+            }
+            //Tuple zu Enumarable machen
+            IEnumerable<Tuple<string, string, string>> Icases = cases;
+                       
+            //Ausgabe String füllen
+            string stringAusgabe = (" Endergebnis der letzten Runde " + LblGetränk.Text + ":\n") +
+                (Icases.ToStringTable(new[] { "Platz", "Anzahl", "Name" },
+                                    a => a.Item1, a => a.Item2, a => a.Item3));
+            //Temp Datei füllen 
+            ausgabe.WriteLine(stringAusgabe);
+            ausgabe.Close();
+
+            //Neue Mitteilung erstellen
+            Mitteilung ergebnis = new Mitteilung();
+            //Tabelle mit Endergebnis als Mitteilung
+            ergebnis.Nachricht = stringAusgabe;          
+            return ergebnis;
         }
 
         /// <summary>
