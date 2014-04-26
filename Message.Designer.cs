@@ -51,7 +51,6 @@ namespace Hüttenspiel
             this.RtbMitteilung.Size = new System.Drawing.Size(619, 531);
             this.RtbMitteilung.TabIndex = 0;
             this.RtbMitteilung.Text = "";
-            this.RtbMitteilung.WordWrap = false;
             // 
             // Mitteilung
             // 
