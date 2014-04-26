@@ -190,7 +190,15 @@ namespace Hüttenspiel
             {
             	_bestenlisteAktuell++;
             }
+            UpdateLog(false);            
+        }
 
+       /// <summary>
+       /// Erstellt eine aktuelle String Tabelle und schreibt Log
+       /// </summary>
+       /// <param name="ende">Wenn true: Endergebnis als Überschrift</param>
+        private void UpdateLog(bool ende)
+        {
             //Tuple erzeugen aller Zeilen
             Tuple<string, string, string>[] cases = new Tuple<string, string, string>[DgvRangliste.Rows.Count];
 
@@ -204,11 +212,18 @@ namespace Hüttenspiel
             IEnumerable<Tuple<string, string, string>> Icases = cases;
 
             //Ausgabe String füllen
-            string tabelle =  (Icases.ToStringTable(new[] { "Platz", "Anzahl", "Name" },
+            string tabelle = (Icases.ToStringTable(new[] { "Platz", "Anzahl", "Name" },
                                     a => a.Item1, a => a.Item2, a => a.Item3));
 
-            _log.UpdateAutosave(tabelle);
-            
+            if (ende)
+            {                
+                _log.UpdateAutosave("Endergebnis:" + Environment.NewLine + tabelle);
+            }
+            else
+            {
+                _log.UpdateAutosave(tabelle);
+            }
+        
         }
 
         /// <summary>
@@ -218,6 +233,7 @@ namespace Hüttenspiel
         /// <param name="e"></param>
         private void Ansicht_FormClosed(object sender, FormClosedEventArgs e)
         {
+            UpdateLog(true);
             _log = null;
         }
 

@@ -44,7 +44,7 @@ namespace Hüttenspiel
             this.RtbMitteilung.BackColor = System.Drawing.Color.White;
             this.RtbMitteilung.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RtbMitteilung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RtbMitteilung.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RtbMitteilung.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RtbMitteilung.Location = new System.Drawing.Point(0, 0);
             this.RtbMitteilung.Name = "RtbMitteilung";
             this.RtbMitteilung.ReadOnly = true;
@@ -61,6 +61,7 @@ namespace Hüttenspiel
             this.ClientSize = new System.Drawing.Size(619, 531);
             this.Controls.Add(this.RtbMitteilung);
             this.Name = "Mitteilung";
+            this.ShowInTaskbar = false;
             this.Text = "Mitteilung";
             this.Load += new System.EventHandler(this.MitteilungLoad);
             this.ResumeLayout(false);
