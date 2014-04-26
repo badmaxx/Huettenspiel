@@ -15,6 +15,7 @@ namespace Hüttenspiel
         private Typ _spieltyp;
         private string[] _bestenliste;
         private int _bestenlisteAktuell = 0;
+        private Logger _log;       
 
         /// <summary>
         /// Erstellt das Endergebnis in einer temp file
@@ -65,6 +66,9 @@ namespace Hüttenspiel
             
             if(spieltyp == Typ.Team)
                 DgvRangliste.Columns[1].HeaderText = "Team";
+
+            _log = new Logger();
+            _log.ErstelleAutosave(getränk, spieltyp);
         }
 
         /// <summary>
@@ -186,6 +190,35 @@ namespace Hüttenspiel
             {
             	_bestenlisteAktuell++;
             }
+
+            //Tuple erzeugen aller Zeilen
+            Tuple<string, string, string>[] cases = new Tuple<string, string, string>[DgvRangliste.Rows.Count];
+
+            //Alle Tuple mit den Werten aus dem DGV füllen
+            for (int i = 0; i < DgvRangliste.Rows.Count; i++)
+            {
+                cases[i] = Tuple.Create((i + 1).ToString(), DgvRangliste.Rows[i].Cells[2].Value.ToString(),
+                        DgvRangliste.Rows[i].Cells[1].Value.ToString());
+            }
+            //Tuple zu Enumarable machen
+            IEnumerable<Tuple<string, string, string>> Icases = cases;
+
+            //Ausgabe String füllen
+            string tabelle =  (Icases.ToStringTable(new[] { "Platz", "Anzahl", "Name" },
+                                    a => a.Item1, a => a.Item2, a => a.Item3));
+
+            _log.UpdateAutosave(tabelle);
+            
+        }
+
+        /// <summary>
+        /// Beim Beenden der Runde Logger löschen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Ansicht_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _log = null;
         }
 
 

@@ -29,7 +29,7 @@ namespace Hüttenspiel
         public Eingabe()
         {
             InitializeComponent();
-            CbGetränk.DataSource = Enum.GetValues(typeof(Getränke));            
+            CbGetränk.DataSource = Enum.GetValues(typeof(Getraenke));            
         }
 
         private void BtnNeuerSpieler_Click(object sender, EventArgs e)

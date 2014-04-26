@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Hüttenspiel
 {
-    enum Getränke
+    enum Getraenke
     { 
         Bier,
         Despo,

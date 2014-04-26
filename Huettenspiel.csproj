@@ -71,6 +71,7 @@
       <DependentUpon>Eingabe.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="MarqueeLabel.cs">
       <SubType>Component</SubType>
     </Compile>
