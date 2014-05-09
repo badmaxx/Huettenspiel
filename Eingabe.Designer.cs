@@ -427,10 +427,6 @@ namespace Hüttenspiel
         private System.Windows.Forms.RadioButton RbTeams;
         private System.Windows.Forms.RadioButton RbSpieler;
         
-        void DomainUpDownTimeSelectedItemChanged(object sender, System.EventArgs e)
-        {
-        	
-        }
         
         //Variable ändern wenn Rundenzeit geändert wird
         void NumericUpDownTimeValueChanged(object sender, System.EventArgs e)

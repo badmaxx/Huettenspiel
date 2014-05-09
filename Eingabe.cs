@@ -336,6 +336,8 @@ namespace Hüttenspiel
         /// </summary>
         private void BeendeRunde()
         {
+        	TimerRundenzeit.Stop();			//Wenn die Zeit abgelaufen ist, Timer stoppen
+        	TimerRundenzeit.Dispose();		//Timer freigeben
             _runde.Close();
             _rundeLäuft = false;
             this.Text = "Eingabe";
@@ -446,8 +448,7 @@ namespace Hüttenspiel
         	
         	if(restzeit.TotalSeconds < 0)
         	{                
-        		TimerRundenzeit.Stop();			//Wenn die Zeit abgelaufen ist, Timer stoppen
-                //String Tabelle mit Endergebnis erstellen und gleich eine Mitteilung hierfür erzeugen
+        		//String Tabelle mit Endergebnis erstellen und gleich eine Mitteilung hierfür erzeugen
                 _mitteilung = _runde.ErstelleEndergebnis();
                
                 _mitteilungAngezeigt = true;
