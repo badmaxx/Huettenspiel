@@ -213,7 +213,7 @@ namespace Hüttenspiel
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    rückgabe[i] = "Platz " + (i + 1) + " : " + temp[i].Name + " mit " + temp[i].Bestleistungen[temp[i].Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Anzahl +
+                    rückgabe[i] = "Platz " + (i + 1) + " : " + temp[i].Name + " " + temp[i].Bestleistungen[temp[i].Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Anzahl +
                     " am " + temp[i].Bestleistungen[temp[i].Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Datum.ToShortDateString();
                 }
                 return rückgabe;
