@@ -149,7 +149,7 @@ namespace Hüttenspiel
             public SicherungSpieler()
             { }
 
-            public List<Spieler> Spielerliste { get; set; }
+            public List<Spieler> Spielerliste { get; set; }        
         }
 
 
