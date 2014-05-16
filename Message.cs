@@ -28,33 +28,45 @@ namespace Hüttenspiel
                 RtbMitteilung.Text = value;               
             }
         }
-             
-
-	/// <summary>
-    /// Method to start the application on the secondary screen
-    /// </summary>
-	    private void ShowOnSecondaryScreen()
-	    {
-	        Screen secondary = null;
-	
-	        // check if there is a secondary screen
-	        if (Screen.AllScreens.GetUpperBound(0) > 0)
-	        {
-	            // get the secondary screen
-	            secondary = Screen.AllScreens[1];
-	        }
-	
-	        if (secondary != null)
-	        {
-	            // set the screen location as form location
-	            this.Location = secondary.Bounds.Location;
-	
-	            // maximize the window
-	            this.WindowState = FormWindowState.Maximized;
-	            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-	        }
-	    }
 		
+        /// <summary>
+        /// Method to start the application on the secondary screen
+        /// </summary>
+        private void ShowOnSecondaryScreen()
+        {
+            Screen secondary = null;
+
+            if (System.Windows.Forms.SystemInformation.MonitorCount > 1)
+            {
+                // Zweiten Monitor ermitteln
+                secondary = Screen.AllScreens[1];
+
+                //Sollte dummerweise der zweite der Hauptmonitor sein
+                //dann den ersten Monitor als Anzeige nehmen
+                if (secondary.Primary)
+                {
+                    secondary = Screen.AllScreens[0];
+                }
+            }
+
+            if (secondary != null)
+            {
+                // set the screen location as form location
+                this.Location = secondary.Bounds.Location;
+
+                // maximize the window
+                this.WindowState = FormWindowState.Maximized;
+                // Style entfernen
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            }
+            else
+            {
+                //Falls kein zweiter Monitor da auf dem ersten anzeigen
+                this.Location = Screen.AllScreens[0].Bounds.Location;
+            }
+        }
+    
+
 	    /// <summary>
 	    /// Form auf zweitem Bildschirm ausgeben
 	    /// </summary>
@@ -62,7 +74,7 @@ namespace Hüttenspiel
 	    /// <param name="e"></param>
 		void MitteilungLoad(object sender, EventArgs e)
 		{
-			ShowOnSecondaryScreen();
+		    ShowOnSecondaryScreen();
 		}
 	}
 }

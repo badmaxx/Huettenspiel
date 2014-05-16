@@ -384,6 +384,7 @@ namespace Hüttenspiel
             this.Text = "Eingabe";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Eingabe_FormClosing);
             this.Load += new System.EventHandler(this.Eingabe_Load);
+            this.DoubleClick += new System.EventHandler(this.Eingabe_DoubleClick);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

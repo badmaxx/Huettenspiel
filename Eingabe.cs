@@ -474,7 +474,7 @@ namespace Hüttenspiel
         {
             _mitteilung = new Mitteilung();							//neues Fenster erstellen
             _mitteilungAngezeigt = true;							//Merker setzen
-            _mitteilung.Nachricht = mitteilungstext;	//Text für neues Fenster setzen
+            _mitteilung.Nachricht = mitteilungstext;	            //Text für neues Fenster setzen            
             _mitteilung.Show();										//Fenster anzeigen
             BtnShowMessage.Text = "Nachricht ändern";				//Buttontext ändern
             BtnCloseMessage.Enabled = true;							//Button zum schließen aktivieren
@@ -534,6 +534,45 @@ namespace Hüttenspiel
             _mitteilungAngezeigt = false;								//Merker zurücksetzen
             BtnShowMessage.Text = "Nachricht anzeigen";					//Buttontext ändern
             BtnCloseMessage.Enabled = false;							//Button zum schließen deaktivieren        
+        }
+
+        /// <summary>
+        /// Bei Doppelklick MsgBox öffnen mit den ersten 2 Monitoren
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Eingabe_DoubleClick(object sender, EventArgs e)
+        {
+            string info = "";
+            for (int i = 0; i < 2; i++)
+            {
+                info = info + Monitorinfo(i);
+            }
+            MessageBox.Show(info, "Monitorinfo");
+        }
+
+        /// <summary>
+        /// Info über angeschlossene Monitore als string
+        /// </summary>
+        /// <param name="monitornummer">Nummer (Achtung Array deklaration)</param>
+        /// <returns>Nummer, Name, Auflösung und primärer Monitor</returns>
+        private string Monitorinfo(int monitornummer)
+        {
+            if (System.Windows.Forms.SystemInformation.MonitorCount > monitornummer)
+            {
+                return "Monitornummer: " + (monitornummer+1)
+                    + "\nMonitorname: " + Screen.AllScreens[monitornummer].DeviceName.ToString() 
+                    + "\nMonitorauflösung: " + Screen.AllScreens[monitornummer].Bounds.Size.ToString()
+                    + "\nPrimärer Monitor: " + Screen.AllScreens[monitornummer].Primary.ToString() 
+                    + Environment.NewLine + Environment.NewLine;
+
+            }
+
+            else
+            {
+                return "Kein " + (monitornummer+1) + ". Monitor vorhanden";
+            }
+        
         }
     }
 }

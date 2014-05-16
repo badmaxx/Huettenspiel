@@ -136,7 +136,7 @@ namespace Hüttenspiel
         	LblTimer.Text = restzeit;
         	LblTimer.Refresh();
         }
-        
+
 
         /// <summary>
         /// Method to start the application on the secondary screen
@@ -145,11 +145,17 @@ namespace Hüttenspiel
         {
             Screen secondary = null;
 
-            // check if there is a secondary screen
-            if (Screen.AllScreens.GetUpperBound(0) > 0)
+            if (System.Windows.Forms.SystemInformation.MonitorCount > 1)
             {
-                // get the secondary screen
+                // Zweiten Monitor ermitteln
                 secondary = Screen.AllScreens[1];
+
+                //Sollte dummerweise der zweite der Hauptmonitor sein
+                //dann den ersten Monitor als Anzeige nehmen
+                if (secondary.Primary)
+                {
+                    secondary = Screen.AllScreens[0];
+                }
             }
 
             if (secondary != null)
@@ -159,7 +165,13 @@ namespace Hüttenspiel
 
                 // maximize the window
                 this.WindowState = FormWindowState.Maximized;
+                // Style entfernen
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            }
+            else
+            {
+                //Falls kein zweiter Monitor da auf dem ersten anzeigen
+                this.Location = Screen.AllScreens[0].Bounds.Location;
             }
         }
 
