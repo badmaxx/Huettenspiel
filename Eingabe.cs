@@ -524,10 +524,13 @@ namespace Hüttenspiel
         /// Erstellt neues Mittelungsfenster
         /// </summary>
         /// <param name="mitteilungstext">Text der Angezeigt werden soll</param>
-        private void MitteilungErstellen(string mitteilungstext)
+        /// <param name="font">Schriftart des Textes</param>
+        private void MitteilungErstellen(string mitteilungstext, Font font)
         {
             _mitteilung = new Mitteilung();							//neues Fenster erstellen
             _mitteilungAngezeigt = true;							//Merker setzen
+
+            _mitteilung.Schrift = font;                             //Schrift von Fenster setzen
             _mitteilung.Nachricht = mitteilungstext;	            //Text für neues Fenster setzen            
             _mitteilung.Show();										//Fenster anzeigen
             BtnShowMessage.Text = "Nachricht ändern";				//Buttontext ändern
@@ -544,22 +547,24 @@ namespace Hüttenspiel
         {
         	if(_mitteilungAngezeigt == false)
         	{
-	        	MessageDialog mitteilungDialog = new MessageDialog(""); //Eingabedialog aufrufen
+	        	MessageDialog mitteilungDialog = new MessageDialog("", new Font(FontFamily.GenericSansSerif,
+                20.0F, FontStyle.Regular)); //Eingabedialog aufrufen
 	        	
 	        	if(DialogResult.OK == mitteilungDialog.ShowDialog())	//Wenn Dialog mit OK bestätigt wurde Text anzeigen
 	        	{
-                    MitteilungErstellen(mitteilungDialog.MessageText);	        	
+                    MitteilungErstellen(mitteilungDialog.MessageText, mitteilungDialog.Schrift);	        	
         		}
 	        	
 	        	mitteilungDialog = null;
         	}
         	else
         	{
-        		MessageDialog mitteilungDialog = new MessageDialog(_mitteilung.Nachricht);
+        		MessageDialog mitteilungDialog = new MessageDialog(_mitteilung.Nachricht, _mitteilung.Schrift);
         		        		
 	        	if(DialogResult.OK == mitteilungDialog.ShowDialog())
 	        	{
-                    _mitteilung.Nachricht = mitteilungDialog.MessageText;		//Text ändern
+                    _mitteilung.Schrift = mitteilungDialog.Schrift;             //Schrift ändern
+                    _mitteilung.Nachricht = mitteilungDialog.MessageText;		//Text ändern                    
         		}
 	        	
 	        	mitteilungDialog = null;

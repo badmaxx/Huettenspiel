@@ -9,6 +9,8 @@ namespace Hüttenspiel
 	/// </summary>
 	public partial class Mitteilung : Form
 	{
+        public Font Schrift { get; set; }
+
 		public Mitteilung()
 		{
 			InitializeComponent();
@@ -25,10 +27,22 @@ namespace Hüttenspiel
             }
             set
             {
-                RtbMitteilung.Text = value;               
+                ErstelleText(value, Schrift);               
             }
         }
-		
+
+        /// <summary>
+        /// Text und Schrift auf Rtb einrichten
+        /// </summary>
+        /// <param name="text">Angezeigter Text</param>
+        /// <param name="schrift">Schriftart des Textes</param>
+        private void ErstelleText(string text, Font schrift)
+        {
+            RtbMitteilung.SelectionAlignment = HorizontalAlignment.Center; //Text zentrieren
+            RtbMitteilung.Text = text;
+            RtbMitteilung.Font = schrift;        
+        }
+
         /// <summary>
         /// Method to start the application on the secondary screen
         /// </summary>

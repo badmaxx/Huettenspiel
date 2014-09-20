@@ -33,12 +33,13 @@
             this.LblText = new System.Windows.Forms.Label();
             this.rtbText = new System.Windows.Forms.RichTextBox();
             this.BtnDelText = new System.Windows.Forms.Button();
+            this.btnSchrift = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnOk
             // 
             this.BtnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnOk.Location = new System.Drawing.Point(253, 101);
+            this.BtnOk.Location = new System.Drawing.Point(351, 259);
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(75, 23);
             this.BtnOk.TabIndex = 4;
@@ -49,7 +50,7 @@
             // BtnAbbrechen
             // 
             this.BtnAbbrechen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnAbbrechen.Location = new System.Drawing.Point(15, 101);
+            this.BtnAbbrechen.Location = new System.Drawing.Point(15, 259);
             this.BtnAbbrechen.Name = "BtnAbbrechen";
             this.BtnAbbrechen.Size = new System.Drawing.Size(75, 23);
             this.BtnAbbrechen.TabIndex = 5;
@@ -74,15 +75,15 @@
             this.rtbText.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbText.Location = new System.Drawing.Point(15, 32);
             this.rtbText.Name = "rtbText";
-            this.rtbText.Size = new System.Drawing.Size(313, 56);
+            this.rtbText.Size = new System.Drawing.Size(411, 214);
             this.rtbText.TabIndex = 7;
             this.rtbText.Text = "";
             this.rtbText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rtbText_KeyDown);
             // 
             // BtnDelText
             // 
-            this.BtnDelText.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnDelText.Location = new System.Drawing.Point(133, 101);
+            this.BtnDelText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnDelText.Location = new System.Drawing.Point(96, 259);
             this.BtnDelText.Name = "BtnDelText";
             this.BtnDelText.Size = new System.Drawing.Size(84, 23);
             this.BtnDelText.TabIndex = 8;
@@ -90,11 +91,23 @@
             this.BtnDelText.UseVisualStyleBackColor = true;
             this.BtnDelText.Click += new System.EventHandler(this.BtnDelTextClick);
             // 
+            // btnSchrift
+            // 
+            this.btnSchrift.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSchrift.Location = new System.Drawing.Point(270, 259);
+            this.btnSchrift.Name = "btnSchrift";
+            this.btnSchrift.Size = new System.Drawing.Size(75, 23);
+            this.btnSchrift.TabIndex = 9;
+            this.btnSchrift.Text = "Schriftart";
+            this.btnSchrift.UseVisualStyleBackColor = true;
+            this.btnSchrift.Click += new System.EventHandler(this.btnSchrift_Click);
+            // 
             // MessageDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 136);
+            this.ClientSize = new System.Drawing.Size(441, 294);
+            this.Controls.Add(this.btnSchrift);
             this.Controls.Add(this.BtnDelText);
             this.Controls.Add(this.rtbText);
             this.Controls.Add(this.LblText);
@@ -114,5 +127,6 @@
 
         private System.Windows.Forms.Button BtnOk;
         private System.Windows.Forms.Button BtnAbbrechen;
+        private System.Windows.Forms.Button btnSchrift;
     }
 }
