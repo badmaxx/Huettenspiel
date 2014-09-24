@@ -17,7 +17,8 @@ namespace Hüttenspiel
         {
             InitializeComponent();
             _schrift = schrift;
-            rtbText.Text = text;      
+            rtbText.SelectionAlignment = HorizontalAlignment.Center;
+            rtbText.Text = text;            
             this.ActiveControl = rtbText;
         }
 
@@ -104,6 +105,8 @@ namespace Hüttenspiel
             font.ShowDialog();
 
             _schrift = font.Font;
+            rtbText.Font = new Font(_schrift.FontFamily, 12f);
+            
         }
     }
 }

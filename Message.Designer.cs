@@ -37,12 +37,13 @@ namespace Hüttenspiel
 		private void InitializeComponent()
 		{
             this.RtbMitteilung = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // RtbMitteilung
             // 
             this.RtbMitteilung.BackColor = System.Drawing.Color.White;
-            this.RtbMitteilung.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RtbMitteilung.Cursor = System.Windows.Forms.Cursors.Default;
             this.RtbMitteilung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RtbMitteilung.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RtbMitteilung.Location = new System.Drawing.Point(0, 0);
@@ -52,6 +53,14 @@ namespace Hüttenspiel
             this.RtbMitteilung.TabIndex = 0;
             this.RtbMitteilung.Text = "";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(456, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 1;
+            // 
             // Mitteilung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -59,15 +68,18 @@ namespace Hüttenspiel
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(619, 531);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.RtbMitteilung);
             this.Name = "Mitteilung";
             this.ShowInTaskbar = false;
             this.Text = "Mitteilung";
             this.Load += new System.EventHandler(this.MitteilungLoad);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         private System.Windows.Forms.RichTextBox RtbMitteilung;
+        private System.Windows.Forms.Label label1;
 	}
 }

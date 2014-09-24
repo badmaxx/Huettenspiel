@@ -38,9 +38,12 @@ namespace Hüttenspiel
         /// <param name="schrift">Schriftart des Textes</param>
         private void ErstelleText(string text, Font schrift)
         {
-            RtbMitteilung.SelectionAlignment = HorizontalAlignment.Center; //Text zentrieren
-            RtbMitteilung.Text = text;
-            RtbMitteilung.Font = schrift;        
+            //Text zentrieren
+            RtbMitteilung.SelectionAlignment = HorizontalAlignment.Center; 
+            //Text von Rand weg
+            RtbMitteilung.Text = Environment.NewLine + text;
+            RtbMitteilung.Font = schrift;
+            this.ActiveControl = label1;
         }
 
         /// <summary>
