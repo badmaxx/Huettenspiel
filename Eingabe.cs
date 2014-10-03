@@ -33,6 +33,11 @@ namespace Hüttenspiel
             CbGetränk.DataSource = Enum.GetValues(typeof(Getraenke));            
         }
 
+        /// <summary>
+        /// Anlegen eines neuen Spielers
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnNeuerSpieler_Click(object sender, EventArgs e)
         {
             Dialog neuerSpieler = new Dialog(_spieltyp);
