@@ -34,6 +34,7 @@
             this.rtbText = new System.Windows.Forms.RichTextBox();
             this.BtnDelText = new System.Windows.Forms.Button();
             this.btnSchrift = new System.Windows.Forms.Button();
+            this.BtnAusrichtung = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnOk
@@ -43,7 +44,7 @@
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(75, 23);
             this.BtnOk.TabIndex = 4;
-            this.BtnOk.Text = "OK";
+            this.BtnOk.Text = "Anzeigen";
             this.BtnOk.UseVisualStyleBackColor = true;
             this.BtnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
@@ -52,9 +53,9 @@
             this.BtnAbbrechen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnAbbrechen.Location = new System.Drawing.Point(15, 259);
             this.BtnAbbrechen.Name = "BtnAbbrechen";
-            this.BtnAbbrechen.Size = new System.Drawing.Size(75, 23);
+            this.BtnAbbrechen.Size = new System.Drawing.Size(64, 23);
             this.BtnAbbrechen.TabIndex = 5;
-            this.BtnAbbrechen.Text = "Abbrechen";
+            this.BtnAbbrechen.Text = "Zurück";
             this.BtnAbbrechen.UseVisualStyleBackColor = true;
             this.BtnAbbrechen.Click += new System.EventHandler(this.BtnAbbrechen_Click);
             // 
@@ -69,9 +70,9 @@
             // 
             // rtbText
             // 
-            this.rtbText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbText.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbText.Location = new System.Drawing.Point(15, 32);
             this.rtbText.Name = "rtbText";
@@ -83,9 +84,9 @@
             // BtnDelText
             // 
             this.BtnDelText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnDelText.Location = new System.Drawing.Point(96, 259);
+            this.BtnDelText.Location = new System.Drawing.Point(85, 259);
             this.BtnDelText.Name = "BtnDelText";
-            this.BtnDelText.Size = new System.Drawing.Size(84, 23);
+            this.BtnDelText.Size = new System.Drawing.Size(76, 23);
             this.BtnDelText.TabIndex = 8;
             this.BtnDelText.Text = "Text löschen";
             this.BtnDelText.UseVisualStyleBackColor = true;
@@ -102,11 +103,22 @@
             this.btnSchrift.UseVisualStyleBackColor = true;
             this.btnSchrift.Click += new System.EventHandler(this.btnSchrift_Click);
             // 
+            // BtnAusrichtung
+            // 
+            this.BtnAusrichtung.Location = new System.Drawing.Point(178, 259);
+            this.BtnAusrichtung.Name = "BtnAusrichtung";
+            this.BtnAusrichtung.Size = new System.Drawing.Size(75, 23);
+            this.BtnAusrichtung.TabIndex = 10;
+            this.BtnAusrichtung.Text = "Zentriert";
+            this.BtnAusrichtung.UseVisualStyleBackColor = true;
+            this.BtnAusrichtung.Click += new System.EventHandler(this.BtnAusrichtung_Click);
+            // 
             // MessageDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 294);
+            this.Controls.Add(this.BtnAusrichtung);
             this.Controls.Add(this.btnSchrift);
             this.Controls.Add(this.BtnDelText);
             this.Controls.Add(this.rtbText);
@@ -128,5 +140,6 @@
         private System.Windows.Forms.Button BtnOk;
         private System.Windows.Forms.Button BtnAbbrechen;
         private System.Windows.Forms.Button btnSchrift;
+        private System.Windows.Forms.Button BtnAusrichtung;
     }
 }

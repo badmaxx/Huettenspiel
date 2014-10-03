@@ -13,16 +13,35 @@ namespace Hüttenspiel
     {
         Font _schrift;
 
-        public MessageDialog(string text, Font schrift)
+        public MessageDialog(string text, Font schrift, HorizontalAlignment ausrichtung = HorizontalAlignment.Center)
         {
             InitializeComponent();
-            _schrift = schrift;
-            rtbText.SelectionAlignment = HorizontalAlignment.Center;
-            rtbText.Text = text;            
+            _schrift = schrift;           
+
+            rtbText.SelectionAlignment = Ausrichtung = ausrichtung;
+            rtbText.Text = text;
+
+            switch (Ausrichtung)
+            {
+                case HorizontalAlignment.Center:
+                    BtnAusrichtung.Text = "Zentriert";
+                    break;
+                case HorizontalAlignment.Left:
+                    BtnAusrichtung.Text = "Links";
+                    break;
+                case HorizontalAlignment.Right:
+                    BtnAusrichtung.Text = "Rechts";
+                    break;
+                default:
+                    break;
+            }
+
             this.ActiveControl = rtbText;
         }
 
         public string MessageText { get; private set; }
+
+        public HorizontalAlignment Ausrichtung { get; set; }
 
         public Font Schrift { get; private set; }
 
@@ -107,6 +126,37 @@ namespace Hüttenspiel
             _schrift = font.Font;
             rtbText.Font = new Font(_schrift.FontFamily, 12f);
             
+        }
+
+        /// <summary>
+        /// Ausrichtung ändern
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAusrichtung_Click(object sender, EventArgs e)
+        {
+            switch (Ausrichtung)
+            {
+                case HorizontalAlignment.Center:
+                    BtnAusrichtung.Text = "Links";
+                    Ausrichtung = HorizontalAlignment.Left;
+                    break;
+                case HorizontalAlignment.Left:
+                    BtnAusrichtung.Text = "Rechts";
+                    Ausrichtung = HorizontalAlignment.Right;
+                    break;
+                case HorizontalAlignment.Right:
+                    BtnAusrichtung.Text = "Zentriert";
+                    Ausrichtung = HorizontalAlignment.Center;
+                    break;
+                default:
+                    break;
+            }
+            //Ausrichtung des gesamten Textes
+            rtbText.SelectAll();
+            rtbText.SelectionAlignment = Ausrichtung;
+            rtbText.DeselectAll();
+            this.ActiveControl = rtbText;
         }
     }
 }
