@@ -418,6 +418,7 @@ namespace Hüttenspiel
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(602, 598);
             this.Name = "Eingabe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eingabe";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Eingabe_FormClosing);
             this.Load += new System.EventHandler(this.Eingabe_Load);

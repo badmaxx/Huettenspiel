@@ -20,6 +20,7 @@ namespace Hüttenspiel
             InitializeComponent(); 
         }
 
+       
         /// <summary>
         /// Initialisieren und Bilderpfad auswählen
         /// </summary>

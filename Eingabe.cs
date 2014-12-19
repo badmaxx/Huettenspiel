@@ -394,8 +394,6 @@ namespace Hüttenspiel
                 if (DialogResult.Yes == MessageBox.Show("Soll diese Runde beendet werden?", "Beenden", MessageBoxButtons.YesNo))
                 {                    
                     BeendeRunde();
-                    GbDiashow.Enabled = true;
-                    BtnShowMessage.Enabled = true;
                 }
         }
 
@@ -418,6 +416,8 @@ namespace Hüttenspiel
             }
 
             BtnBeenden.Enabled = false;
+            BtnShowMessage.Enabled = true;
+            GbDiashow.Enabled = true;
 
             BestenlisteErsteller ersteller = new BestenlisteErsteller(_sicherungSpieler, _getränk, _spieltyp);        
         }
@@ -574,8 +574,8 @@ namespace Hüttenspiel
 	        	{
                     MitteilungErstellen(mitteilungDialog.MessageText, mitteilungDialog.Schrift, mitteilungDialog.Ausrichtung);	        	
         		}
-	        	
-	        	mitteilungDialog = null;
+
+                mitteilungDialog.Dispose();
         	}
         	else
         	{
@@ -587,8 +587,8 @@ namespace Hüttenspiel
                     _mitteilung.Schrift = mitteilungDialog.Schrift;             //Schrift ändern
                     _mitteilung.Nachricht = mitteilungDialog.MessageText;		//Text ändern                    
         		}
-	        	
-	        	mitteilungDialog = null;
+
+                mitteilungDialog.Dispose();
         	}
         }
         
@@ -613,7 +613,8 @@ namespace Hüttenspiel
             _mitteilung.Close();										//Fenster schließen
             _mitteilungAngezeigt = false;								//Merker zurücksetzen
             BtnShowMessage.Text = "Nachricht anzeigen";					//Buttontext ändern
-            BtnCloseMessage.Enabled = false;							//Button zum schließen deaktivieren        
+            BtnCloseMessage.Enabled = false;							//Button zum schließen deaktivieren    
+            _mitteilung.Dispose();
         }
 
         /// <summary>
@@ -669,7 +670,8 @@ namespace Hüttenspiel
 
             if (_diashowGestartet)
             {
-                DiashowEnde();                
+                DiashowEnde();
+                _diashow.Dispose();
             }
             else
             {

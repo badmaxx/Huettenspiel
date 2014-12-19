@@ -46,7 +46,7 @@
             // 
             // TimerAnzeige
             // 
-            this.TimerAnzeige.Interval = 10000;
+            this.TimerAnzeige.Interval = 20000;
             this.TimerAnzeige.Tick += new System.EventHandler(this.TimerAnzeige_Tick);
             // 
             // Diashow
