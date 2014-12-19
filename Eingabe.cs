@@ -24,7 +24,8 @@ namespace Hüttenspiel
         private DateTime endzeit;
         private TimeSpan restzeit;
         private Mitteilung _mitteilung;
-        private bool _mitteilungAngezeigt = false;
+        private bool _mitteilungAngezeigt = false, _diashowGestartet = false;
+        private Diashow _diashow;
 
 
         public Eingabe()
@@ -343,8 +344,14 @@ namespace Hüttenspiel
                     CloseMessage();
                 }
 
+                if (_diashowGestartet)
+                    DiashowEnde();
+
                 if (LbAktuelleSpieler.Items.Count > 1)
                 {
+                    GbDiashow.Enabled = false;
+                    BtnShowMessage.Enabled = false;
+
                     _rundeLäuft = true;
                     _getränk = CbGetränk.Text;
 
@@ -385,8 +392,10 @@ namespace Hüttenspiel
         private void BtnBeenden_Click(object sender, EventArgs e)
         {
                 if (DialogResult.Yes == MessageBox.Show("Soll diese Runde beendet werden?", "Beenden", MessageBoxButtons.YesNo))
-                {
+                {                    
                     BeendeRunde();
+                    GbDiashow.Enabled = true;
+                    BtnShowMessage.Enabled = true;
                 }
         }
 
@@ -550,8 +559,12 @@ namespace Hüttenspiel
         /// <param name="sender"></param>
         /// <param name="e"></param>
 		void BtnMitteilungClick(object sender, EventArgs e)
-
         {
+            if (_diashowGestartet)
+            {
+                DiashowEnde();
+            }
+
         	if(_mitteilungAngezeigt == false)
         	{
 	        	MessageDialog mitteilungDialog = new MessageDialog("", new Font(FontFamily.GenericSansSerif,
@@ -641,5 +654,51 @@ namespace Hüttenspiel
             }
         
         }
+
+      /// <summary>
+      /// Diashow starten oder beenden
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
+        private void BtnDiashow_Click(object sender, EventArgs e)
+        {
+            if (_mitteilungAngezeigt)
+            {
+                CloseMessage();
+            }
+
+            if (_diashowGestartet)
+            {
+                DiashowEnde();                
+            }
+            else
+            {
+                GbDiashow.Text = "Beenden";
+                _diashow = new Diashow();
+                _diashow.init();
+                _diashowGestartet = true;
+                if (!_diashow.Anzeigen())
+                {
+                    DiashowEnde();
+                    lblDiashow.Text = "Anzeigen nicht möglich!";
+                }
+                else
+                {
+                    lblDiashow.Text = "Diashow läuft...";
+                }
+            }           
+        }
+
+        /// <summary>
+        /// Beenden der Diashow
+        /// </summary>
+        private void DiashowEnde()
+        {
+            GbDiashow.Text = "Starten";
+            _diashow.Close();
+            _diashowGestartet = false;
+            lblDiashow.Text = "Diashow beendet";
+        }
+
     }
 }
