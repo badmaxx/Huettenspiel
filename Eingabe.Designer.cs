@@ -95,8 +95,8 @@ namespace Hüttenspiel
             // 
             // LbSpieler
             // 
-            this.LbSpieler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.LbSpieler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LbSpieler.FormattingEnabled = true;
             this.LbSpieler.Location = new System.Drawing.Point(3, 16);
             this.LbSpieler.Name = "LbSpieler";
@@ -137,8 +137,8 @@ namespace Hüttenspiel
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.BtnLöschen);
             this.groupBox3.Controls.Add(this.groupBox2);

@@ -15,7 +15,8 @@ namespace Hüttenspiel
         private Typ _spieltyp;
         private string[] _bestenliste;
         private int _bestenlisteAktuell = 0;
-        private Logger _log;       
+        private Logger _log;
+        private const string confDatei = "conf.conf";
 
         /// <summary>
         /// Erstellt das Endergebnis in einer temp file
@@ -48,6 +49,25 @@ namespace Hüttenspiel
             //Neue Mitteilung erstellen
             Mitteilung ergebnis = new Mitteilung();
             //Tabelle mit Endergebnis als Mitteilung
+            //Schriftart anpassbar falls es auf Monitor nicht passt und Tabelle verzogen wird
+            
+            if (File.Exists(confDatei))
+            {
+                string[] conf = File.ReadAllLines(confDatei);
+                try
+                {
+                    ergebnis.Schrift = new Font(conf[0], Convert.ToInt16(conf[1]));
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erste Zeile in *.conf Datei Schriftname, zweite Zeile Schriftgröße in int!!");
+                }                
+            }
+            else
+            {
+                ergebnis.Schrift = new Font("Lucida Console", 32);
+            }
+            
             ergebnis.Nachricht = stringAusgabe;          
             return ergebnis;
         }
@@ -138,42 +158,7 @@ namespace Hüttenspiel
         }
 
 
-        /// <summary>
-        /// Method to start the application on the secondary screen
-        /// </summary>
-        private void ShowOnSecondaryScreen()
-        {
-            Screen secondary = null;
 
-            if (System.Windows.Forms.SystemInformation.MonitorCount > 1)
-            {
-                // Zweiten Monitor ermitteln
-                secondary = Screen.AllScreens[1];
-
-                //Sollte dummerweise der zweite der Hauptmonitor sein
-                //dann den ersten Monitor als Anzeige nehmen
-                if (secondary.Primary)
-                {
-                    secondary = Screen.AllScreens[0];
-                }
-            }
-
-            if (secondary != null)
-            {
-                // set the screen location as form location
-                this.Location = secondary.Bounds.Location;
-
-                // maximize the window
-                this.WindowState = FormWindowState.Maximized;
-                // Style entfernen
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            }
-            else
-            {
-                //Falls kein zweiter Monitor da auf dem ersten anzeigen
-                this.Location = Screen.AllScreens[0].Bounds.Location;
-            }
-        }
 
         /// <summary>
         /// Hauptanzeige wenn möglich auf zweiten Bildschirm anzeigen
@@ -182,7 +167,7 @@ namespace Hüttenspiel
         /// <param name="e"></param>
         private void Ansicht_Load(object sender, EventArgs e)
         {
-            ShowOnSecondaryScreen();
+            Helper.ShowOnSecondaryScreen(this);
         }
 
         /// <summary>

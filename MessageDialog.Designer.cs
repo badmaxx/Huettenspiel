@@ -105,6 +105,7 @@
             // 
             // BtnAusrichtung
             // 
+            this.BtnAusrichtung.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BtnAusrichtung.Location = new System.Drawing.Point(178, 259);
             this.BtnAusrichtung.Name = "BtnAusrichtung";
             this.BtnAusrichtung.Size = new System.Drawing.Size(75, 23);
