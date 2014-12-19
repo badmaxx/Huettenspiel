@@ -72,9 +72,9 @@
             // DgvRangliste
             // 
             this.DgvRangliste.AllowUserToAddRows = false;
-            this.DgvRangliste.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.DgvRangliste.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvRangliste.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DgvRangliste.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DgvRangliste.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
@@ -95,7 +95,7 @@
             this.Bild});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -103,6 +103,7 @@
             this.DgvRangliste.DefaultCellStyle = dataGridViewCellStyle5;
             this.DgvRangliste.Location = new System.Drawing.Point(12, 66);
             this.DgvRangliste.Name = "DgvRangliste";
+            this.DgvRangliste.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvRangliste.RowHeadersVisible = false;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DgvRangliste.RowsDefaultCellStyle = dataGridViewCellStyle6;
@@ -111,8 +112,7 @@
             this.DgvRangliste.ShowCellErrors = false;
             this.DgvRangliste.ShowRowErrors = false;
             this.DgvRangliste.Size = new System.Drawing.Size(908, 314);
-            this.DgvRangliste.TabIndex = 9;
-            // 
+            this.DgvRangliste.TabIndex = 9;            // 
             // Rang
             // 
             this.Rang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -151,8 +151,8 @@
             // 
             // LblBestenliste
             // 
-            this.LblBestenliste.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblBestenliste.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LblBestenliste.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblBestenliste.Location = new System.Drawing.Point(9, 383);
             this.LblBestenliste.Name = "LblBestenliste";

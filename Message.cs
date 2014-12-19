@@ -9,9 +9,22 @@ namespace Hüttenspiel
 	/// </summary>
 	public partial class Mitteilung : Form
 	{
+        private HorizontalAlignment _ausrichtung;
+
         public Font Schrift { get; set; }
 
-        public HorizontalAlignment Ausrichtung { get; set; }
+        public HorizontalAlignment Ausrichtung { 
+            get
+            {
+                return _ausrichtung;
+            }
+
+            set
+            {
+                _ausrichtung = value;
+                TextNeuAusrichten(); 
+            }
+        }
 
 		public Mitteilung()
 		{
@@ -47,15 +60,18 @@ namespace Hüttenspiel
             }
             RtbMitteilung.Text = text;
             RtbMitteilung.Font = schrift;
+            TextNeuAusrichten();          
+        }
 
-            //Text ausrichten
+
+        private void TextNeuAusrichten()
+        {
             RtbMitteilung.SelectAll();
-            RtbMitteilung.SelectionAlignment = Ausrichtung;
+            RtbMitteilung.SelectionAlignment = _ausrichtung;
             RtbMitteilung.DeselectAll();
 
             this.ActiveControl = label1;
         }
-
    
 	    /// <summary>
 	    /// Form auf zweitem Bildschirm ausgeben

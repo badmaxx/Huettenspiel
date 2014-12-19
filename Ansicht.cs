@@ -16,7 +16,8 @@ namespace Hüttenspiel
         private string[] _bestenliste;
         private int _bestenlisteAktuell = 0;
         private Logger _log;
-        private const string confDatei = "conf.conf";
+        private string confDatei = Path.Combine("Data","conf.conf");
+        private bool _dgvGefuellt = false;
 
         /// <summary>
         /// Erstellt das Endergebnis in einer temp file
@@ -24,7 +25,7 @@ namespace Hüttenspiel
         public Mitteilung ErstelleEndergebnis()
         {
             //Ergebnis in eine temp Datei ablegen zur Sicherung   
-            StreamWriter ausgabe = new StreamWriter("tempEndergebnis.txt");
+            StreamWriter ausgabe = new StreamWriter(Path.Combine("Data","tempEndergebnis.txt"));
 
             //Tuple erzeugen aller Zeilen
             Tuple<string, string, string>[] cases = new Tuple<string, string, string>[DgvRangliste.Rows.Count];
@@ -65,10 +66,11 @@ namespace Hüttenspiel
             }
             else
             {
-                ergebnis.Schrift = new Font("Lucida Console", 32);
+                ergebnis.Schrift = new Font("Lucida Console", 39);
             }
             
-            ergebnis.Nachricht = stringAusgabe;          
+            ergebnis.Nachricht = stringAusgabe;
+            ergebnis.Ausrichtung = HorizontalAlignment.Center;
             return ergebnis;
         }
 
@@ -134,8 +136,10 @@ namespace Hüttenspiel
                 this.Update();
                 Application.DoEvents();
 
-                row = null;
+                row = null;                
             }
+
+            GroesseAnpassenDGV();
 
             if (this.WindowState != FormWindowState.Maximized)
             {
@@ -143,9 +147,71 @@ namespace Hüttenspiel
                 this.Height = DgvRangliste.Height + DgvRangliste.ColumnHeadersHeight + DgvRangliste.Location.Y + LblBestenliste.Height;
             }
             
+
             DgvRangliste.ClearSelection(); 
             //UpdateBestenliste();   
         }        
+
+        /// <summary>
+        /// Größe in DGV ändern, damit Schriftgröße optimal zur Fenstergröße
+        /// </summary>
+        private void GroesseAnpassenDGV()
+        {
+            int totalWidth = 0, rowheight;
+            int Faktor = 1, i = 0;
+            bool fertig = false;
+            int[] size = new int[3];
+
+            rowheight = DgvRangliste.Rows[0].Height;
+
+            if (DgvRangliste.RowCount > 6)
+            {
+                Faktor = DgvRangliste.RowCount-1;
+
+                if (Faktor > 4)
+                {
+                    Faktor = 4;
+                }
+            }
+
+            while (!fertig && _dgvGefuellt)
+            {
+                totalWidth = DgvRangliste.Columns.GetColumnsWidth(DataGridViewElementStates.Visible);
+
+                if (totalWidth + Faktor * 100 < DgvRangliste.Width)
+                {                    
+                    DgvRangliste.DefaultCellStyle.Font = new System.Drawing.Font(DgvRangliste.DefaultCellStyle.Font.FontFamily,
+                        DgvRangliste.DefaultCellStyle.Font.Size + 1);                             
+                }
+                else
+                {
+                    DgvRangliste.DefaultCellStyle.Font = new System.Drawing.Font(DgvRangliste.DefaultCellStyle.Font.FontFamily,
+                        DgvRangliste.DefaultCellStyle.Font.Size - 1);                    
+                }
+
+               
+                size[i] = totalWidth;
+
+                if (size[0] == size[2])
+                {
+                    fertig = true;
+                }
+
+                if (i < 2)
+                {
+                    i++;
+                }
+                else
+                {
+                    i = 0;
+                }
+
+                DgvRangliste.Update();
+                this.Update();
+                Application.DoEvents();
+            }
+            _dgvGefuellt = true;
+        }
         
         /// <summary>
         /// Timer für die Restzeit ändern
@@ -156,8 +222,6 @@ namespace Hüttenspiel
         	LblTimer.Text = restzeit;
         	LblTimer.Refresh();
         }
-
-
 
 
         /// <summary>
@@ -234,7 +298,7 @@ namespace Hüttenspiel
             _log = null;
         }
 
-
+       
         //private void UpdateBestenliste()
         //{
         //    string text = "Hall of Fame: ";

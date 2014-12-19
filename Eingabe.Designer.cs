@@ -325,6 +325,7 @@ namespace Hüttenspiel
             // 
             // CbGetränk
             // 
+            this.CbGetränk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbGetränk.FormattingEnabled = true;
             this.CbGetränk.Location = new System.Drawing.Point(9, 79);
             this.CbGetränk.Name = "CbGetränk";
@@ -378,6 +379,7 @@ namespace Hüttenspiel
             this.Controls.Add(this.GbRunde);
             this.Controls.Add(this.GbAktualisieren);
             this.Controls.Add(this.groupBox3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(602, 598);
             this.Name = "Eingabe";

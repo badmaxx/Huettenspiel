@@ -6,12 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Hüttenspiel
 {
     public partial class MessageDialog : Form
     {
-        Font _schrift;
+        private Font _schrift;
+        private const string _pfadregeln = "Regeln.txt";
 
         public MessageDialog(string text, Font schrift, HorizontalAlignment ausrichtung = HorizontalAlignment.Center)
         {
@@ -153,10 +155,28 @@ namespace Hüttenspiel
                     break;
             }
             //Ausrichtung des gesamten Textes
+            TextNeuAusrichten();
+        }
+
+        private void TextNeuAusrichten()
+        {
             rtbText.SelectAll();
             rtbText.SelectionAlignment = Ausrichtung;
             rtbText.DeselectAll();
             this.ActiveControl = rtbText;
+        }
+
+        private void BtnRegeln_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(_pfadregeln))
+            {
+                File.Create(_pfadregeln);
+                
+            }
+            rtbText.Text = File.ReadAllText(_pfadregeln);
+            Ausrichtung = HorizontalAlignment.Left;
+            BtnAusrichtung.Text = "Links";
+            TextNeuAusrichten();
         }
     }
 }
