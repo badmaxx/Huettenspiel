@@ -21,6 +21,7 @@ namespace Hüttenspiel
         Hugo,
         Goaß,
         Sekt,
+        Flaschengetränk,
     }
 
     static class Helper
@@ -62,7 +63,7 @@ namespace Hüttenspiel
             }
         }
     }
-	}
+}
 
 
 

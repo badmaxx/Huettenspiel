@@ -414,8 +414,9 @@ namespace Hüttenspiel
             this.Controls.Add(this.GbRunde);
             this.Controls.Add(this.GbAktualisieren);
             this.Controls.Add(this.groupBox3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(602, 598);
             this.Name = "Eingabe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
