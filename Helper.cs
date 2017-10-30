@@ -22,6 +22,7 @@ namespace Hüttenspiel
         Goaß,
         Sekt,
         Flaschengetränk,
+        Sonstige,
     }
 
     static class Helper

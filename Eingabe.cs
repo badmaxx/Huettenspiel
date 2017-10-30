@@ -27,11 +27,14 @@ namespace Hüttenspiel
         private bool _mitteilungAngezeigt = false, _diashowGestartet = false;
         private Diashow _diashow;
 
-
+        /// <summary>
+        /// Konstruktor Eingabe
+        /// </summary>
         public Eingabe()
         {
             InitializeComponent();
-            CbGetränk.DataSource = Enum.GetValues(typeof(Getraenke));            
+            CbGetränk.DataSource = Enum.GetValues(typeof(Getraenke));
+            lblVersion.Text = "Version: " + Properties.Settings.Default.Version;
         }
 
         /// <summary>
@@ -690,6 +693,28 @@ namespace Hüttenspiel
                 }
             }           
         }
+
+        private void cbSonstiges_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbSonstiges.Checked)
+            {
+                numericUpDownTime.Enabled = true;
+                cbZeit.Enabled = false;
+                
+                CbGetränk.Text = "Sonstiges";
+                CbGetränk.Enabled = false;
+            }
+            else
+            {
+                cbZeit.Text = "60";
+                numericUpDownTime.Value = Convert.ToDecimal(cbZeit.Text);
+                numericUpDownTime.Enabled = false;
+                cbZeit.Enabled = true;
+                CbGetränk.Enabled = true;
+            }
+        }
+
+
 
         /// <summary>
         /// Beenden der Diashow
