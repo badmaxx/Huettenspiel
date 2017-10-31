@@ -10,6 +10,9 @@ using System.IO;
 
 namespace Hüttenspiel
 {
+    /// <summary>
+    /// Ansicht für Spieler
+    /// </summary>
     public partial class Ansicht : Form
     {
         private Spieltyp _spieltyp;
@@ -217,7 +220,7 @@ namespace Hüttenspiel
         /// Timer für die Restzeit ändern
         /// </summary>
         /// <param name="restzeit"></param>
-        public void updateTimer(string restzeit)
+        public void UpdateTimer(string restzeit)
         {
         	LblTimer.Text = restzeit;
         	LblTimer.Refresh();

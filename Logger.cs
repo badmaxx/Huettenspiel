@@ -47,7 +47,6 @@ namespace Hüttenspiel
         /// <summary>
         /// Schreibt den aktuellen Stand in die Logdatei
         /// </summary>
-        /// <param name="file">Stream auf die aktuelle Logdatei</param>
         /// <param name="stringTabelle">Aktuelle Tabelle als String</param>
         public void UpdateAutosave(string stringTabelle)
         {

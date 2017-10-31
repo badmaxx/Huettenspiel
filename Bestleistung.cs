@@ -46,6 +46,5 @@ namespace Hüttenspiel
         /// Dauer der Runde
         /// </summary>
         public decimal Rundendauer { get; set; }
-
     }
 }

@@ -10,11 +10,19 @@ using System.IO;
 
 namespace Hüttenspiel
 {
+    /// <summary>
+    /// Ansicht für Diashow
+    /// </summary>
     public partial class Diashow : Form
     {
         private string _ordnerpfad;
         private List<string> bilder = new List<string>();
         private int bildnummer = 1;
+        
+        
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
         public Diashow()
         {
             InitializeComponent(); 
@@ -24,11 +32,13 @@ namespace Hüttenspiel
         /// <summary>
         /// Initialisieren und Bilderpfad auswählen
         /// </summary>
-        public void init()
+        public void Init()
         {
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.ShowNewFolderButton = true;
-            dialog.Description = "Ordner mit Bildern auswählen. Es werden alle Bilder darin angezeigt!";
+            FolderBrowserDialog dialog = new FolderBrowserDialog
+            {
+                ShowNewFolderButton = true,
+                Description = "Ordner mit Bildern auswählen. Es werden alle Bilder darin angezeigt!"
+            };
             dialog.ShowDialog();
             _ordnerpfad = dialog.SelectedPath;           
         }

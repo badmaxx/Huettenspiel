@@ -7,7 +7,6 @@ namespace Hüttenspiel
 {
     class Rundendauer
     { 
-
         public string Name { get; }
         public decimal Dauer { get; }       
         
@@ -21,20 +20,5 @@ namespace Hüttenspiel
         {
             return Name;
         }
-    }
-
-    [Serializable]
-    class Runde
-    {
-        public Runde()
-        { }
-        
-        public List<Spieler> Mitspieler { get; set; }
-
-        public string Getränk { get; set; }
-
-        public DateTime Datum { get; set; }
-
-        public Rundendauer Dauer { get; set; }
     }
 }

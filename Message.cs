@@ -11,8 +11,14 @@ namespace Hüttenspiel
 	{
         private HorizontalAlignment _ausrichtung;
 
+        /// <summary>
+        /// Schriftart der Nachricht
+        /// </summary>
         public Font Schrift { get; set; }
 
+        /// <summary>
+        /// Ausrichtung des Textes
+        /// </summary>
         public HorizontalAlignment Ausrichtung { 
             get
             {
@@ -26,6 +32,9 @@ namespace Hüttenspiel
             }
         }
 
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
 		public Mitteilung()
 		{
 			InitializeComponent();

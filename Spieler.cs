@@ -97,6 +97,9 @@ namespace Hüttenspiel
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int Platzierung
         {
             get
@@ -110,12 +113,24 @@ namespace Hüttenspiel
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int LetztePlatzierung { get; set; }
 
+        /// <summary>
+        /// Spieltyp
+        /// </summary>
         public Spieltyp Eintragstyp { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string AktuellesGetränk { get; set; }
 
+        /// <summary>
+        /// Liste der Bestleistungen
+        /// </summary>
         public List<Bestleistung> Bestleistungen { get; set; }
 
 
@@ -155,8 +170,7 @@ namespace Hüttenspiel
         {
             if (obj is Spieler)
             {
-                return((Spieler)obj).Anzahl.CompareTo(this.Anzahl);
-               
+                return((Spieler)obj).Anzahl.CompareTo(this.Anzahl);               
             }
 
             throw new NotImplementedException();

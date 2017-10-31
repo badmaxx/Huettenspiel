@@ -533,7 +533,7 @@ namespace Hüttenspiel
         	}
         	else
         	{        		
-        		_runde.updateTimer(restzeit.Hours.ToString("00")+":"+restzeit.Minutes.ToString("00")+":"+restzeit.Seconds.ToString("00"));       //Genaue Restzeit in Ansicht setzen
+        		_runde.UpdateTimer(restzeit.Hours.ToString("00")+":"+restzeit.Minutes.ToString("00")+":"+restzeit.Seconds.ToString("00"));       //Genaue Restzeit in Ansicht setzen
 				this.numericUpDownTime.Text = restzeit.Minutes.ToString("00");		//Ungefähre Restzeit in Eingabefeld setzen
         	}
         }
@@ -681,7 +681,7 @@ namespace Hüttenspiel
             {
                 GbDiashow.Text = "Beenden";
                 _diashow = new Diashow();
-                _diashow.init();
+                _diashow.Init();
                 _diashowGestartet = true;
                 if (!_diashow.Anzeigen())
                 {

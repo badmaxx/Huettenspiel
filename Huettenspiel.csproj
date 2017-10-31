@@ -97,7 +97,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Runde.cs" />
+    <Compile Include="Rundendauer.cs" />
     <Compile Include="SicherungSpieler.cs" />
     <Compile Include="Spieler.cs" />
     <Compile Include="TableParser.cs" />

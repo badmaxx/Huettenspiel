@@ -10,11 +10,20 @@ using System.IO;
 
 namespace Hüttenspiel
 {
+    /// <summary>
+    /// Erstellen einer Nachricht
+    /// </summary>
     public partial class MessageDialog : Form
     {
         private Font _schrift;
         private const string _pfadregeln = "Regeln.txt";
 
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="schrift"></param>
+        /// <param name="ausrichtung"></param>
         public MessageDialog(string text, Font schrift, HorizontalAlignment ausrichtung = HorizontalAlignment.Center)
         {
             InitializeComponent();
@@ -41,10 +50,19 @@ namespace Hüttenspiel
             this.ActiveControl = rtbText;
         }
 
+        /// <summary>
+        /// Text der Nachricht
+        /// </summary>
         public string MessageText { get; private set; }
 
+        /// <summary>
+        /// Ausrichtung der Nachtricht
+        /// </summary>
         public HorizontalAlignment Ausrichtung { get; set; }
 
+        /// <summary>
+        /// Text Font der Nachricht
+        /// </summary>
         public Font Schrift { get; private set; }
 
         /// <summary>
