@@ -21,6 +21,7 @@ namespace Hüttenspiel
         private bool _rundeLäuft = false;
         private Spieltyp _spieltyp = Spieltyp.Spieler;
         private int _rundenzeit = 60;		//Standardwert für Runde auf eine Stunde setzen
+        private Rundendauer _rundendauer;
         private DateTime endzeit;
         private TimeSpan restzeit;
         private Mitteilung _mitteilung;
@@ -153,10 +154,12 @@ namespace Hüttenspiel
         {
             if (LbAktuelleSpieler.SelectedItem != null)
             {
-                if (MessageBox.Show("Anzahl ändern?", "Bestätigung", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Anzahl ändern?", "Bestätigung", MessageBoxButtons.YesNo, 
+                        MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ((Spieler)LbAktuelleSpieler.SelectedItem).AktuellesGetränk = _getränk;
                     ((Spieler)LbAktuelleSpieler.SelectedItem).Anzahl = Convert.ToInt32(NudAnzahl.Value);
+                    ((Spieler)LbAktuelleSpieler.SelectedItem).DauerRunde = _rundendauer.Dauer;
 
                     Spieler[] tempList = LbAktuelleSpieler.Items.Cast<Spieler>().ToArray();
                     Array.Sort(tempList);
@@ -212,7 +215,9 @@ namespace Hüttenspiel
 
             foreach (Spieler sp in _sicherungSpieler.Spielerliste)
             {
-                if (sp.Bestleistungen.Find(lst => lst.Getränk == _getränk) != null && sp.Eintragstyp == _spieltyp)
+                if (sp.Bestleistungen.Find(lst => lst.Getränk == _getränk) != null && 
+                    sp.Eintragstyp == _spieltyp &&
+                    sp.Bestleistungen.Find(lst => lst.DauerRunde == _rundendauer.Dauer) != null)
                 {                    
                     temp.Add(sp);
                 }            
@@ -358,8 +363,10 @@ namespace Hüttenspiel
 
                     _rundeLäuft = true;
                     _getränk = CbGetränk.Text;
+                    _rundendauer = (Rundendauer)cbRundendauer.SelectedItem;
+                    _rundenzeit = _rundendauer.Dauer;
 
-                    _runde = new Ansicht(CbGetränk.Text, _spieltyp, _rundenzeit);
+                    _runde = new Ansicht(CbGetränk.Text, _spieltyp, _rundendauer);
                     _runde.UpdateList(LbAktuelleSpieler.Items.Cast<Spieler>().ToArray(), ErzeugeBesten());
                     _runde.Show();
 
@@ -423,7 +430,11 @@ namespace Hüttenspiel
             BtnShowMessage.Enabled = true;
             GbDiashow.Enabled = true;
 
-            BestenlisteErsteller ersteller = new BestenlisteErsteller(_sicherungSpieler, _getränk, _spieltyp);        
+            if (cbSonstiges.Checked == false)
+            {
+                BestenlisteErsteller ersteller = new BestenlisteErsteller(_sicherungSpieler,
+                    _getränk, _spieltyp, _rundendauer);
+            }       
         }
 
         /// <summary>

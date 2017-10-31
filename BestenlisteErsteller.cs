@@ -12,12 +12,14 @@ namespace Hüttenspiel
         private SicherungSpieler _spieler;
         private string _getränk;
         private Spieltyp _spieltyp;
+        private Rundendauer _rundendauer;
 
-        public BestenlisteErsteller(SicherungSpieler liste, string getränk, Spieltyp spieltyp)
+        public BestenlisteErsteller(SicherungSpieler liste, string getränk, Spieltyp spieltyp, Rundendauer rundendauer)
         { 
             _spieler = liste;
             _getränk = getränk;
             _spieltyp = spieltyp;
+            _rundendauer = rundendauer;
 
             SchreibeDatei(ErstelleListe());        
         }
@@ -34,18 +36,24 @@ namespace Hüttenspiel
 
             foreach (Spieler sp in _spieler.Spielerliste)
             {
-                if (sp.Bestleistungen.Find(lst => lst.Getränk == _getränk) != null && sp.Eintragstyp == _spieltyp)
+                if (sp.Bestleistungen.Find(lst => lst.Getränk == _getränk) != null && 
+                    sp.Eintragstyp == _spieltyp &&
+                    sp.Bestleistungen.Find(lst => lst.DauerRunde == _rundendauer.Dauer) != null)
                 {                    
                     temp.Add(sp);
                 }            
             }
 
-            temp = temp.OrderByDescending(sp => sp.Bestleistungen[sp.Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Anzahl).ToList();
+            temp = temp.OrderByDescending(
+                sp => sp.Bestleistungen[sp.Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Anzahl).ToList();
 
                 for (int i = 0; i < temp.Count; i++)
                 {
-                    leistungen.Add(new Tuple<Bestleistung, string>(new Bestleistung(temp[i].Bestleistungen[temp[i].Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Anzahl,
-                        temp[i].Bestleistungen[temp[i].Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Datum), temp[i].Name));
+                    leistungen.Add(new Tuple<Bestleistung, string>(new Bestleistung(
+                        temp[i].Bestleistungen[temp[i].Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Anzahl,
+                        temp[i].Bestleistungen[temp[i].Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Datum, 
+                        _rundendauer.Dauer),
+                        temp[i].Name));
 
                     //rückgabe.Add( "Platz " + (i + 1) + " : " + temp[i].Name + " " + temp[i].Bestleistungen[temp[i].Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Anzahl +
                     //" am " + temp[i].Bestleistungen[temp[i].Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Datum.ToShortDateString());
@@ -60,7 +68,7 @@ namespace Hüttenspiel
         /// <param name="schreiben">Bestleistung mit Name</param>
         private void SchreibeDatei(List<Tuple<Bestleistung, string>> schreiben)
         {
-            string pfad = Path.Combine("Ranglisten",_spieltyp.ToString(), _getränk);
+            string pfad = Path.Combine("Ranglisten",_spieltyp.ToString(), _getränk, _rundendauer.Name);
             string dateiname = "Ewige_Rangliste.txt";           
 
             if (!Directory.Exists(pfad))
@@ -70,7 +78,8 @@ namespace Hüttenspiel
 
             StreamWriter ausgabe = new StreamWriter(Path.Combine(pfad, dateiname));
 
-            ausgabe.WriteLine("Ewige Rangliste in der Kategorie " + _spieltyp.ToString() + " mit " + _getränk);
+            ausgabe.WriteLine("Ewige Rangliste in der Kategorie " + _spieltyp.ToString() + " mit " +
+                _getränk + " (" + _rundendauer.Name + ")");
             ausgabe.WriteLine("Stand: " + DateTime.Now.ToShortDateString());
             ausgabe.WriteLine();
 

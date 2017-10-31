@@ -29,10 +29,12 @@ namespace Hüttenspiel
         /// </summary>
         /// <param name="getraenk">Getränk der Runde</param>
         /// <param name="spieltyp">Spieltyp der Runde</param>
+        /// <param name="dauer">Spieltyp der Runde</param>
         /// <returns>FileStream auf die aktuelle Logdatei</returns>
-        public void ErstelleAutosave(string getraenk, Spieltyp spieltyp)
+        public void ErstelleAutosave(string getraenk, Spieltyp spieltyp, Rundendauer dauer)
         {
-            string pfad = Path.Combine(Logpfad, spieltyp.ToString(), getraenk.ToString(),DateTime.Now.ToShortDateString());
+            string pfad = Path.Combine(Logpfad, spieltyp.ToString(), 
+                getraenk.ToString(),dauer.Name, DateTime.Now.ToShortDateString());
 
             if (!Directory.Exists(pfad))
             {

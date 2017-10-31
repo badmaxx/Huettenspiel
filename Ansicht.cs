@@ -21,6 +21,7 @@ namespace Hüttenspiel
         private Logger _log;
         private string confDatei = Path.Combine("Data","conf.conf");
         private bool _dgvGefuellt = false;
+        private TimeSpan _rundenzeit;
 
         /// <summary>
         /// Erstellt das Endergebnis in einer temp file
@@ -83,17 +84,21 @@ namespace Hüttenspiel
         /// <param name="getränk">Getränk dieser Runde</param>
         /// <param name="spieltyp">Spieltyp (Einzelspieler oder Teams)</param>
         /// <param name="rundenzeit">Zeit einer Runde</param>
-        public Ansicht(string getränk, Spieltyp spieltyp, int rundenzeit)
+        public Ansicht(string getränk, Spieltyp spieltyp, Rundendauer rundenzeit)
         {
             InitializeComponent();
             LblGetränk.Text = getränk;
             _spieltyp = spieltyp;
-            
-            if(spieltyp == Spieltyp.Team)
+
+            _rundenzeit = new TimeSpan(0, Convert.ToInt16(rundenzeit.Dauer), 0);
+            LblRundendauer.Text = " von " + _rundenzeit.Hours.ToString("00") + ":" 
+                + _rundenzeit.Minutes.ToString("00") + ":" + _rundenzeit.Seconds.ToString("00");
+
+            if (spieltyp == Spieltyp.Team)
                 DgvRangliste.Columns[1].HeaderText = "Team";
 
             _log = new Logger();
-            _log.ErstelleAutosave(getränk, spieltyp);
+            _log.ErstelleAutosave(getränk, spieltyp, rundenzeit);
         }
 
         /// <summary>
@@ -222,7 +227,7 @@ namespace Hüttenspiel
         /// <param name="restzeit"></param>
         public void UpdateTimer(string restzeit)
         {
-        	LblTimer.Text = restzeit;
+            LblTimer.Text = restzeit;                
         	LblTimer.Refresh();
         }
 

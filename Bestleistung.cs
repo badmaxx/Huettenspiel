@@ -21,10 +21,12 @@ namespace Hüttenspiel
         /// </summary>
         /// <param name="anzahl"></param>
         /// <param name="datum"></param>
-        public Bestleistung(int anzahl, DateTime datum)
+        /// <param name="dauer"></param>
+        public Bestleistung(int anzahl, DateTime datum, int dauer)
         {
             Anzahl = anzahl;
             Datum = datum;
+            DauerRunde = dauer;
         }
 
         /// <summary>
@@ -45,6 +47,6 @@ namespace Hüttenspiel
         /// <summary>
         /// Dauer der Runde
         /// </summary>
-        public decimal Rundendauer { get; set; }
+        public int DauerRunde { get; set; }
     }
 }

@@ -91,6 +91,7 @@ namespace Hüttenspiel
                         _temp.Anzahl = Anzahl;
                         _temp.Datum = DateTime.Now;
                         _temp.Getränk = AktuellesGetränk;
+                        _temp.DauerRunde = DauerRunde;
                         Bestleistungen.Add(_temp);
                     }
                 }
@@ -124,9 +125,14 @@ namespace Hüttenspiel
         public Spieltyp Eintragstyp { get; set; }
 
         /// <summary>
-        /// 
+        /// Temp für Getränk
         /// </summary>
         public string AktuellesGetränk { get; set; }
+
+        /// <summary>
+        /// Temp für Dauer der Runde
+        /// </summary>
+        public int DauerRunde { get; set; }
 
         /// <summary>
         /// Liste der Bestleistungen
