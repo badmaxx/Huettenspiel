@@ -12,7 +12,7 @@ namespace Hüttenspiel
 {
     public partial class Ansicht : Form
     {
-        private Typ _spieltyp;
+        private Spieltyp _spieltyp;
         private string[] _bestenliste;
         private int _bestenlisteAktuell = 0;
         private Logger _log;
@@ -80,13 +80,13 @@ namespace Hüttenspiel
         /// <param name="getränk">Getränk dieser Runde</param>
         /// <param name="spieltyp">Spieltyp (Einzelspieler oder Teams)</param>
         /// <param name="rundenzeit">Zeit einer Runde</param>
-        public Ansicht(string getränk, Typ spieltyp, int rundenzeit)
+        public Ansicht(string getränk, Spieltyp spieltyp, int rundenzeit)
         {
             InitializeComponent();
             LblGetränk.Text = getränk;
             _spieltyp = spieltyp;
             
-            if(spieltyp == Typ.Team)
+            if(spieltyp == Spieltyp.Team)
                 DgvRangliste.Columns[1].HeaderText = "Team";
 
             _log = new Logger();

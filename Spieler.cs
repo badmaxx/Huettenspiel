@@ -5,21 +5,40 @@ using System.Text;
 
 namespace Hüttenspiel
 {
-    public enum Typ
+    /// <summary>
+    /// Spieltypen
+    /// </summary>
+    public enum Spieltyp
     {
+        /// <summary>
+        /// Spieler
+        /// </summary>
         Spieler,
+        /// <summary>
+        /// Teams
+        /// </summary>
         Team
     }
 
-
+    /// <summary>
+    /// Spieler mit seinen Leistungen
+    /// </summary>
     public class Spieler : IComparable
     {
         private int _platzierung, _anzahl;
         Bestleistung _temp;
 
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
         public Spieler()
         { }
 
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
+        /// <param name="vorname"></param>
+        /// <param name="nachname"></param>
         public Spieler(string vorname, string nachname)
         {
             Vorname = vorname;
@@ -28,12 +47,24 @@ namespace Hüttenspiel
             Bestleistungen = new List<Bestleistung>();
         }
 
+        /// <summary>
+        /// ID des Spielers
+        /// </summary>
         public int ID { get; set; }
 
+        /// <summary>
+        /// Vorname
+        /// </summary>
         public string Vorname { get; set; }
 
+        /// <summary>
+        /// Nachname
+        /// </summary>
         public string Nachname { get; set; }
 
+        /// <summary>
+        /// Anzahl des Getränks
+        /// </summary>
         public int Anzahl
         {
             get
@@ -79,24 +110,9 @@ namespace Hüttenspiel
             }
         }
 
-        public int LetztePlatzierung
-        {
-            get;
-            set;
-            //get
-            //{
-            //    if (Platzierung == 0)
-            //        return 1000;
-            //    else
-            //        return _letztePlatzierung;
-            //}
-            //set
-            //{
-            //    _letztePlatzierung = value;
-            //}
-        }
+        public int LetztePlatzierung { get; set; }
 
-        public Typ Eintragstyp { get; set; }
+        public Spieltyp Eintragstyp { get; set; }
 
         public string AktuellesGetränk { get; set; }
 
@@ -119,6 +135,9 @@ namespace Hüttenspiel
             }
         }
 
+        /// <summary>
+        /// Erzeuge Namen
+        /// </summary>
         public string Name
         {
             get
@@ -144,33 +163,4 @@ namespace Hüttenspiel
         }
 
     }
-        public class SicherungSpieler
-        {
-            public SicherungSpieler()
-            { }
-
-            public List<Spieler> Spielerliste { get; set; }        
-        }
-
-
-        public class Bestleistung
-        {
-            public Bestleistung()
-            { }
-
-            public Bestleistung(int anzahl, DateTime datum)
-            {
-                Anzahl = anzahl;
-                Datum = datum;
-            }
-
-            public string Getränk { get; set; }
-
-            public DateTime Datum { get; set; }
-
-            public int Anzahl { get; set; }
-              
-          
-        }
-    
- }
+}

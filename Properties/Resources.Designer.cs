@@ -61,7 +61,7 @@ namespace Hüttenspiel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        ///   Sucht eine lokalisierte Ressource vom Spieltyp System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Logo_Huette {
             get {
@@ -71,7 +71,7 @@ namespace Hüttenspiel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
+        ///   Sucht eine lokalisierte Ressource vom Spieltyp System.Drawing.Icon ähnlich wie (Symbol).
         /// </summary>
         internal static System.Drawing.Icon Logo_Huette1 {
             get {
@@ -81,7 +81,7 @@ namespace Hüttenspiel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        ///   Sucht eine lokalisierte Ressource vom Spieltyp System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Pfeil_grün {
             get {
@@ -91,7 +91,7 @@ namespace Hüttenspiel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        ///   Sucht eine lokalisierte Ressource vom Spieltyp System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Pfeil_rot {
             get {
@@ -101,7 +101,7 @@ namespace Hüttenspiel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        ///   Sucht eine lokalisierte Ressource vom Spieltyp System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Pfeillinks {
             get {
@@ -111,7 +111,7 @@ namespace Hüttenspiel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        ///   Sucht eine lokalisierte Ressource vom Spieltyp System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Pfeilrechts {
             get {

@@ -22,9 +22,11 @@ namespace Hüttenspiel
         Goaß,
         Sekt,
         Flaschengetränk,
-        Sonstige,
+        Getränk_0_5,
+        Getränk_0_33,
+        Irgendwas,
     }
-
+           
     static class Helper
 	{
         /// <summary>
@@ -59,7 +61,7 @@ namespace Hüttenspiel
             }
             else
             {
-                //Falls kein zweiter Monitor da auf dem ersten anzeigen
+                //Falls kein zweiter Monitor, dann auf dem ersten anzeigen
                 form.Location = Screen.AllScreens[0].Bounds.Location;
             }
         }

@@ -11,15 +11,15 @@ namespace Hüttenspiel
 {
     public partial class Dialog : Form
     {
-        private Typ _spieltyp;
+        private Spieltyp _spieltyp;
 
-        public Dialog(Typ spieltyp)
+        public Dialog(Spieltyp spieltyp)
         {
             InitializeComponent();
 
             _spieltyp = spieltyp;
 
-            if (spieltyp == Typ.Team)
+            if (spieltyp == Spieltyp.Team)
             {
                 TxtNachname.Enabled = false;
                 LblVorname.Text = "Teamname";                
@@ -32,7 +32,7 @@ namespace Hüttenspiel
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
-            if (_spieltyp == Typ.Team)
+            if (_spieltyp == Spieltyp.Team)
             {
                 if (string.IsNullOrEmpty(TxtVorname.Text))
                 {

@@ -56,7 +56,7 @@ namespace Hüttenspiel
             this.LblGetraenk = new System.Windows.Forms.Label();
             this.GbRunde = new System.Windows.Forms.GroupBox();
             this.cbSonstiges = new System.Windows.Forms.CheckBox();
-            this.cbZeit = new System.Windows.Forms.ComboBox();
+            this.cbRundendauer = new System.Windows.Forms.ComboBox();
             this.numericUpDownTime = new System.Windows.Forms.NumericUpDown();
             this.LblRundenzeit = new System.Windows.Forms.Label();
             this.RbTeams = new System.Windows.Forms.RadioButton();
@@ -268,7 +268,7 @@ namespace Hüttenspiel
             // 
             this.GbRunde.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GbRunde.Controls.Add(this.cbSonstiges);
-            this.GbRunde.Controls.Add(this.cbZeit);
+            this.GbRunde.Controls.Add(this.cbRundendauer);
             this.GbRunde.Controls.Add(this.numericUpDownTime);
             this.GbRunde.Controls.Add(this.LblRundenzeit);
             this.GbRunde.Controls.Add(this.RbTeams);
@@ -279,7 +279,7 @@ namespace Hüttenspiel
             this.GbRunde.Controls.Add(this.BtnBeenden);
             this.GbRunde.Location = new System.Drawing.Point(19, 394);
             this.GbRunde.Name = "GbRunde";
-            this.GbRunde.Size = new System.Drawing.Size(200, 196);
+            this.GbRunde.Size = new System.Drawing.Size(200, 202);
             this.GbRunde.TabIndex = 7;
             this.GbRunde.TabStop = false;
             this.GbRunde.Text = "Runde";
@@ -287,32 +287,33 @@ namespace Hüttenspiel
             // cbSonstiges
             // 
             this.cbSonstiges.AutoSize = true;
-            this.cbSonstiges.Location = new System.Drawing.Point(64, 165);
+            this.cbSonstiges.Location = new System.Drawing.Point(12, 179);
             this.cbSonstiges.Name = "cbSonstiges";
-            this.cbSonstiges.Size = new System.Drawing.Size(67, 17);
+            this.cbSonstiges.Size = new System.Drawing.Size(113, 17);
             this.cbSonstiges.TabIndex = 14;
-            this.cbSonstiges.Text = "Sonstige";
+            this.cbSonstiges.Text = "Sonstige Zeit (min)";
             this.cbSonstiges.UseVisualStyleBackColor = true;
             this.cbSonstiges.CheckedChanged += new System.EventHandler(this.cbSonstiges_CheckedChanged);
             // 
-            // cbZeit
+            // cbRundendauer
             // 
-            this.cbZeit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbZeit.FormattingEnabled = true;
-            this.cbZeit.Items.AddRange(new object[] {
+            this.cbRundendauer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRundendauer.FormattingEnabled = true;
+            this.cbRundendauer.Items.AddRange(new object[] {
             "30",
             "60",
             "90",
             "120"});
-            this.cbZeit.Location = new System.Drawing.Point(136, 137);
-            this.cbZeit.Name = "cbZeit";
-            this.cbZeit.Size = new System.Drawing.Size(58, 21);
-            this.cbZeit.TabIndex = 14;
+            this.cbRundendauer.Location = new System.Drawing.Point(12, 149);
+            this.cbRundendauer.Name = "cbRundendauer";
+            this.cbRundendauer.Size = new System.Drawing.Size(169, 21);
+            this.cbRundendauer.TabIndex = 14;
+            this.cbRundendauer.SelectedIndexChanged += new System.EventHandler(this.cbRundendauer_SelectedIndexChanged);
             // 
             // numericUpDownTime
             // 
             this.numericUpDownTime.Enabled = false;
-            this.numericUpDownTime.Location = new System.Drawing.Point(146, 164);
+            this.numericUpDownTime.Location = new System.Drawing.Point(133, 176);
             this.numericUpDownTime.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -331,11 +332,11 @@ namespace Hüttenspiel
             // 
             // LblRundenzeit
             // 
-            this.LblRundenzeit.Location = new System.Drawing.Point(9, 136);
+            this.LblRundenzeit.Location = new System.Drawing.Point(9, 126);
             this.LblRundenzeit.Name = "LblRundenzeit";
             this.LblRundenzeit.Size = new System.Drawing.Size(131, 20);
             this.LblRundenzeit.TabIndex = 11;
-            this.LblRundenzeit.Text = "Rundendauer (Minuten):";
+            this.LblRundenzeit.Text = "Rundendauer:";
             this.LblRundenzeit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // RbTeams
@@ -526,7 +527,7 @@ namespace Hüttenspiel
         private Button GbDiashow;
         private GroupBox groupBox4;
         private Label lblDiashow;
-        private ComboBox cbZeit;
+        private ComboBox cbRundendauer;
         private CheckBox cbSonstiges;
         private Label lblVersion;
     }

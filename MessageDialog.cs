@@ -103,7 +103,8 @@ namespace Hüttenspiel
             	BtnAbbrechen.PerformClick();	//Form mit Abbrechen schließen
             }
         }
-        
+
+        /// <summary>
         /// Kompletten Text über Button löschen
         /// </summary>
         /// <param name="sender"></param>
@@ -170,9 +171,9 @@ namespace Hüttenspiel
         {
             if (!File.Exists(_pfadregeln))
             {
-                File.Create(_pfadregeln);
-                
+                File.Create(_pfadregeln);                
             }
+
             rtbText.Text = File.ReadAllText(_pfadregeln);
             Ausrichtung = HorizontalAlignment.Left;
             BtnAusrichtung.Text = "Links";

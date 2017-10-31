@@ -19,7 +19,7 @@ namespace Hüttenspiel
         private string _getränk;
         private Ansicht _runde;
         private bool _rundeLäuft = false;
-        private Typ _spieltyp = Typ.Spieler;
+        private Spieltyp _spieltyp = Spieltyp.Spieler;
         private int _rundenzeit = 60;		//Standardwert für Runde auf eine Stunde setzen
         private DateTime endzeit;
         private TimeSpan restzeit;
@@ -34,6 +34,7 @@ namespace Hüttenspiel
         {
             InitializeComponent();
             CbGetränk.DataSource = Enum.GetValues(typeof(Getraenke));
+            cbRundendauer.DataSource = Enum.GetValues(typeof(Rundendauer));
             lblVersion.Text = "Version: " + Properties.Settings.Default.Version;
         }
 
@@ -458,7 +459,7 @@ namespace Hüttenspiel
             _sicherungSpieler.Save(_speichernameSpieler);
             if (RbSpieler.Checked)
             {
-                _spieltyp = Typ.Spieler;
+                _spieltyp = Spieltyp.Spieler;
                 BtnNeuerSpieler.Text = "Neuer Spieler";
                 BtnDelete.Text = "Lösche Spieler";
                 LblAuswahl.Text = "Ausgewählter Spieler:";
@@ -466,7 +467,7 @@ namespace Hüttenspiel
             }
             else
             {
-                _spieltyp = Typ.Team;
+                _spieltyp = Spieltyp.Team;
                 BtnNeuerSpieler.Text = "Neues Team";
                 BtnDelete.Text = "Lösche Team";
                 LblAuswahl.Text = "Ausgewähltes Team:";            
@@ -699,22 +700,23 @@ namespace Hüttenspiel
             if (cbSonstiges.Checked)
             {
                 numericUpDownTime.Enabled = true;
-                cbZeit.Enabled = false;
-                
-                CbGetränk.Text = "Sonstiges";
-                CbGetränk.Enabled = false;
+                cbRundendauer.Enabled = false;
             }
             else
-            {
-                cbZeit.Text = "60";
-                numericUpDownTime.Value = Convert.ToDecimal(cbZeit.Text);
+            {                
+                numericUpDownTime.Value = getRundendauerZeit();
                 numericUpDownTime.Enabled = false;
-                cbZeit.Enabled = true;
-                CbGetränk.Enabled = true;
+                cbRundendauer.Enabled = true;                
             }
         }
 
-
+        private void cbRundendauer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbRundendauer.SelectedItem != null)
+            {
+                numericUpDownTime.Value = getRundendauerZeit();
+            }
+        }
 
         /// <summary>
         /// Beenden der Diashow

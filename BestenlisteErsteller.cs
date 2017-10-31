@@ -11,9 +11,9 @@ namespace Hüttenspiel
     {
         private SicherungSpieler _spieler;
         private string _getränk;
-        private Typ _spieltyp;
+        private Spieltyp _spieltyp;
 
-        public BestenlisteErsteller(SicherungSpieler liste, string getränk, Typ spieltyp)
+        public BestenlisteErsteller(SicherungSpieler liste, string getränk, Spieltyp spieltyp)
         { 
             _spieler = liste;
             _getränk = getränk;
