@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageDialog));
             this.BtnOk = new System.Windows.Forms.Button();
             this.BtnAbbrechen = new System.Windows.Forms.Button();
             this.LblText = new System.Windows.Forms.Label();
@@ -139,6 +140,7 @@
             this.Controls.Add(this.LblText);
             this.Controls.Add(this.BtnAbbrechen);
             this.Controls.Add(this.BtnOk);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(359, 175);
             this.Name = "MessageDialog";
             this.Text = "Nachricht anzeigen";

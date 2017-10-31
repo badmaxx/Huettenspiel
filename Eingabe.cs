@@ -34,7 +34,7 @@ namespace Hüttenspiel
         {
             InitializeComponent();
             CbGetränk.DataSource = Enum.GetValues(typeof(Getraenke));
-            cbRundendauer.DataSource = Enum.GetValues(typeof(Rundendauer));
+            cbRundendauer.DataSource = Helper.ErstelleRundenzeiten();
             lblVersion.Text = "Version: " + Properties.Settings.Default.Version;
         }
 
@@ -703,8 +703,8 @@ namespace Hüttenspiel
                 cbRundendauer.Enabled = false;
             }
             else
-            {                
-                numericUpDownTime.Value = getRundendauerZeit();
+            {
+                numericUpDownTime.Value = ((Rundendauer)cbRundendauer.SelectedItem).Dauer;
                 numericUpDownTime.Enabled = false;
                 cbRundendauer.Enabled = true;                
             }
@@ -714,7 +714,7 @@ namespace Hüttenspiel
         {
             if (cbRundendauer.SelectedItem != null)
             {
-                numericUpDownTime.Value = getRundendauerZeit();
+                numericUpDownTime.Value = ((Rundendauer)cbRundendauer.SelectedItem).Dauer;
             }
         }
 

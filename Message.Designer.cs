@@ -36,6 +36,7 @@ namespace Hüttenspiel
 		/// </summary>
 		private void InitializeComponent()
 		{
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mitteilung));
             this.RtbMitteilung = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -70,6 +71,7 @@ namespace Hüttenspiel
             this.ClientSize = new System.Drawing.Size(619, 531);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.RtbMitteilung);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Mitteilung";
             this.ShowInTaskbar = false;
             this.Text = "Mitteilung";

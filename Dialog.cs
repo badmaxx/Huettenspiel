@@ -9,10 +9,17 @@ using System.Windows.Forms;
 
 namespace Hüttenspiel
 {
+    /// <summary>
+    /// Dialog zur Eingabe von Spielern
+    /// </summary>
     public partial class Dialog : Form
     {
         private Spieltyp _spieltyp;
 
+        /// <summary>
+        /// Dialog
+        /// </summary>
+        /// <param name="spieltyp"></param>
         public Dialog(Spieltyp spieltyp)
         {
             InitializeComponent();
@@ -26,8 +33,14 @@ namespace Hüttenspiel
             }
         }
 
+        /// <summary>
+        /// Vorname
+        /// </summary>
         public string Vorname { get; private set; }
 
+        /// <summary>
+        /// Nachname
+        /// </summary>
         public string Nachname { get; private set; }
 
         private void BtnOk_Click(object sender, EventArgs e)
