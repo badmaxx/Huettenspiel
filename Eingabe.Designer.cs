@@ -70,6 +70,7 @@ namespace Hüttenspiel
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lblDiashow = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
+            this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -82,12 +83,10 @@ namespace Hüttenspiel
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.BtnDelete);
             this.groupBox1.Controls.Add(this.LbSpieler);
-            this.groupBox1.Controls.Add(this.BtnNeuerSpieler);
             this.groupBox1.Location = new System.Drawing.Point(29, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(188, 306);
+            this.groupBox1.Size = new System.Drawing.Size(188, 322);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Spieler";
@@ -95,7 +94,7 @@ namespace Hüttenspiel
             // BtnDelete
             // 
             this.BtnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnDelete.Location = new System.Drawing.Point(107, 260);
+            this.BtnDelete.Location = new System.Drawing.Point(238, 256);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(75, 37);
             this.BtnDelete.TabIndex = 6;
@@ -110,7 +109,7 @@ namespace Hüttenspiel
             this.LbSpieler.FormattingEnabled = true;
             this.LbSpieler.Location = new System.Drawing.Point(3, 16);
             this.LbSpieler.Name = "LbSpieler";
-            this.LbSpieler.Size = new System.Drawing.Size(182, 238);
+            this.LbSpieler.Size = new System.Drawing.Size(182, 303);
             this.LbSpieler.Sorted = true;
             this.LbSpieler.TabIndex = 0;
             this.LbSpieler.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LbSpielerMouseDoubleClick);
@@ -118,7 +117,7 @@ namespace Hüttenspiel
             // BtnNeuerSpieler
             // 
             this.BtnNeuerSpieler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnNeuerSpieler.Location = new System.Drawing.Point(6, 260);
+            this.BtnNeuerSpieler.Location = new System.Drawing.Point(238, 213);
             this.BtnNeuerSpieler.Name = "BtnNeuerSpieler";
             this.BtnNeuerSpieler.Size = new System.Drawing.Size(75, 37);
             this.BtnNeuerSpieler.TabIndex = 5;
@@ -131,7 +130,7 @@ namespace Hüttenspiel
             this.groupBox2.Controls.Add(this.LbAktuelleSpieler);
             this.groupBox2.Location = new System.Drawing.Point(335, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(188, 263);
+            this.groupBox2.Size = new System.Drawing.Size(188, 322);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Aktuelle Mitspieler";
@@ -141,7 +140,7 @@ namespace Hüttenspiel
             this.LbAktuelleSpieler.FormattingEnabled = true;
             this.LbAktuelleSpieler.Location = new System.Drawing.Point(3, 16);
             this.LbAktuelleSpieler.Name = "LbAktuelleSpieler";
-            this.LbAktuelleSpieler.Size = new System.Drawing.Size(182, 238);
+            this.LbAktuelleSpieler.Size = new System.Drawing.Size(182, 303);
             this.LbAktuelleSpieler.TabIndex = 1;
             this.LbAktuelleSpieler.SelectedIndexChanged += new System.EventHandler(this.LbAktuelleSpieler_SelectedIndexChanged);
             // 
@@ -149,13 +148,15 @@ namespace Hüttenspiel
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.BtnDelete);
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.BtnLöschen);
+            this.groupBox3.Controls.Add(this.BtnNeuerSpieler);
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.BtnHinzu);
-            this.groupBox3.Location = new System.Drawing.Point(19, 44);
+            this.groupBox3.Location = new System.Drawing.Point(19, 25);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(534, 347);
+            this.groupBox3.Size = new System.Drawing.Size(549, 347);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Auswahl Spieler";
@@ -190,7 +191,7 @@ namespace Hüttenspiel
             this.GbAktualisieren.Controls.Add(this.LblSpieler);
             this.GbAktualisieren.Controls.Add(this.LblAuswahl);
             this.GbAktualisieren.Enabled = false;
-            this.GbAktualisieren.Location = new System.Drawing.Point(289, 397);
+            this.GbAktualisieren.Location = new System.Drawing.Point(295, 378);
             this.GbAktualisieren.Name = "GbAktualisieren";
             this.GbAktualisieren.Size = new System.Drawing.Size(264, 96);
             this.GbAktualisieren.TabIndex = 5;
@@ -277,9 +278,9 @@ namespace Hüttenspiel
             this.GbRunde.Controls.Add(this.BtnStart);
             this.GbRunde.Controls.Add(this.LblGetraenk);
             this.GbRunde.Controls.Add(this.BtnBeenden);
-            this.GbRunde.Location = new System.Drawing.Point(19, 394);
+            this.GbRunde.Location = new System.Drawing.Point(25, 378);
             this.GbRunde.Name = "GbRunde";
-            this.GbRunde.Size = new System.Drawing.Size(200, 202);
+            this.GbRunde.Size = new System.Drawing.Size(217, 202);
             this.GbRunde.TabIndex = 7;
             this.GbRunde.TabStop = false;
             this.GbRunde.Text = "Runde";
@@ -292,6 +293,7 @@ namespace Hüttenspiel
             this.cbSonstiges.Size = new System.Drawing.Size(113, 17);
             this.cbSonstiges.TabIndex = 14;
             this.cbSonstiges.Text = "Sonstige Zeit (min)";
+            this.ttInfo.SetToolTip(this.cbSonstiges, "Keine Rangliste für Sonstige Zeiten verfügbar!");
             this.cbSonstiges.UseVisualStyleBackColor = true;
             this.cbSonstiges.CheckedChanged += new System.EventHandler(this.cbSonstiges_CheckedChanged);
             // 
@@ -306,14 +308,14 @@ namespace Hüttenspiel
             "120"});
             this.cbRundendauer.Location = new System.Drawing.Point(12, 149);
             this.cbRundendauer.Name = "cbRundendauer";
-            this.cbRundendauer.Size = new System.Drawing.Size(169, 21);
+            this.cbRundendauer.Size = new System.Drawing.Size(182, 21);
             this.cbRundendauer.TabIndex = 14;
             this.cbRundendauer.SelectedIndexChanged += new System.EventHandler(this.cbRundendauer_SelectedIndexChanged);
             // 
             // numericUpDownTime
             // 
             this.numericUpDownTime.Enabled = false;
-            this.numericUpDownTime.Location = new System.Drawing.Point(133, 176);
+            this.numericUpDownTime.Location = new System.Drawing.Point(146, 176);
             this.numericUpDownTime.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -368,7 +370,7 @@ namespace Hüttenspiel
             this.CbGetränk.FormattingEnabled = true;
             this.CbGetränk.Location = new System.Drawing.Point(9, 79);
             this.CbGetränk.Name = "CbGetränk";
-            this.CbGetränk.Size = new System.Drawing.Size(172, 21);
+            this.CbGetränk.Size = new System.Drawing.Size(185, 21);
             this.CbGetränk.TabIndex = 8;
             // 
             // BtnSchließen
@@ -423,7 +425,7 @@ namespace Hüttenspiel
             // 
             this.groupBox4.Controls.Add(this.lblDiashow);
             this.groupBox4.Controls.Add(this.GbDiashow);
-            this.groupBox4.Location = new System.Drawing.Point(289, 503);
+            this.groupBox4.Location = new System.Drawing.Point(295, 485);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(264, 63);
             this.groupBox4.TabIndex = 13;
@@ -442,11 +444,20 @@ namespace Hüttenspiel
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(511, 18);
+            this.lblVersion.Location = new System.Drawing.Point(22, 9);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(42, 13);
             this.lblVersion.TabIndex = 14;
             this.lblVersion.Text = "Version";
+            // 
+            // ttInfo
+            // 
+            this.ttInfo.AutomaticDelay = 100;
+            this.ttInfo.AutoPopDelay = 10000;
+            this.ttInfo.InitialDelay = 100;
+            this.ttInfo.ReshowDelay = 20;
+            this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+            this.ttInfo.ToolTipTitle = "Achtung";
             // 
             // Eingabe
             // 
@@ -530,5 +541,6 @@ namespace Hüttenspiel
         private ComboBox cbRundendauer;
         private CheckBox cbSonstiges;
         private Label lblVersion;
+        private ToolTip ttInfo;
     }
 }
