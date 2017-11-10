@@ -78,11 +78,9 @@
     <Compile Include="Eingabe.designer.cs">
       <DependentUpon>Eingabe.cs</DependentUpon>
     </Compile>
+    <Compile Include="HallOfFame.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Logger.cs" />
-    <Compile Include="MarqueeLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="MessageDialog.cs">
       <SubType>Form</SubType>
     </Compile>

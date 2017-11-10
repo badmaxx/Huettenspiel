@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblGetränk = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DgvRangliste = new System.Windows.Forms.DataGridView();
@@ -46,7 +46,6 @@
             this.TimerBestenliste = new System.Windows.Forms.Timer(this.components);
             this.PbLogo = new System.Windows.Forms.PictureBox();
             this.LblTimer = new System.Windows.Forms.Label();
-            this.LblRundendauer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvRangliste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).BeginInit();
             this.SuspendLayout();
@@ -80,34 +79,34 @@
             this.DgvRangliste.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DgvRangliste.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.DgvRangliste.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvRangliste.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle61.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle61.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvRangliste.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle61;
             this.DgvRangliste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvRangliste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Rang,
             this.Spieler,
             this.Anzahl,
             this.Bild});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvRangliste.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle65.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle65.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvRangliste.DefaultCellStyle = dataGridViewCellStyle65;
             this.DgvRangliste.Location = new System.Drawing.Point(12, 66);
             this.DgvRangliste.Name = "DgvRangliste";
             this.DgvRangliste.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DgvRangliste.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DgvRangliste.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DgvRangliste.RowsDefaultCellStyle = dataGridViewCellStyle66;
             this.DgvRangliste.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DgvRangliste.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.DgvRangliste.ShowCellErrors = false;
@@ -118,8 +117,8 @@
             // Rang
             // 
             this.Rang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Rang.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Rang.DefaultCellStyle = dataGridViewCellStyle62;
             this.Rang.FillWeight = 37.81512F;
             this.Rang.HeaderText = "Platz";
             this.Rang.Name = "Rang";
@@ -128,8 +127,8 @@
             // Spieler
             // 
             this.Spieler.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Spieler.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Spieler.DefaultCellStyle = dataGridViewCellStyle63;
             this.Spieler.HeaderText = "Name";
             this.Spieler.Name = "Spieler";
             this.Spieler.Width = 228;
@@ -137,8 +136,8 @@
             // Anzahl
             // 
             this.Anzahl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Anzahl.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Anzahl.DefaultCellStyle = dataGridViewCellStyle64;
             this.Anzahl.HeaderText = "Anzahl";
             this.Anzahl.Name = "Anzahl";
             this.Anzahl.Width = 254;
@@ -160,7 +159,7 @@
             this.LblBestenliste.Name = "LblBestenliste";
             this.LblBestenliste.Size = new System.Drawing.Size(911, 55);
             this.LblBestenliste.TabIndex = 10;
-            this.LblBestenliste.Text = "-";
+            this.LblBestenliste.Text = "Generiere Hall of Fame...";
             // 
             // TimerBestenliste
             // 
@@ -184,21 +183,13 @@
             // 
             this.LblTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTimer.Location = new System.Drawing.Point(356, 9);
+            this.LblTimer.Location = new System.Drawing.Point(216, 8);
             this.LblTimer.Name = "LblTimer";
-            this.LblTimer.Size = new System.Drawing.Size(220, 54);
+            this.LblTimer.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LblTimer.Size = new System.Drawing.Size(599, 55);
             this.LblTimer.TabIndex = 12;
+            this.LblTimer.Text = "rundenzeit";
             this.LblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LblRundendauer
-            // 
-            this.LblRundendauer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblRundendauer.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblRundendauer.Location = new System.Drawing.Point(596, 9);
-            this.LblRundendauer.Name = "LblRundendauer";
-            this.LblRundendauer.Size = new System.Drawing.Size(219, 54);
-            this.LblRundendauer.TabIndex = 13;
-            this.LblRundendauer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Ansicht
             // 
@@ -208,13 +199,12 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(932, 447);
-            this.Controls.Add(this.LblRundendauer);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.LblTimer);
             this.Controls.Add(this.PbLogo);
             this.Controls.Add(this.LblBestenliste);
             this.Controls.Add(this.DgvRangliste);
             this.Controls.Add(this.LblGetränk);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Ansicht";
             this.ShowIcon = false;
@@ -243,6 +233,5 @@
         private System.Windows.Forms.Label LblBestenliste;
         private System.Windows.Forms.Timer TimerBestenliste;
         private System.Windows.Forms.PictureBox PbLogo;
-        private System.Windows.Forms.Label LblRundendauer;
     }
 }

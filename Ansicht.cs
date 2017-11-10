@@ -90,9 +90,7 @@ namespace Hüttenspiel
             LblGetränk.Text = getränk;
             _spieltyp = spieltyp;
 
-            _rundenzeit = new TimeSpan(0, Convert.ToInt16(rundenzeit.Dauer), 0);
-            LblRundendauer.Text = " von " + _rundenzeit.Hours.ToString("00") + ":" 
-                + _rundenzeit.Minutes.ToString("00") + ":" + _rundenzeit.Seconds.ToString("00");
+            _rundenzeit = new TimeSpan(0, Convert.ToInt16(rundenzeit.Dauer), 0);           
 
             if (spieltyp == Spieltyp.Team)
                 DgvRangliste.Columns[1].HeaderText = "Team";
@@ -227,7 +225,8 @@ namespace Hüttenspiel
         /// <param name="restzeit"></param>
         public void UpdateTimer(string restzeit)
         {
-            LblTimer.Text = restzeit;                
+            LblTimer.Text = restzeit + " von " + _rundenzeit.Hours.ToString("00") + ":"
+                + _rundenzeit.Minutes.ToString("00") + ":" + _rundenzeit.Seconds.ToString("00"); ;                
         	LblTimer.Refresh();
         }
 
@@ -305,25 +304,5 @@ namespace Hüttenspiel
             UpdateLog(true);
             _log = null;
         }
-
-       
-        //private void UpdateBestenliste()
-        //{
-        //    string text = "Hall of Fame: ";
-
-        //    for(int i = 0; i < 3; i++)
-        //    {
-        //        text += _bestenliste[i] + "   ";
-        //    }
-
-        //    marqueeLabelBestenliste.Text = text;
-        //    int test = TextRenderer.MeasureText(text, marqueeLabelBestenliste.Font).Width;
-        //    if (test > marqueeLabelBestenliste.Width)
-        //    {
-        //        marqueeLabelBestenliste.Width = test;
-        //    }
-        //}
-      
-
     }
 }

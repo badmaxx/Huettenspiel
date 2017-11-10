@@ -91,7 +91,7 @@ namespace Hüttenspiel
                         _temp.Anzahl = Anzahl;
                         _temp.Datum = DateTime.Now;
                         _temp.Getränk = AktuellesGetränk;
-                        _temp.DauerRunde = DauerRunde;
+                        _temp.DauerRunde = this.DauerRunde;
                         Bestleistungen.Add(_temp);
                     }
                 }

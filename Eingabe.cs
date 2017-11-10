@@ -88,7 +88,6 @@ namespace Hüttenspiel
             {
                 MessageBox.Show("Einen Spieler links auswählen");
             }
-
             else
             {
                 ((Spieler)LbSpieler.SelectedItem).Anzahl = 0;
@@ -109,17 +108,13 @@ namespace Hüttenspiel
             {
                 MessageBox.Show("Einen Spieler rechts auswählen");
             }
-
             else
-            {
-              
-                    ((Spieler)LbAktuelleSpieler.SelectedItem).Anzahl = 0;
-                    LbSpieler.Items.Add(LbAktuelleSpieler.SelectedItem);
-                    LbAktuelleSpieler.Items.RemoveAt(LbAktuelleSpieler.SelectedIndex);
-                
+            {              
+                ((Spieler)LbAktuelleSpieler.SelectedItem).Anzahl = 0;
+                LbSpieler.Items.Add(LbAktuelleSpieler.SelectedItem);
+                LbAktuelleSpieler.Items.RemoveAt(LbAktuelleSpieler.SelectedIndex);                
             }
         }
-
 
         /// <summary>
         /// Event wenn rechte lb der Index geändert wird
@@ -210,40 +205,28 @@ namespace Hüttenspiel
         /// <returns> Platz 1 - 3 als verwertbaren String</returns>
         private string[] ErzeugeBesten()
         {
-            List<Spieler> temp = new List<Spieler>();
-            string[] rückgabe = new string[3];       
+            List<HallOfFame> sortedList;
+            string[] rückgabe = new string[3];
 
-            foreach (Spieler sp in _sicherungSpieler.Spielerliste)
-            {
-                if (sp.Bestleistungen.Find(lst => lst.Getränk == _getränk) != null && 
-                    sp.Eintragstyp == _spieltyp &&
-                    sp.Bestleistungen.Find(lst => lst.DauerRunde == _rundendauer.Dauer) != null)
-                {                    
-                    temp.Add(sp);
-                }            
-            }
-
-            temp = temp.OrderByDescending(sp => sp.Bestleistungen[sp.Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Anzahl).ToList();
+            sortedList = HallOfFame.Create(_sicherungSpieler.Spielerliste, _rundendauer.Dauer, _getränk);
 
             try
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    rückgabe[i] = "Platz " + (i + 1) + " : " + temp[i].Name + " " + temp[i].Bestleistungen[temp[i].Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Anzahl +
-                    " am " + temp[i].Bestleistungen[temp[i].Bestleistungen.FindIndex(lst => lst.Getränk == _getränk)].Datum.ToShortDateString();
+                    rückgabe[i] = "Platz " + (i + 1) + " : " + sortedList[i].Name + " " + sortedList[i].Beste.Anzahl +
+                    " am " + sortedList[i].Beste.Datum.ToShortDateString();
                 }
                 return rückgabe;
             }
             catch
             {
-
                 for (int i = 0; i < 3; i++)
                 {
                     rückgabe[i] = "Keine Bestenliste vorhanden";
                 }
                 return rückgabe;
-            }
-            
+            }            
         }
 
 
