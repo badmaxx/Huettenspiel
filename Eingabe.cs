@@ -153,8 +153,9 @@ namespace Hüttenspiel
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ((Spieler)LbAktuelleSpieler.SelectedItem).AktuellesGetränk = _getränk;
-                    ((Spieler)LbAktuelleSpieler.SelectedItem).Anzahl = Convert.ToInt32(NudAnzahl.Value);
                     ((Spieler)LbAktuelleSpieler.SelectedItem).DauerRunde = _rundendauer.Dauer;
+                    ((Spieler)LbAktuelleSpieler.SelectedItem).Anzahl = Convert.ToInt32(NudAnzahl.Value);
+                    
 
                     Spieler[] tempList = LbAktuelleSpieler.Items.Cast<Spieler>().ToArray();
                     Array.Sort(tempList);

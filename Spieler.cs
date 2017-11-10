@@ -78,20 +78,21 @@ namespace Hüttenspiel
                 if (AktuellesGetränk != null)
                 {
                     _temp = Bestleistungen.Find(lst => lst.Getränk == AktuellesGetränk);
+                    _temp = Bestleistungen.Find(lst => lst.DauerRunde == DauerRunde);
 
                     if (_temp == null)
                     {
                         _temp = new Bestleistung();
-                        _temp.Anzahl = 0;
+                        _temp.Anzahl = -1;
                     }
 
-                    if (Anzahl > _temp.Anzahl)
+                    if (Anzahl > _temp.Anzahl || _temp.Anzahl == -1)
                     {
                         Bestleistungen.Remove(_temp);
                         _temp.Anzahl = Anzahl;
                         _temp.Datum = DateTime.Now;
                         _temp.Getränk = AktuellesGetränk;
-                        _temp.DauerRunde = this.DauerRunde;
+                        _temp.DauerRunde = DauerRunde;
                         Bestleistungen.Add(_temp);
                     }
                 }
