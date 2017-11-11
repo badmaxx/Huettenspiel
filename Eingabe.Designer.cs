@@ -38,8 +38,8 @@ namespace Hüttenspiel
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Eingabe));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BtnDelete = new System.Windows.Forms.Button();
             this.LbSpieler = new System.Windows.Forms.ListBox();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnNeuerSpieler = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.LbAktuelleSpieler = new System.Windows.Forms.ListBox();
@@ -91,17 +91,6 @@ namespace Hüttenspiel
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Spieler";
             // 
-            // BtnDelete
-            // 
-            this.BtnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnDelete.Location = new System.Drawing.Point(238, 256);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(75, 37);
-            this.BtnDelete.TabIndex = 6;
-            this.BtnDelete.Text = "Lösche Spieler";
-            this.BtnDelete.UseVisualStyleBackColor = true;
-            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
             // LbSpieler
             // 
             this.LbSpieler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -113,6 +102,17 @@ namespace Hüttenspiel
             this.LbSpieler.Sorted = true;
             this.LbSpieler.TabIndex = 0;
             this.LbSpieler.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LbSpielerMouseDoubleClick);
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnDelete.Location = new System.Drawing.Point(238, 256);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(75, 37);
+            this.BtnDelete.TabIndex = 6;
+            this.BtnDelete.Text = "Lösche Spieler";
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnNeuerSpieler
             // 
@@ -216,6 +216,7 @@ namespace Hüttenspiel
             this.NudAnzahl.Name = "NudAnzahl";
             this.NudAnzahl.Size = new System.Drawing.Size(68, 26);
             this.NudAnzahl.TabIndex = 4;
+            this.NudAnzahl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NudAnzahl_KeyDown);
             // 
             // LblSpieler
             // 

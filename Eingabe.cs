@@ -727,6 +727,14 @@ namespace Hüttenspiel
             }
         }
 
+        private void NudAnzahl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            {
+                BtnBestätigen.PerformClick();
+            }
+        }
+
         /// <summary>
         /// Beenden der Diashow
         /// </summary>
