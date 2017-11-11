@@ -27,6 +27,7 @@ namespace Hüttenspiel
     {
         private int _platzierung, _anzahl;
         Bestleistung _temp;
+        List<Bestleistung> _tempGetränke;
 
         /// <summary>
         /// Konstruktor
@@ -77,8 +78,22 @@ namespace Hüttenspiel
 
                 if (AktuellesGetränk != null)
                 {
-                    _temp = Bestleistungen.Find(lst => lst.Getränk == AktuellesGetränk);
-                    _temp = Bestleistungen.Find(lst => lst.DauerRunde == DauerRunde);
+                    _tempGetränke = new List<Bestleistung>();
+                    foreach (Bestleistung best in Bestleistungen)
+                    {
+                        if (best.Getränk == AktuellesGetränk)
+                        {
+                            _tempGetränke.Add(best);
+                        }
+                    }
+                    _temp = null;
+
+                    if (_tempGetränke.Count > 0)
+                    {
+                        _temp = _tempGetränke.Find(lst => lst.DauerRunde == DauerRunde);
+                    }                    
+
+                    _tempGetränke = null;
 
                     if (_temp == null)
                     {
@@ -96,6 +111,7 @@ namespace Hüttenspiel
                         Bestleistungen.Add(_temp);
                     }
                 }
+                _temp = null;
             }
         }
 
