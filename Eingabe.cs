@@ -152,8 +152,9 @@ namespace Hüttenspiel
                 if (MessageBox.Show("Anzahl ändern?", "Bestätigung", MessageBoxButtons.YesNo, 
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    ((Spieler)LbAktuelleSpieler.SelectedItem).HallOfFame = !cbSonstiges.Checked;
                     ((Spieler)LbAktuelleSpieler.SelectedItem).AktuellesGetränk = _getränk;
-                    ((Spieler)LbAktuelleSpieler.SelectedItem).DauerRunde = _rundendauer.Dauer;
+                    ((Spieler)LbAktuelleSpieler.SelectedItem).DauerRunde = _rundenzeit;
                     ((Spieler)LbAktuelleSpieler.SelectedItem).Anzahl = Convert.ToInt32(NudAnzahl.Value);
                     
 
@@ -209,25 +210,29 @@ namespace Hüttenspiel
             List<HallOfFame> sortedList;
             string[] rückgabe = new string[3];
 
-            sortedList = HallOfFame.Create(_sicherungSpieler.Spielerliste, _rundendauer.Dauer, _getränk);
-
-            try
+            for (int i = 0; i < 3; i++)
             {
-                for (int i = 0; i < 3; i++)
-                {
-                    rückgabe[i] = "Platz " + (i + 1) + " : " + sortedList[i].Name + " " + sortedList[i].Beste.Anzahl +
-                    " am " + sortedList[i].Beste.Datum.ToShortDateString();
-                }
-                return rückgabe;
+                rückgabe[i] = "Keine Bestenliste vorhanden";
             }
-            catch
+
+            if (!cbSonstiges.Checked)
             {
-                for (int i = 0; i < 3; i++)
+                sortedList = HallOfFame.Create(_sicherungSpieler.Spielerliste, _rundendauer.Dauer, _getränk);
+
+                try
                 {
-                    rückgabe[i] = "Keine Bestenliste vorhanden";
+                    for (int i = 0; i < 3; i++)
+                    {
+                        rückgabe[i] = "Platz " + (i + 1) + " : " + sortedList[i].Name + " " + sortedList[i].Beste.Anzahl +
+                        " am " + sortedList[i].Beste.Datum.ToShortDateString();
+                    }                    
                 }
-                return rückgabe;
-            }            
+                catch
+                {
+                   
+                }
+            }
+            return rückgabe;
         }
 
 
@@ -347,8 +352,17 @@ namespace Hüttenspiel
 
                     _rundeLäuft = true;
                     _getränk = CbGetränk.Text;
-                    _rundendauer = (Rundendauer)cbRundendauer.SelectedItem;
-                    _rundenzeit = _rundendauer.Dauer;
+                    if (cbSonstiges.Checked)
+                    {
+                        _rundenzeit = Convert.ToInt32(numericUpDownTime.Value);
+                        _rundendauer = new Rundendauer("Sonstiges", _rundenzeit);
+                    }
+                    else
+                    {
+                        _rundendauer = (Rundendauer)cbRundendauer.SelectedItem;
+                        _rundenzeit = _rundendauer.Dauer;
+                    }
+
 
                     _runde = new Ansicht(CbGetränk.Text, _spieltyp, _rundendauer);
                     _runde.UpdateList(LbAktuelleSpieler.Items.Cast<Spieler>().ToArray(), ErzeugeBesten());

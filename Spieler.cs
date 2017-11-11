@@ -64,6 +64,11 @@ namespace Hüttenspiel
         public string Nachname { get; set; }
 
         /// <summary>
+        /// Bestenliste erzeugen bei diesem Spiel?
+        /// </summary>
+        public bool HallOfFame { get; set; }
+
+        /// <summary>
         /// Anzahl des Getränks
         /// </summary>
         public int Anzahl
@@ -76,7 +81,7 @@ namespace Hüttenspiel
             {
                 _anzahl = value;
 
-                if (AktuellesGetränk != null)
+                if (AktuellesGetränk != null && HallOfFame)
                 {
                     _tempGetränke = new List<Bestleistung>();
                     foreach (Bestleistung best in Bestleistungen)

@@ -90,13 +90,12 @@ namespace Hüttenspiel
             LblGetränk.Text = getränk;
             _spieltyp = spieltyp;
 
-            _rundenzeit = new TimeSpan(0, Convert.ToInt16(rundenzeit.Dauer), 0);           
-
             if (spieltyp == Spieltyp.Team)
-                DgvRangliste.Columns[1].HeaderText = "Team";
+                DgvRangliste.Columns[1].HeaderText = "Team";            
+                _rundenzeit = new TimeSpan(0, Convert.ToInt16(rundenzeit.Dauer), 0);
 
-            _log = new Logger();
-            _log.ErstelleAutosave(getränk, spieltyp, rundenzeit);
+                _log = new Logger();
+                _log.ErstelleAutosave(getränk, spieltyp, rundenzeit);
         }
 
         /// <summary>
@@ -258,7 +257,10 @@ namespace Hüttenspiel
             {
             	_bestenlisteAktuell++;
             }
-            UpdateLog(false);            
+            if(_log != null)
+            {
+                UpdateLog(false);
+            }                       
         }
 
        /// <summary>
@@ -301,8 +303,11 @@ namespace Hüttenspiel
         /// <param name="e"></param>
         private void Ansicht_FormClosed(object sender, FormClosedEventArgs e)
         {
-            UpdateLog(true);
-            _log = null;
+            if (_log != null)
+            {
+                UpdateLog(true);
+                _log = null;
+            }
         }
     }
 }
