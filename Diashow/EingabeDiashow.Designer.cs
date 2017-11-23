@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EingabeDiashow));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.LblAnzahlBilder = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtPfad = new System.Windows.Forms.TextBox();
             this.BtnDurchsuchen = new System.Windows.Forms.Button();
@@ -41,7 +43,6 @@
             this.PbBild = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblDiashow = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LblAnzahlBilder = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudAnzeigezeit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbBild)).BeginInit();
@@ -59,12 +60,21 @@
             this.groupBox4.Controls.Add(this.NudAnzeigezeit);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.BtnAnzeigen);
-            this.groupBox4.Location = new System.Drawing.Point(8, 203);
+            this.groupBox4.Location = new System.Drawing.Point(8, 176);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(448, 123);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Diashow";
+            // 
+            // LblAnzahlBilder
+            // 
+            this.LblAnzahlBilder.AutoSize = true;
+            this.LblAnzahlBilder.Location = new System.Drawing.Point(6, 61);
+            this.LblAnzahlBilder.Name = "LblAnzahlBilder";
+            this.LblAnzahlBilder.Size = new System.Drawing.Size(93, 13);
+            this.LblAnzahlBilder.TabIndex = 21;
+            this.LblAnzahlBilder.Text = "0 Bilder gefunden!";
             // 
             // label3
             // 
@@ -153,18 +163,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PbBild.Location = new System.Drawing.Point(8, 12);
             this.PbBild.Name = "PbBild";
-            this.PbBild.Size = new System.Drawing.Size(448, 185);
+            this.PbBild.Size = new System.Drawing.Size(448, 158);
             this.PbBild.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PbBild.TabIndex = 15;
             this.PbBild.TabStop = false;
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 329);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblDiashow});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 302);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(468, 22);
             this.statusStrip1.TabIndex = 16;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // lblDiashow
             // 
@@ -172,25 +185,19 @@
             this.lblDiashow.Size = new System.Drawing.Size(12, 17);
             this.lblDiashow.Text = "-";
             // 
-            // LblAnzahlBilder
-            // 
-            this.LblAnzahlBilder.AutoSize = true;
-            this.LblAnzahlBilder.Location = new System.Drawing.Point(6, 61);
-            this.LblAnzahlBilder.Name = "LblAnzahlBilder";
-            this.LblAnzahlBilder.Size = new System.Drawing.Size(93, 13);
-            this.LblAnzahlBilder.TabIndex = 21;
-            this.LblAnzahlBilder.Text = "0 Bilder gefunden!";
-            // 
             // EingabeDiashow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 351);
+            this.ClientSize = new System.Drawing.Size(468, 324);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.PbBild);
             this.Controls.Add(this.groupBox4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(484, 363);
             this.Name = "EingabeDiashow";
             this.Text = "Diashow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EingabeDiashow_FormClosing);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudAnzeigezeit)).EndInit();
@@ -214,8 +221,8 @@
         private System.Windows.Forms.Button BtnDurchsuchen;
         private System.Windows.Forms.TextBox TxtPfad;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblAnzahlBilder;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblDiashow;
-        private System.Windows.Forms.Label LblAnzahlBilder;
     }
 }

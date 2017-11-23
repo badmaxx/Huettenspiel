@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using System.Management;
+
 
 using Hüttensammlung;
 
@@ -284,110 +282,58 @@ namespace Hüttensammlung.Highscore
         }
 
         /// <summary>
-        /// Motherboard ID abfragen
-        /// </summary>
-        /// <returns>true passt sonst false</returns>
-        private bool CheckMotherboardID()
-        {
-            ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_BaseBoard");
-            ManagementObjectCollection moc = mos.Get();
-            string serial = "";
-            string pfad = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                "hs.id");
-            string ausgeleseneID = "";
-            foreach (ManagementObject mo in moc)
-            {
-                serial = (string)mo["SerialNumber"];
-            }
-
-            if(File.Exists(pfad))
-            {
-                StreamReader id = new StreamReader(pfad);
-                ausgeleseneID = id.ReadLine();
-                id.Close();
-            }
-            else
-            {
-                StreamWriter leer = new StreamWriter(pfad);
-                leer.Close();
-            }
-
-            if (ausgeleseneID == serial)
-            {
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Fehler beim ausführen des Programmes. Fehlercode:\n" + serial, "Programmfehler", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        /// <summary>
         /// Startet eine neue Runde
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            bool debugmodus = false;
-#if DEBUG
-            debugmodus = true;
-#endif
-            if (CheckMotherboardID() || debugmodus)
+            //Schließen des Nachrichtenfensters wenn neue Runde gestartet wurde
+            if (_mitteilungAngezeigt)
             {
-                //Schließen des Nachrichtenfensters wenn neue Runde gestartet wurde
-                if (_mitteilungAngezeigt)
+                CloseMessage();
+            }
+
+            if (LbAktuelleSpieler.Items.Count > 1)
+            {
+                BtnShowMessage.Enabled = false;
+
+                _rundeLäuft = true;
+                _getränk = CbGetränk.Text;
+                if (cbSonstiges.Checked)
                 {
-                    CloseMessage();
-                }
-
-                if (LbAktuelleSpieler.Items.Count > 1)
-                {
-                    BtnShowMessage.Enabled = false;
-
-                    _rundeLäuft = true;
-                    _getränk = CbGetränk.Text;
-                    if (cbSonstiges.Checked)
-                    {
-                        _rundenzeit = Convert.ToInt32(numericUpDownTime.Value);
-                        _rundendauer = new Rundendauer("Sonstiges", _rundenzeit);
-                    }
-                    else
-                    {
-                        _rundendauer = (Rundendauer)cbRundendauer.SelectedItem;
-                        _rundenzeit = _rundendauer.Dauer;
-                    }
-
-
-                    _runde = new Ansicht(CbGetränk.Text, _spieltyp, _rundendauer);
-                    _runde.UpdateList(LbAktuelleSpieler.Items.Cast<Spieler>().ToArray(), ErzeugeBesten());
-                    _runde.Show();
-
-                    //Endzeit setzen und Timer starten
-                    endzeit = DateTime.Now.AddMinutes(_rundenzeit);
-                    TimerRundenzeit.Start();
-
-                    foreach (Control ctl in GbRunde.Controls)
-                    {
-                        ctl.Enabled = false;
-                    }
-
-                    BtnBeenden.Enabled = true;
-
-                    this.Text = "Eingabe - Aktuell ist ein Spiel am laufen";
+                    _rundenzeit = Convert.ToInt32(numericUpDownTime.Value);
+                    _rundendauer = new Rundendauer("Sonstiges", _rundenzeit);
                 }
                 else
                 {
-                    MessageBox.Show("Mindestens 2 Mitspieler müssen vorhanden sein!");
+                    _rundendauer = (Rundendauer)cbRundendauer.SelectedItem;
+                    _rundenzeit = _rundendauer.Dauer;
                 }
+
+
+                _runde = new Ansicht(CbGetränk.Text, _spieltyp, _rundendauer);
+                _runde.UpdateList(LbAktuelleSpieler.Items.Cast<Spieler>().ToArray(), ErzeugeBesten());
+                _runde.Show();
+
+                //Endzeit setzen und Timer starten
+                endzeit = DateTime.Now.AddMinutes(_rundenzeit);
+                TimerRundenzeit.Start();
+
+                foreach (Control ctl in GbRunde.Controls)
+                {
+                    ctl.Enabled = false;
+                }
+
+                BtnBeenden.Enabled = true;
+
+                this.Text = "Eingabe - Aktuell ist ein Spiel am laufen";
             }
             else
             {
-                MessageBox.Show("Programm ist nicht lizensiert und kann nicht gestartet werden!", "Fehler",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Mindestens 2 Mitspieler müssen vorhanden sein!");
             }
+
         }
 
         /// <summary>

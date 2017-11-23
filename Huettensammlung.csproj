@@ -176,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo_Huette.ico" />
+    <None Include="Resources\Diashow.ico" />
     <None Include="Resources\Diashow.PNG" />
     <None Include="Resources\picoloIcon.PNG" />
     <None Include="Resources\Logo_Huette.ico" />

@@ -26,18 +26,43 @@ namespace Hüttensammlung
 
         private void BtnHighscore_Click(object sender, EventArgs e)
         {
-            Eingabe highscore = new Eingabe();
-            Hide();
-            highscore.ShowDialog();
-            Show();
+            if (CheckLizenz())
+            {
+                Eingabe highscore = new Eingabe();
+                Hide();
+                highscore.ShowDialog();
+                Show();
+            }
         }
 
         private void BtnDiashow_Click(object sender, EventArgs e)
         {
-            EingabeDiashow diashow = new EingabeDiashow();
-            Hide();
-            diashow.ShowDialog();
-            Show();
+            if (CheckLizenz())
+            {
+                EingabeDiashow diashow = new EingabeDiashow();
+                Hide();
+                diashow.ShowDialog();
+                Show();
+            }
         }
-    }
+
+        private bool CheckLizenz()
+        {
+            bool debugmodus = false;
+            bool retval = false;
+#if DEBUG
+            debugmodus = true;
+#endif
+            if (Hüttensammlung.Helper.CheckMotherboardID() || debugmodus)
+            {
+                retval = true;
+            }
+            else
+            {
+                MessageBox.Show("Programm ist nicht lizensiert und kann nicht gestartet werden!", "Fehler",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return retval;
+        }
+}
 }

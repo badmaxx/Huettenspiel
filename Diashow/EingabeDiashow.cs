@@ -16,7 +16,7 @@ namespace Hüttensammlung.Diashow
     public partial class EingabeDiashow : Form
     {
         private bool _diashowGestartet = false;
-        private Anzeige _diashow;        
+        private Anzeige _diashow;
         private int _bildnummer = 1;
         private List<string> _bilder;
 
@@ -33,7 +33,7 @@ namespace Hüttensammlung.Diashow
             _diashow.SetBild(bild);
             PbBild.Image = bild;
         }
-        
+
 
         /// <summary>
         /// Starten der Diashow
@@ -48,12 +48,15 @@ namespace Hüttensammlung.Diashow
                 _diashowGestartet = true;
                 TimerAnzeige.Start();
                 _diashow.Show();
+                TimerAnzeige_Tick(null, null);
                 NudAnzeigezeit.Enabled = false;
+                TxtPfad.Enabled = false;
+                BtnDurchsuchen.Enabled = false;
                 lblDiashow.Text = "Diashow läuft...";
+                BtnAnzeigen.Text = "Beenden";
             }
             else
             {
-                DiashowEnde();
                 lblDiashow.Text = "Anzeigen nicht möglich!";
             }
         }
@@ -68,7 +71,9 @@ namespace Hüttensammlung.Diashow
             _diashowGestartet = false;
             lblDiashow.Text = "Diashow beendet";
             NudAnzeigezeit.Enabled = true;
-            TimerAnzeige.Stop();            
+            TxtPfad.Enabled = true;
+            BtnDurchsuchen.Enabled = true;
+            TimerAnzeige.Stop();
         }
 
         /// <summary>
@@ -99,13 +104,17 @@ namespace Hüttensammlung.Diashow
 
         private void BtnDurchsuchen_Click(object sender, EventArgs e)
         {
+            int anzahlBilder = 0;
             FolderBrowserDialog dialog = new FolderBrowserDialog
             {
                 ShowNewFolderButton = false,
                 Description = "Ordner mit Bildern auswählen. Es werden alle Bilder darin angezeigt!"
             };
             dialog.ShowDialog();
-            if (SucheBilder(dialog.SelectedPath).Count != 0)
+
+            anzahlBilder = SucheBilder(dialog.SelectedPath).Count;
+
+            if (anzahlBilder != 0)
             {
                 TxtPfad.Text = dialog.SelectedPath;
             }
@@ -133,12 +142,15 @@ namespace Hüttensammlung.Diashow
                 if (bilder.Count == 0)
                 {
                     MessageBox.Show("Kein Bild in diesem Ordner!", "Fehler");
-                }                
+                }
             }
             else
             {
                 MessageBox.Show("Pfad existiert nicht!", "Fehler");
             }
+
+            LblAnzahlBilder.Text = bilder.Count.ToString() + " Bilder gefunden!";
+
             return bilder;
         }
 
@@ -156,10 +168,23 @@ namespace Hüttensammlung.Diashow
             }
             else
             {
-                BtnAnzeigen.Text = "Beenden";
                 TimerAnzeige.Interval = Convert.ToInt32(NudAnzeigezeit.Value * 1000);
                 DiashowStart();
             }
         }
-    }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void EingabeDiashow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_diashowGestartet)
+            {
+                MessageBox.Show("Zuerst Diashow beenden!");
+                e.Cancel = true;
+            }
+        }
+    }    
 }

@@ -377,7 +377,7 @@ namespace Hüttensammlung.Highscore
             this.BtnSchließen.Name = "BtnSchließen";
             this.BtnSchließen.Size = new System.Drawing.Size(104, 36);
             this.BtnSchließen.TabIndex = 8;
-            this.BtnSchließen.Text = "Programm beenden";
+            this.BtnSchließen.Text = "Highscore beenden";
             this.BtnSchließen.UseVisualStyleBackColor = true;
             this.BtnSchließen.Click += new System.EventHandler(this.BtnSchließen_Click);
             // 
