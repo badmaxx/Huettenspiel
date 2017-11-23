@@ -173,11 +173,6 @@ namespace Hüttensammlung.Diashow
             }
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void EingabeDiashow_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (_diashowGestartet)
