@@ -8,8 +8,8 @@
     <ProjectGuid>{9DA2FC43-D4A5-4E8E-BE0D-195D785168D9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hüttenspiel</RootNamespace>
-    <AssemblyName>Hüttenspiel</AssemblyName>
+    <RootNamespace>Hüttensammlung</RootNamespace>
+    <AssemblyName>Hüttensammlung</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -23,7 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Hüttenspiel.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\Hüttensammlung.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -52,35 +52,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ansicht.cs">
+    <Compile Include="Diashow\EingabeDiashow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ansicht.Designer.cs">
+    <Compile Include="Diashow\EingabeDiashow.Designer.cs">
+      <DependentUpon>EingabeDiashow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Highscore\Ansicht.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Highscore\Ansicht.Designer.cs">
       <DependentUpon>Ansicht.cs</DependentUpon>
     </Compile>
-    <Compile Include="BestenlisteErsteller.cs" />
-    <Compile Include="Bestleistung.cs" />
-    <Compile Include="Dialog.cs">
+    <Compile Include="Highscore\BestenlisteErsteller.cs" />
+    <Compile Include="Highscore\Bestleistung.cs" />
+    <Compile Include="Highscore\Dialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialog.Designer.cs">
+    <Compile Include="Highscore\Dialog.Designer.cs">
       <DependentUpon>Dialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Diashow.cs">
+    <Compile Include="Diashow\Anzeige.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Diashow.Designer.cs">
-      <DependentUpon>Diashow.cs</DependentUpon>
+    <Compile Include="Diashow\Anzeige.Designer.cs">
+      <DependentUpon>Anzeige.cs</DependentUpon>
     </Compile>
-    <Compile Include="Eingabe.cs">
+    <Compile Include="Highscore\Eingabe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Eingabe.designer.cs">
+    <Compile Include="Highscore\Eingabe.designer.cs">
       <DependentUpon>Eingabe.cs</DependentUpon>
     </Compile>
-    <Compile Include="HallOfFame.cs" />
+    <Compile Include="Highscore\Getränke.cs" />
+    <Compile Include="Highscore\HallOfFame.cs" />
     <Compile Include="Helper.cs" />
-    <Compile Include="Logger.cs" />
+    <Compile Include="Highscore\Helper.cs" />
+    <Compile Include="Highscore\Logger.cs" />
     <Compile Include="MessageDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,21 +103,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rundendauer.cs" />
-    <Compile Include="SicherungSpieler.cs" />
-    <Compile Include="Spieler.cs" />
-    <Compile Include="TableParser.cs" />
+    <Compile Include="Highscore\Rundendauer.cs" />
+    <Compile Include="Highscore\SicherungSpieler.cs" />
+    <Compile Include="Highscore\Spieler.cs" />
+    <Compile Include="Startfenster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Startfenster.Designer.cs">
+      <DependentUpon>Startfenster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Highscore\TableParser.cs" />
     <Compile Include="XML.cs" />
-    <EmbeddedResource Include="Ansicht.resx">
+    <EmbeddedResource Include="Diashow\EingabeDiashow.resx">
+      <DependentUpon>EingabeDiashow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Highscore\Ansicht.resx">
       <DependentUpon>Ansicht.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialog.resx">
+    <EmbeddedResource Include="Highscore\Dialog.resx">
       <DependentUpon>Dialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Diashow.resx">
-      <DependentUpon>Diashow.cs</DependentUpon>
+    <EmbeddedResource Include="Diashow\Anzeige.resx">
+      <DependentUpon>Anzeige.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Eingabe.resx">
+    <EmbeddedResource Include="Highscore\Eingabe.resx">
       <DependentUpon>Eingabe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Message.resx">
@@ -128,6 +145,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Startfenster.resx">
+      <DependentUpon>Startfenster.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -156,8 +176,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo_Huette.ico" />
+    <None Include="Resources\Diashow.PNG" />
+    <None Include="Resources\picoloIcon.PNG" />
     <None Include="Resources\Logo_Huette.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

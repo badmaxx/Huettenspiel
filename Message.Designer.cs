@@ -6,7 +6,7 @@
  * 
  * Sie können diese Vorlage unter Extras > Optionen > Codeerstellung > Standardheader ändern.
  */
-namespace Hüttenspiel
+namespace Hüttensammlung
 {
 	partial class Mitteilung
 	{

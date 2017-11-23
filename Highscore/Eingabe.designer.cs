@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Hüttenspiel
+namespace Hüttensammlung.Highscore
 {
     /// <summary>
     /// Eingabe der Spieldaten
@@ -66,9 +66,6 @@ namespace Hüttenspiel
             this.TimerRundenzeit = new System.Windows.Forms.Timer(this.components);
             this.BtnShowMessage = new System.Windows.Forms.Button();
             this.BtnCloseMessage = new System.Windows.Forms.Button();
-            this.GbDiashow = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lblDiashow = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
@@ -78,7 +75,6 @@ namespace Hüttenspiel
             ((System.ComponentModel.ISupportInitialize)(this.NudAnzahl)).BeginInit();
             this.GbRunde.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTime)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -164,7 +160,7 @@ namespace Hüttenspiel
             // BtnLöschen
             // 
             this.BtnLöschen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnLöschen.Image = global::Hüttenspiel.Properties.Resources.Pfeillinks;
+            this.BtnLöschen.Image = global::Hüttensammlung.Properties.Resources.Pfeillinks;
             this.BtnLöschen.Location = new System.Drawing.Point(238, 117);
             this.BtnLöschen.Name = "BtnLöschen";
             this.BtnLöschen.Size = new System.Drawing.Size(75, 52);
@@ -175,7 +171,7 @@ namespace Hüttenspiel
             // BtnHinzu
             // 
             this.BtnHinzu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnHinzu.Image = global::Hüttenspiel.Properties.Resources.Pfeilrechts;
+            this.BtnHinzu.Image = global::Hüttensammlung.Properties.Resources.Pfeilrechts;
             this.BtnHinzu.Location = new System.Drawing.Point(238, 35);
             this.BtnHinzu.Name = "BtnHinzu";
             this.BtnHinzu.Size = new System.Drawing.Size(75, 52);
@@ -377,7 +373,7 @@ namespace Hüttenspiel
             // BtnSchließen
             // 
             this.BtnSchließen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnSchließen.Location = new System.Drawing.Point(449, 596);
+            this.BtnSchließen.Location = new System.Drawing.Point(470, 592);
             this.BtnSchließen.Name = "BtnSchließen";
             this.BtnSchließen.Size = new System.Drawing.Size(104, 36);
             this.BtnSchließen.TabIndex = 8;
@@ -392,7 +388,7 @@ namespace Hüttenspiel
             // BtnShowMessage
             // 
             this.BtnShowMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnShowMessage.Location = new System.Drawing.Point(174, 596);
+            this.BtnShowMessage.Location = new System.Drawing.Point(328, 497);
             this.BtnShowMessage.Name = "BtnShowMessage";
             this.BtnShowMessage.Size = new System.Drawing.Size(94, 34);
             this.BtnShowMessage.TabIndex = 9;
@@ -404,43 +400,13 @@ namespace Hüttenspiel
             // 
             this.BtnCloseMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnCloseMessage.Enabled = false;
-            this.BtnCloseMessage.Location = new System.Drawing.Point(289, 596);
+            this.BtnCloseMessage.Location = new System.Drawing.Point(445, 497);
             this.BtnCloseMessage.Name = "BtnCloseMessage";
             this.BtnCloseMessage.Size = new System.Drawing.Size(94, 34);
             this.BtnCloseMessage.TabIndex = 10;
             this.BtnCloseMessage.Text = "Nachricht ausblenden";
             this.BtnCloseMessage.UseVisualStyleBackColor = true;
             this.BtnCloseMessage.Click += new System.EventHandler(this.BtnCloseMessageClick);
-            // 
-            // GbDiashow
-            // 
-            this.GbDiashow.Location = new System.Drawing.Point(6, 19);
-            this.GbDiashow.Name = "GbDiashow";
-            this.GbDiashow.Size = new System.Drawing.Size(94, 24);
-            this.GbDiashow.TabIndex = 11;
-            this.GbDiashow.Text = "Starten";
-            this.GbDiashow.UseVisualStyleBackColor = true;
-            this.GbDiashow.Click += new System.EventHandler(this.BtnDiashow_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.lblDiashow);
-            this.groupBox4.Controls.Add(this.GbDiashow);
-            this.groupBox4.Location = new System.Drawing.Point(295, 485);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(264, 63);
-            this.groupBox4.TabIndex = 13;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Diashow";
-            // 
-            // lblDiashow
-            // 
-            this.lblDiashow.AutoSize = true;
-            this.lblDiashow.Location = new System.Drawing.Point(108, 25);
-            this.lblDiashow.Name = "lblDiashow";
-            this.lblDiashow.Size = new System.Drawing.Size(10, 13);
-            this.lblDiashow.TabIndex = 12;
-            this.lblDiashow.Text = "-";
             // 
             // lblVersion
             // 
@@ -466,7 +432,6 @@ namespace Hüttenspiel
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 640);
             this.Controls.Add(this.lblVersion);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.BtnCloseMessage);
             this.Controls.Add(this.BtnShowMessage);
             this.Controls.Add(this.BtnSchließen);
@@ -492,8 +457,6 @@ namespace Hüttenspiel
             this.GbRunde.ResumeLayout(false);
             this.GbRunde.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTime)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -535,10 +498,6 @@ namespace Hüttenspiel
         {
         	_rundenzeit = Convert.ToInt32(numericUpDownTime.Value);
         }
-
-        private Button GbDiashow;
-        private GroupBox groupBox4;
-        private Label lblDiashow;
         private ComboBox cbRundendauer;
         private CheckBox cbSonstiges;
         private Label lblVersion;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Hüttenspiel
+namespace Hüttensammlung
 {
     static class Program
     {
@@ -15,7 +15,7 @@ namespace Hüttenspiel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Eingabe());
+            Application.Run(new Startfenster());
         }
     }
 }

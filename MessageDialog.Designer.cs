@@ -1,4 +1,4 @@
-﻿namespace Hüttenspiel
+﻿namespace Hüttensammlung
 {
     partial class MessageDialog
     {

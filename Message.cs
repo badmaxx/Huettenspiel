@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Hüttenspiel
+namespace Hüttensammlung
 {
 	/// <summary>
 	/// Dialog um Nachrichten anzuzeigen

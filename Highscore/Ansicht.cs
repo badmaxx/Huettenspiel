@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Hüttenspiel
+namespace Hüttensammlung.Highscore
 {
     /// <summary>
     /// Ansicht für Spieler
@@ -237,7 +234,7 @@ namespace Hüttenspiel
         /// <param name="e"></param>
         private void Ansicht_Load(object sender, EventArgs e)
         {
-            Helper.ShowOnSecondaryScreen(this);
+            Hüttensammlung.Helper.ShowOnSecondaryScreen(this);
         }
 
         /// <summary>

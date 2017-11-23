@@ -9,7 +9,9 @@ using System.Windows.Forms;
 using System.IO;
 using System.Management;
 
-namespace Hüttenspiel
+using Hüttensammlung;
+
+namespace Hüttensammlung.Highscore
 {
     public partial class Eingabe : Form
     {
@@ -25,8 +27,7 @@ namespace Hüttenspiel
         private DateTime endzeit;
         private TimeSpan restzeit;
         private Mitteilung _mitteilung;
-        private bool _mitteilungAngezeigt = false, _diashowGestartet = false;
-        private Diashow _diashow;
+        private bool _mitteilungAngezeigt = false;
 
         /// <summary>
         /// Konstruktor Eingabe
@@ -36,6 +37,7 @@ namespace Hüttenspiel
             InitializeComponent();
             CbGetränk.DataSource = Enum.GetValues(typeof(Getraenke));
             cbRundendauer.DataSource = Helper.ErstelleRundenzeiten();
+            cbRundendauer.SelectedIndex = 1;
             lblVersion.Text = "Version: " + Properties.Settings.Default.Version;
         }
 
@@ -278,8 +280,7 @@ namespace Hüttenspiel
         /// <param name="e"></param>
         private void BtnSchließen_Click(object sender, EventArgs e)
         {
-            if (BeendeProgramm())
-                Application.Exit();
+                this.Close();
         }
 
         /// <summary>
@@ -342,12 +343,8 @@ namespace Hüttenspiel
                     CloseMessage();
                 }
 
-                if (_diashowGestartet)
-                    DiashowEnde();
-
                 if (LbAktuelleSpieler.Items.Count > 1)
                 {
-                    GbDiashow.Enabled = false;
                     BtnShowMessage.Enabled = false;
 
                     _rundeLäuft = true;
@@ -426,7 +423,6 @@ namespace Hüttenspiel
 
             BtnBeenden.Enabled = false;
             BtnShowMessage.Enabled = true;
-            GbDiashow.Enabled = true;
 
             if (cbSonstiges.Checked == false)
             {
@@ -492,11 +488,7 @@ namespace Hüttenspiel
         /// <param name="e"></param>
         private void Eingabe_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (BeendeProgramm())
-            {
-                Application.Exit();
-            }
-            else
+            if (!BeendeProgramm())
             {
                 e.Cancel = true;
             }
@@ -573,11 +565,6 @@ namespace Hüttenspiel
         /// <param name="e"></param>
 		void BtnMitteilungClick(object sender, EventArgs e)
         {
-            if (_diashowGestartet)
-            {
-                DiashowEnde();
-            }
-
         	if(_mitteilungAngezeigt == false)
         	{
 	        	MessageDialog mitteilungDialog = new MessageDialog("", new Font(FontFamily.GenericSansSerif,
@@ -640,70 +627,11 @@ namespace Hüttenspiel
             string info = "";
             for (int i = 0; i < 2; i++)
             {
-                info = info + Monitorinfo(i);
+                info = info + Hüttensammlung.Helper.Monitorinfo(i);
             }
             MessageBox.Show(info, "Monitorinfo");
         }
-
-        /// <summary>
-        /// Info über angeschlossene Monitore als string
-        /// </summary>
-        /// <param name="monitornummer">Nummer (Achtung Array deklaration)</param>
-        /// <returns>Nummer, Name, Auflösung und primärer Monitor</returns>
-        private string Monitorinfo(int monitornummer)
-        {
-            if (System.Windows.Forms.SystemInformation.MonitorCount > monitornummer)
-            {
-                return "Monitornummer: " + (monitornummer+1)
-                    + "\nMonitorname: " + Screen.AllScreens[monitornummer].DeviceName.ToString() 
-                    + "\nMonitorauflösung: " + Screen.AllScreens[monitornummer].Bounds.Size.ToString()
-                    + "\nPrimärer Monitor: " + Screen.AllScreens[monitornummer].Primary.ToString() 
-                    + Environment.NewLine + Environment.NewLine;
-
-            }
-
-            else
-            {
-                return "Kein " + (monitornummer+1) + ". Monitor vorhanden";
-            }
         
-        }
-
-      /// <summary>
-      /// Diashow starten oder beenden
-      /// </summary>
-      /// <param name="sender"></param>
-      /// <param name="e"></param>
-        private void BtnDiashow_Click(object sender, EventArgs e)
-        {
-            if (_mitteilungAngezeigt)
-            {
-                CloseMessage();
-            }
-
-            if (_diashowGestartet)
-            {
-                DiashowEnde();
-                _diashow.Dispose();
-            }
-            else
-            {
-                GbDiashow.Text = "Beenden";
-                _diashow = new Diashow();
-                _diashow.Init();
-                _diashowGestartet = true;
-                if (!_diashow.Anzeigen())
-                {
-                    DiashowEnde();
-                    lblDiashow.Text = "Anzeigen nicht möglich!";
-                }
-                else
-                {
-                    lblDiashow.Text = "Diashow läuft...";
-                }
-            }           
-        }
-
         private void cbSonstiges_CheckedChanged(object sender, EventArgs e)
         {
             if (cbSonstiges.Checked)
@@ -734,17 +662,5 @@ namespace Hüttenspiel
                 BtnBestätigen.PerformClick();
             }
         }
-
-        /// <summary>
-        /// Beenden der Diashow
-        /// </summary>
-        private void DiashowEnde()
-        {
-            GbDiashow.Text = "Starten";
-            _diashow.Close();
-            _diashowGestartet = false;
-            lblDiashow.Text = "Diashow beendet";
-        }
-
     }
 }

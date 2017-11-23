@@ -1,4 +1,4 @@
-﻿namespace Hüttenspiel
+﻿namespace Hüttensammlung.Highscore
 {
     partial class Dialog
     {

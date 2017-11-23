@@ -4,57 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Hüttenspiel
-{
-    /// <summary>
-    /// Getränke die ausgewählt werden können
-    /// </summary>
-    enum Getraenke
-    {
-        Bier,
-        Despo,
-        Glühwein,
-        Wein,
-        Weinschorle,
-        Löschzwerg,
-        Met,
-        Hugo,
-        Goaß,
-        Sekt,
-        Flaschengetränk,
-        Getränk_0_5,
-        Getränk_0_33,
-        Irgendwas,
-    }
-           
+
+namespace Hüttensammlung
+{           
     static class Helper
 	{
+      
+
         /// <summary>
-        /// Erstellt eine Liste mit Rundenzeiten
+        /// Info über angeschlossene Monitore als string
         /// </summary>
-        /// <returns></returns>
-        public static List<Rundendauer> ErstelleRundenzeiten()
+        /// <param name="monitornummer">Nummer (Achtung Array deklaration)</param>
+        /// <returns>Nummer, Name, Auflösung und primärer Monitor</returns>
+        public static string Monitorinfo(int monitornummer)
         {
-            List<Rundendauer> listeDauer = new List<Rundendauer>();
+            if (System.Windows.Forms.SystemInformation.MonitorCount > monitornummer)
+            {
+                return "Monitornummer: " + (monitornummer + 1)
+                    + "\nMonitorname: " + Screen.AllScreens[monitornummer].DeviceName.ToString()
+                    + "\nMonitorauflösung: " + Screen.AllScreens[monitornummer].Bounds.Size.ToString()
+                    + "\nPrimärer Monitor: " + Screen.AllScreens[monitornummer].Primary.ToString()
+                    + Environment.NewLine + Environment.NewLine;
 
-            Rundendauer halbeStund = new Rundendauer("Halbe Stunde", 30);
-            Rundendauer Stund = new Rundendauer("Eine Stunde", 60);
-            Rundendauer eineinhalbStund = new Rundendauer("Eineinhalb Stunden", 90);
-            Rundendauer zweiStund = new Rundendauer("Zwei Stunden", 120);
+            }
 
-            listeDauer.Add(halbeStund);
-            listeDauer.Add(Stund);
-            listeDauer.Add(eineinhalbStund);
-            listeDauer.Add(zweiStund);
+            else
+            {
+                return "Kein " + (monitornummer + 1) + ". Monitor vorhanden";
+            }
 
-            halbeStund = null;
-            Stund = null;
-            eineinhalbStund = null;
-            zweiStund = null;
-
-            return listeDauer;
         }
-
 
         /// <summary>
         /// Method to start the application on the secondary screen
@@ -92,6 +71,7 @@ namespace Hüttenspiel
                 form.Location = Screen.AllScreens[0].Bounds.Location;
             }
         }
+
     }
 }
 

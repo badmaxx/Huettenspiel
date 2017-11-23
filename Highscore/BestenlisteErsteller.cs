@@ -5,7 +5,7 @@ using System.Text;
 
 using System.IO;
 
-namespace Hüttenspiel
+namespace Hüttensammlung.Highscore
 {
     class BestenlisteErsteller
     {

@@ -1,6 +1,6 @@
-﻿namespace Hüttenspiel
+﻿namespace Hüttensammlung.Diashow
 {
-    partial class Diashow
+    partial class Anzeige
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.TimerAnzeige = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,19 +42,14 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // TimerAnzeige
-            // 
-            this.TimerAnzeige.Interval = 20000;
-            this.TimerAnzeige.Tick += new System.EventHandler(this.TimerAnzeige_Tick);
-            // 
-            // Diashow
+            // Anzeige
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 415);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Diashow";
+            this.Name = "Anzeige";
             this.Text = "Diashow";
             this.Load += new System.EventHandler(this.Diashow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -67,6 +60,5 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer TimerAnzeige;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Hüttenspiel
+﻿namespace Hüttensammlung.Highscore
 {
     partial class Ansicht
     {
@@ -72,8 +72,8 @@
             // DgvRangliste
             // 
             this.DgvRangliste.AllowUserToAddRows = false;
-            this.DgvRangliste.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.DgvRangliste.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvRangliste.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DgvRangliste.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -152,7 +152,7 @@
             // 
             // LblBestenliste
             // 
-            this.LblBestenliste.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.LblBestenliste.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LblBestenliste.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblBestenliste.Location = new System.Drawing.Point(9, 383);
@@ -170,7 +170,7 @@
             // PbLogo
             // 
             this.PbLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PbLogo.Image = global::Hüttenspiel.Properties.Resources.Logo_Huette;
+            this.PbLogo.Image = global::Hüttensammlung.Properties.Resources.Logo_Huette;
             this.PbLogo.InitialImage = null;
             this.PbLogo.Location = new System.Drawing.Point(821, -9);
             this.PbLogo.Name = "PbLogo";

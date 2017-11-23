@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace Hüttenspiel
+namespace Hüttensammlung
 {
    static class XML
     {

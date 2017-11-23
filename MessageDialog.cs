@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Hüttenspiel
+namespace Hüttensammlung
 {
     /// <summary>
     /// Erstellen einer Nachricht

@@ -2,7 +2,7 @@
 using System.Linq;
 
 
-namespace Hüttenspiel
+namespace Hüttensammlung.Highscore
 {
     /// <summary>
     /// Erzeuge Hall Of Fame Bestandteile

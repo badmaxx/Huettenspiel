@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Hüttenspiel")]
+[assembly: AssemblyTitle("Hüttensammlung")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Rohde & Schwarz")]
-[assembly: AssemblyProduct("Hüttenspiel")]
-[assembly: AssemblyCopyright("Copyright © Rohde & Schwarz 2014")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Hüttensammlung")]
+[assembly: AssemblyCopyright("Copyright © Christoph Sporer 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
