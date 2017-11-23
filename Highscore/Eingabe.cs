@@ -8,6 +8,7 @@ using System.IO;
 
 
 using Hüttensammlung;
+using System.Diagnostics;
 
 namespace Hüttensammlung.Highscore
 {
@@ -606,6 +607,18 @@ namespace Hüttensammlung.Highscore
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
             {
                 BtnBestätigen.PerformClick();
+            }
+        }
+
+        private void BtnLogs_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists("Ranglisten"))
+            {
+                Process.Start("explorer.exe", "Ranglisten");
+            }
+            else
+            {
+                MessageBox.Show("Noch keine Ranglisten vorhanden!");
             }
         }
     }

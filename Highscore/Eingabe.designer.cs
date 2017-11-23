@@ -68,6 +68,7 @@ namespace Hüttensammlung.Highscore
             this.BtnCloseMessage = new System.Windows.Forms.Button();
             this.lblVersion = new System.Windows.Forms.Label();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.BtnLogs = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -388,7 +389,7 @@ namespace Hüttensammlung.Highscore
             // BtnShowMessage
             // 
             this.BtnShowMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnShowMessage.Location = new System.Drawing.Point(328, 497);
+            this.BtnShowMessage.Location = new System.Drawing.Point(316, 490);
             this.BtnShowMessage.Name = "BtnShowMessage";
             this.BtnShowMessage.Size = new System.Drawing.Size(94, 34);
             this.BtnShowMessage.TabIndex = 9;
@@ -400,7 +401,7 @@ namespace Hüttensammlung.Highscore
             // 
             this.BtnCloseMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnCloseMessage.Enabled = false;
-            this.BtnCloseMessage.Location = new System.Drawing.Point(445, 497);
+            this.BtnCloseMessage.Location = new System.Drawing.Point(445, 490);
             this.BtnCloseMessage.Name = "BtnCloseMessage";
             this.BtnCloseMessage.Size = new System.Drawing.Size(94, 34);
             this.BtnCloseMessage.TabIndex = 10;
@@ -426,11 +427,22 @@ namespace Hüttensammlung.Highscore
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
             this.ttInfo.ToolTipTitle = "Achtung";
             // 
+            // BtnLogs
+            // 
+            this.BtnLogs.Location = new System.Drawing.Point(316, 592);
+            this.BtnLogs.Name = "BtnLogs";
+            this.BtnLogs.Size = new System.Drawing.Size(94, 34);
+            this.BtnLogs.TabIndex = 15;
+            this.BtnLogs.Text = "Öffne Ranglisten";
+            this.BtnLogs.UseVisualStyleBackColor = true;
+            this.BtnLogs.Click += new System.EventHandler(this.BtnLogs_Click);
+            // 
             // Eingabe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 640);
+            this.Controls.Add(this.BtnLogs);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.BtnCloseMessage);
             this.Controls.Add(this.BtnShowMessage);
@@ -502,5 +514,6 @@ namespace Hüttensammlung.Highscore
         private CheckBox cbSonstiges;
         private Label lblVersion;
         private ToolTip ttInfo;
+        private Button BtnLogs;
     }
 }
