@@ -64,5 +64,16 @@ namespace Hüttensammlung
             }
             return retval;
         }
-}
+
+        private void BtnTeamgenerator_Click(object sender, EventArgs e)
+        {
+            if (CheckLizenz())
+            {
+                Teamgenerator.Generator generator = new Teamgenerator.Generator();
+                Hide();
+                generator.ShowDialog();
+                Show();
+            }
+        }
+    }
 }

@@ -2,12 +2,31 @@
 using System.Windows.Forms;
 using System.Management;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Hüttensammlung
 {           
     static class Helper
 	{
-      
+        private static Random random = new Random();
+        /// <summary>
+        /// Vertauscht die Einträge der Liste 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="ilist"></param>
+        public static void Shuffle<T>(IList<T> ilist)
+        {
+            int iIndex;
+            T tTmp;
+            for (int i = 1; i < ilist.Count; ++i)
+            {
+                iIndex = random.Next(i + 1);
+                tTmp = ilist[i];
+                ilist[i] = ilist[iIndex];
+                ilist[iIndex] = tTmp;
+            }
+        }
+
 
         /// <summary>
         /// Info über angeschlossene Monitore als string

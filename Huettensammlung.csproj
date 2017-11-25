@@ -113,6 +113,12 @@
       <DependentUpon>Startfenster.cs</DependentUpon>
     </Compile>
     <Compile Include="Highscore\TableParser.cs" />
+    <Compile Include="Teamgenerator\Generator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teamgenerator\Generator.Designer.cs">
+      <DependentUpon>Generator.cs</DependentUpon>
+    </Compile>
     <Compile Include="XML.cs" />
     <EmbeddedResource Include="Diashow\EingabeDiashow.resx">
       <DependentUpon>EingabeDiashow.cs</DependentUpon>
@@ -148,6 +154,9 @@
     <EmbeddedResource Include="Startfenster.resx">
       <DependentUpon>Startfenster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Teamgenerator\Generator.resx">
+      <DependentUpon>Generator.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -176,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo_Huette.ico" />
+    <None Include="Resources\Wuerfel.jpg" />
     <None Include="Resources\Diashow.ico" />
     <None Include="Resources\Diashow.PNG" />
     <None Include="Resources\picoloIcon.PNG" />
