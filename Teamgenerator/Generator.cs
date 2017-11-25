@@ -90,8 +90,7 @@ namespace Hüttensammlung.Teamgenerator
                 if(moduloSpieler > 1)
                 {
                     spielerProTeam++;
-                    ausgabe += "Ungünstiges Spieler zu Team Verhältnis! Teamanzahl wird sinnvoller gesetzt. Sollte " +
-                        "dies nicht gewünscht sein letztes Team trennen!" + Environment.NewLine + Environment.NewLine;
+                    ausgabe += "Ungünstiges Spieler zu Team Verhältnis!\nUngünstige Einteilung muss selber korrigiert werden..." + Environment.NewLine + Environment.NewLine;
                 }
 
                 temp = spielerProTeam;
