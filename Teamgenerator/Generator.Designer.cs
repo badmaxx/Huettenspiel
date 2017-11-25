@@ -34,6 +34,7 @@
             this.BtnAddSpieler = new System.Windows.Forms.Button();
             this.LbSpieler = new System.Windows.Forms.ListBox();
             this.BtnDelete = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NudAnzahlTeams)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,11 +104,21 @@
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Teilnehmende Spieler";
+            // 
             // Generator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(250, 309);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.LbSpieler);
             this.Controls.Add(this.BtnAddSpieler);
@@ -134,5 +145,6 @@
         private System.Windows.Forms.Button BtnAddSpieler;
         private System.Windows.Forms.ListBox LbSpieler;
         private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Label label2;
     }
 }
