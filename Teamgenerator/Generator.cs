@@ -35,9 +35,14 @@ namespace Hüttensammlung.Teamgenerator
         {
             if (LbSpieler.SelectedItem != null)
             {
-                LbSpieler.Items.RemoveAt(LbSpieler.SelectedIndex);
-                _spieler.RemoveAt(LbSpieler.SelectedIndex);
+                DeleteSpieler(LbSpieler.SelectedIndex);
             }
+        }
+
+        private void DeleteSpieler(int index)
+        {
+            _spieler.RemoveAt(index);
+            LbSpieler.Items.RemoveAt(index);
         }
 
         private void LbSpieler_KeyDown(object sender, KeyEventArgs e)
@@ -46,8 +51,7 @@ namespace Hüttensammlung.Teamgenerator
             {
                 if (LbSpieler.SelectedItems.Count > 0)
                 {
-                    LbSpieler.Items.RemoveAt(LbSpieler.SelectedIndex);
-                    _spieler.RemoveAt(LbSpieler.SelectedIndex);
+                    DeleteSpieler(LbSpieler.SelectedIndex);
                 }                
             }
         }
@@ -60,7 +64,7 @@ namespace Hüttensammlung.Teamgenerator
             }
             else
             {
-                LbSpieler.Items.RemoveAt(LbSpieler.SelectedIndex);
+                DeleteSpieler(LbSpieler.SelectedIndex);
             }
         }
         
