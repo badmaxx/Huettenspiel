@@ -26,12 +26,48 @@ namespace Hüttensammlung.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2.0")]
-        public string Version {
+        public string VersionHighscore {
             get {
-                return ((string)(this["Version"]));
+                return ((string)(this["VersionHighscore"]));
             }
             set {
-                this["Version"] = value;
+                this["VersionHighscore"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0")]
+        public string VersionGenerator {
+            get {
+                return ((string)(this["VersionGenerator"]));
+            }
+            set {
+                this["VersionGenerator"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0")]
+        public string VersionDiashow {
+            get {
+                return ((string)(this["VersionDiashow"]));
+            }
+            set {
+                this["VersionDiashow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
+        public string VersionPicolo {
+            get {
+                return ((string)(this["VersionPicolo"]));
+            }
+            set {
+                this["VersionPicolo"] = value;
             }
         }
     }

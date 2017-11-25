@@ -37,7 +37,7 @@ namespace Hüttensammlung.Highscore
             CbGetränk.DataSource = Enum.GetValues(typeof(Getraenke));
             cbRundendauer.DataSource = Helper.ErstelleRundenzeiten();
             cbRundendauer.SelectedIndex = 1;
-            lblVersion.Text = "Version: " + Properties.Settings.Default.Version;
+            lblVersion.Text = "Version: " + Properties.Settings.Default.VersionHighscore;
         }
 
         /// <summary>

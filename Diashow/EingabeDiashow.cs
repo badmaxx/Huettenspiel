@@ -26,6 +26,7 @@ namespace Hüttensammlung.Diashow
         public EingabeDiashow()
         {
             InitializeComponent();
+            LblVersion.Text = "Version: " + Properties.Settings.Default.VersionDiashow;
         }
 
         private void SetBild(Image bild)

@@ -35,6 +35,7 @@
             this.LbSpieler = new System.Windows.Forms.ListBox();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.LblVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NudAnzahlTeams)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             // 
             // BtnAddSpieler
             // 
-            this.BtnAddSpieler.Location = new System.Drawing.Point(12, 195);
+            this.BtnAddSpieler.Location = new System.Drawing.Point(8, 210);
             this.BtnAddSpieler.Name = "BtnAddSpieler";
             this.BtnAddSpieler.Size = new System.Drawing.Size(112, 23);
             this.BtnAddSpieler.TabIndex = 3;
@@ -87,7 +88,7 @@
             // LbSpieler
             // 
             this.LbSpieler.FormattingEnabled = true;
-            this.LbSpieler.Location = new System.Drawing.Point(12, 29);
+            this.LbSpieler.Location = new System.Drawing.Point(8, 44);
             this.LbSpieler.Name = "LbSpieler";
             this.LbSpieler.Size = new System.Drawing.Size(226, 160);
             this.LbSpieler.TabIndex = 4;
@@ -96,7 +97,7 @@
             // 
             // BtnDelete
             // 
-            this.BtnDelete.Location = new System.Drawing.Point(130, 195);
+            this.BtnDelete.Location = new System.Drawing.Point(130, 210);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(108, 23);
             this.BtnDelete.TabIndex = 5;
@@ -107,17 +108,27 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 13);
+            this.label2.Location = new System.Drawing.Point(5, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Teilnehmende Spieler";
+            // 
+            // LblVersion
+            // 
+            this.LblVersion.AutoSize = true;
+            this.LblVersion.Location = new System.Drawing.Point(4, 2);
+            this.LblVersion.Name = "LblVersion";
+            this.LblVersion.Size = new System.Drawing.Size(35, 13);
+            this.LblVersion.TabIndex = 7;
+            this.LblVersion.Text = "label3";
             // 
             // Generator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(250, 309);
+            this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.LbSpieler);
@@ -146,5 +157,6 @@
         private System.Windows.Forms.ListBox LbSpieler;
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblVersion;
     }
 }

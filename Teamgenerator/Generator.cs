@@ -5,13 +5,20 @@ using System.Windows.Forms;
 
 namespace Hüttensammlung.Teamgenerator
 {
+    /// <summary>
+    /// Teamgenerator
+    /// </summary>
     public partial class Generator : Form
     {
         private List<string> _spieler = new List<string>();
 
+        /// <summary>
+        /// Konstruktor
+        /// </summary>
         public Generator()
         {
             InitializeComponent();
+            LblVersion.Text = "Version: " + Properties.Settings.Default.VersionGenerator;
         }
 
         private void BtnAddSpieler_Click(object sender, EventArgs e)

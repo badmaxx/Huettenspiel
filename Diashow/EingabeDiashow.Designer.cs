@@ -43,6 +43,7 @@
             this.PbBild = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblDiashow = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LblVersion = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudAnzeigezeit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbBild)).BeginInit();
@@ -161,9 +162,9 @@
             this.PbBild.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PbBild.Location = new System.Drawing.Point(8, 12);
+            this.PbBild.Location = new System.Drawing.Point(8, 25);
             this.PbBild.Name = "PbBild";
-            this.PbBild.Size = new System.Drawing.Size(448, 158);
+            this.PbBild.Size = new System.Drawing.Size(448, 145);
             this.PbBild.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PbBild.TabIndex = 15;
             this.PbBild.TabStop = false;
@@ -184,11 +185,21 @@
             this.lblDiashow.Size = new System.Drawing.Size(12, 17);
             this.lblDiashow.Text = "-";
             // 
+            // LblVersion
+            // 
+            this.LblVersion.AutoSize = true;
+            this.LblVersion.Location = new System.Drawing.Point(5, 3);
+            this.LblVersion.Name = "LblVersion";
+            this.LblVersion.Size = new System.Drawing.Size(35, 13);
+            this.LblVersion.TabIndex = 17;
+            this.LblVersion.Text = "label4";
+            // 
             // EingabeDiashow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(468, 324);
+            this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.PbBild);
             this.Controls.Add(this.groupBox4);
@@ -223,5 +234,6 @@
         private System.Windows.Forms.Label LblAnzahlBilder;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblDiashow;
+        private System.Windows.Forms.Label LblVersion;
     }
 }
