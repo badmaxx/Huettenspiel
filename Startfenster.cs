@@ -17,6 +17,7 @@ namespace Hüttensammlung
         public Startfenster()
         {
             InitializeComponent();
+            LblVersion.Text = "Version: " + Properties.Settings.Default.Version;
         }
 
         private void BtnPicolo_Click(object sender, EventArgs e)

@@ -103,6 +103,7 @@
             this.Controls.Add(this.LblVorname);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hinzufügen";
             this.ResumeLayout(false);
             this.PerformLayout();

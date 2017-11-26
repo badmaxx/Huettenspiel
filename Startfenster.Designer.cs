@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.LblVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnHighscore
@@ -47,7 +48,7 @@
             this.BtnHighscore.BackgroundImage = global::Hüttensammlung.Properties.Resources.Logo_Huette;
             this.BtnHighscore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnHighscore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnHighscore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnHighscore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnHighscore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnHighscore.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHighscore.Location = new System.Drawing.Point(12, 12);
@@ -86,6 +87,7 @@
             this.BtnTeamgenerator.Name = "BtnTeamgenerator";
             this.BtnTeamgenerator.Size = new System.Drawing.Size(117, 84);
             this.BtnTeamgenerator.TabIndex = 3;
+            this.TTFenster.SetToolTip(this.BtnTeamgenerator, "Teamgenerator");
             this.BtnTeamgenerator.UseVisualStyleBackColor = false;
             this.BtnTeamgenerator.Click += new System.EventHandler(this.BtnTeamgenerator_Click);
             // 
@@ -100,7 +102,7 @@
             this.BtnDiashow.BackgroundImage = global::Hüttensammlung.Properties.Resources.Diashow;
             this.BtnDiashow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnDiashow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDiashow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnDiashow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.BtnDiashow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDiashow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDiashow.Location = new System.Drawing.Point(149, 12);
@@ -147,6 +149,15 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Teamgenerator";
             // 
+            // LblVersion
+            // 
+            this.LblVersion.AutoSize = true;
+            this.LblVersion.Location = new System.Drawing.Point(7, 236);
+            this.LblVersion.Name = "LblVersion";
+            this.LblVersion.Size = new System.Drawing.Size(35, 13);
+            this.LblVersion.TabIndex = 9;
+            this.LblVersion.Text = "label5";
+            // 
             // Startfenster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +165,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(294, 253);
+            this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnDiashow);
             this.Controls.Add(this.label3);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnDiashow;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LblVersion;
     }
 }
