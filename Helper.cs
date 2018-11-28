@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Management;
+using System.Net.NetworkInformation;
 using System.IO;
 using System.Collections.Generic;
 
@@ -90,23 +90,32 @@ namespace Hüttensammlung
         }
 
 
+   private static List<string> GetMacs()
+    {
+        NetworkInterface[] NetworkAdapters = NetworkInterface.GetAllNetworkInterfaces();
+        List<string> MyAdapter = new List<string>();
 
-        /// <summary>
-        /// Motherboard ID abfragen
-        /// </summary>
-        /// <returns>true passt sonst false</returns>
-        public static bool CheckMotherboardID()
+        foreach (NetworkInterface adapter in NetworkAdapters)
         {
-            ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_BaseBoard");
-            ManagementObjectCollection moc = mos.Get();
-            string serial = "";
-            string pfad = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+            MyAdapter.Add(adapter.GetPhysicalAddress().ToString());
+        }
+
+        return MyAdapter;
+    }
+
+
+    /// <summary>
+    /// Motherboard ID abfragen
+    /// </summary>
+    /// <returns>true passt sonst false</returns>
+    public static bool CheckIfLicenceIsValid()
+        {
+            string pfad = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "hs.id");
-            string ausgeleseneID = "";
-            foreach (ManagementObject mo in moc)
-            {
-                serial = (string)mo["SerialNumber"];
-            }
+
+            List<string> macs = GetMacs();
+            string ausgeleseneID = string.Empty;
+
 
             if (File.Exists(pfad))
             {
@@ -120,16 +129,21 @@ namespace Hüttensammlung
                 leer.Close();
             }
 
-            if (ausgeleseneID == serial)
+            if (ausgeleseneID != string.Empty)
             {
-                return true;
+                foreach (string mac in macs)
+                {
+                    if (ausgeleseneID == mac)
+                    {
+                        return true;
+                    }
+                }
             }
-            else
-            {
-                MessageBox.Show("Fehler beim ausführen des Programmes. Fehlercode:\n" + serial, "Programmfehler",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            
+            MessageBox.Show("Fehler beim ausführen des Programmes. Fehlercode:\n" + macs[0], "Programmfehler",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+            
         }
     }
 }

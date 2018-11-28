@@ -54,7 +54,7 @@ namespace Hüttensammlung
 #if DEBUG
             debugmodus = true;
 #endif
-            if (Hüttensammlung.Helper.CheckMotherboardID() || debugmodus)
+            if (Hüttensammlung.Helper.CheckIfLicenceIsValid() || debugmodus)
             {
                 retval = true;
             }
